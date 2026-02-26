@@ -3,7 +3,8 @@ using VIVEcms.Models.Pages;
 namespace VIVEcms.Models.ViewModels
 {
     // The <T> means this can accept ANY class that inherits from SitePageData
-    public class PageViewModel<T> : IPageViewModel where T : SitePageData
+    public class PageViewModel<T> : IPageViewModel
+        where T : SitePageData
     {
         public T CurrentPage { get; private set; }
         SitePageData IPageViewModel.CurrentPage => CurrentPage;

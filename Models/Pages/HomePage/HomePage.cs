@@ -24,7 +24,7 @@ namespace VIVEcms.Models.Pages
 
             public const string OurClassesSection = "Our Classes";
 
-            public const string ServicesSection = "Services Section";
+            public const string ServicesSection = "Services";
             // next sections will be added here...
         }
     }

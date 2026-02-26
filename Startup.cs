@@ -3,9 +3,7 @@ using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
-
-// ↓ Add your service usings here
-// using VIVEcms.Services;
+using VIVEcms.Services;
 
 namespace VIVEcms;
 
@@ -43,8 +41,8 @@ public class Startup
         // Image Service - handles alt text retrieval from ImageFile assets
         services.AddScoped<IImageService, ImageService>();
 
-        // Future services will be registered here...
-        // e.g: services.AddScoped<ILayoutService, LayoutService>();
+        // Layout Service - fetches global Navbar and Footer data from SiteSettingsPage
+        services.AddScoped<ILayoutService, LayoutService>(); // ← added
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
