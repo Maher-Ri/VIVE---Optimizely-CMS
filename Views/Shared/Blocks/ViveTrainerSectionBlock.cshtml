@@ -1,0 +1,83 @@
+@* Views/Shared/Blocks/ViveTrainerSectionBlock.cshtml *@
+@model VIVEcms.Models.Blocks.ViveTrainerSectionBlock
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject EPiServer.IContentLoader ContentLoader
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+  @* Load gallery items manually — avoids ContentArea wrapper divs *@
+  var galleryItems = new List<VIVEcms.Models.Blocks.GalleryItemBlock>();
+
+  if (Model.GalleryItems != null)
+  {
+      galleryItems = Model.GalleryItems.FilteredItems
+          .Select(item => ContentLoader.Get<VIVEcms.Models.Blocks.GalleryItemBlock>(item.ContentLink))
+          .Where(block => block != null)
+          .ToList();
+  }
+}
+
+<div class="elementor-container elementor-column-gap-default">
+  <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b5a6b70" data-element_type="column" data-id="b5a6b70" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+      <div class="elementor-widget-wrap elementor-element-populated">
+
+          @* ===== GALLERY GRID ===== *@
+          <div class="elementor-element elementor-element-915c1b6 elementor-widget elementor-widget-vive-gallery-grid" data-element_type="widget" data-id="915c1b6" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-gallery-grid.default">
+              <div class="elementor-widget-container">
+                  <div class="vive-gallery-grid-content-wrapper layout-vive-five-cols has-no-space">
+
+                      @* Iterate gallery items — delay increases by 150 per item *@
+                      @for (int i = 0; i < galleryItems.Count; i++)
+                      {
+                          var item        = galleryItems[i];
+                          var delay       = (i + 1) * 150;
+                          var isLast      = i == galleryItems.Count - 1;
+                          var imageUrl    = !ContentReference.IsNullOrEmpty(item.Image)
+                                              ? Url.ContentUrl(item.Image)
+                                              : string.Empty;
+                          var thumbUrl    = !ContentReference.IsNullOrEmpty(item.ThumbnailImage)
+                                              ? Url.ContentUrl(item.ThumbnailImage)
+                                              : imageUrl; @* fallback to main image *@
+
+                          <div class="gallery-grid-item disable_all vive-five-cols @(isLast ? "last" : "") smoove fade-in"
+                               data-delay="@delay"
+                               data-minwidth="5000"
+                               data-opacity="0">
+                              <a class="vive_gallery_lightbox"
+                                 data-rel="tg_gallery915c1b6"
+                                 data-thumb="@thumbUrl"
+                                 href="@imageUrl">
+                                  @if (!ContentReference.IsNullOrEmpty(item.Image))
+                                  {
+                                          <img alt="@(item.Image != null ? ImageService.GetAltText(item.Image) : "")"
+                                               class=""
+                                               decoding="async"
+                                               height="610"
+                                               src="@imageUrl"
+                                               width="610" />
+                                  }
+                              </a>
+                          </div>
+                      }
+
+                  </div>
+              </div>
+          </div>
+
+          @* ===== HEADING — ONLY text is dynamic ===== *@
+          @if (!string.IsNullOrWhiteSpace(Model.Heading))
+          {
+              <div class="elementor-element elementor-element-e2ebae0 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-element_type="widget" data-id="e2ebae0" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                  <div class="elementor-widget-container">
+                      <h2 class="elementor-heading-title elementor-size-default"
+                          @Html.EditAttributes(x => x.Heading)>
+                          @Model.Heading
+                      </h2>
+                  </div>
+              </div>
+          }
+
+      </div>
+  </div>
+</div>

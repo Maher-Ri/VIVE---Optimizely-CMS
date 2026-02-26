@@ -25,6 +25,15 @@ namespace VIVEcms.Models.Pages
             public const string OurClassesSection = "Our Classes";
 
             public const string ServicesSection = "Services";
+
+            public const string OurCustomersSection = "Our Customers";
+
+            public const string PricingSection = "Pricing";
+
+            public const string ScheduleSection = "Schedule";
+
+            public const string ViveTrainerSection = "Vive Trainer";
+
             // next sections will be added here...
         }
     }

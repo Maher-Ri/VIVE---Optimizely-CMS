@@ -15,7 +15,7 @@ namespace VIVEcms.Models.Media // ← added
     public class ImageFile : ImageData
     {
         [Display(Name = "Alt Text", Order = 10)]
-        [Required]
+        // [Required]
         public virtual string? AltText { get; set; } // ← removed required
 
         [Display(Name = "Caption", Order = 20)]

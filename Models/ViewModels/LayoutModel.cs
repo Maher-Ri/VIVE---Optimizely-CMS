@@ -8,9 +8,26 @@ namespace VIVEcms.Models.ViewModels
     public class LayoutModel
     {
         // =============================================
-        // NAVBAR
+        // NAVBAR — Visibility
         // =============================================
-        public string? CompanyName { get; set; } // ← your existing property kept
+        public bool ShowNavbar { get; set; }
+
+        // =============================================
+        // NAVBAR — Logo
+        // =============================================
+        public ContentReference? NavbarLogo { get; set; }
+        public string? NavbarLogoUrl { get; set; }
+
+        // =============================================
+        // NAVBAR — CTA Button
+        // =============================================
+        public string? NavbarButtonText { get; set; }
+        public string? NavbarButtonUrl { get; set; }
+
+        // =============================================
+        // NAVBAR — Navigation Items
+        // =============================================
+        public List<NavItemViewModel> NavItems { get; set; } = new();
 
         // =============================================
         // FOOTER — Visibility

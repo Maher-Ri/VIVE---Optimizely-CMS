@@ -14,7 +14,7 @@ namespace VIVEcms.Models.Pages
             Name = "Meta Title",
             Description = "The SEO title of the page.",
             GroupName = "SEO", // This creates a dedicated "SEO" tab in the CMS editor
-            Order = 100
+            Order = 1
         )]
         public virtual required string MetaTitle { get; set; }
 
@@ -22,12 +22,12 @@ namespace VIVEcms.Models.Pages
             Name = "Meta Description",
             Description = "The SEO description of the page.",
             GroupName = "SEO",
-            Order = 200
+            Order = 2
         )]
         [UIHint(UIHint.Textarea)] // This tells Optimizely to render a multi-line text box
         public virtual required string MetaDescription { get; set; }
 
-        [Display(Name = "Meta Keywords", GroupName = "SEO", Order = 300)]
+        [Display(Name = "Meta Keywords", GroupName = "SEO", Order = 3)]
         public virtual required string MetaKeywords { get; set; }
     }
 }

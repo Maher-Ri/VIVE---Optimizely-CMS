@@ -1,0 +1,108 @@
+@* Views/HomePage/Sections/_OurCustomersSection.cshtml *@
+@model VIVEcms.Models.Pages.HomePage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject EPiServer.IContentLoader ContentLoader
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+  @* Load testimonials manually — avoids carousel wrapper issue *@
+  var testimonials = new List<VIVEcms.Models.Blocks.TestimonialItemBlock>();
+
+  if (Model.OurCustomersTestimonials != null)
+  {
+      testimonials = Model.OurCustomersTestimonials.FilteredItems
+          .Select(item => ContentLoader.Get<VIVEcms.Models.Blocks.TestimonialItemBlock>(item.ContentLink))
+          .Where(block => block != null)
+          .ToList();
+  }
+}
+
+<div class="elementor-container elementor-column-gap-default">
+
+  @* ===== COLUMN 1: LEFT IMAGE ===== *@
+  <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-d9f53c5" data-element_type="column" data-id="d9f53c5" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+      <div class="elementor-widget-wrap elementor-element-populated">
+
+          @* Left Image - ONLY src and alt are dynamic *@
+          <div class="elementor-element elementor-element-fb33e50 elementor-widget__width-initial elementor-absolute mobile-static elementor-widget elementor-widget-image" data-element_type="widget" data-id="fb33e50" data-settings='{"_position":"absolute","vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+              <div class="elementor-widget-container">
+                  @if (!ContentReference.IsNullOrEmpty(Model.OurCustomersLeftImage))
+                  {
+                      <img alt="@(Model.OurCustomersLeftImage != null ? ImageService.GetAltText(Model.OurCustomersLeftImage) : "Customer")"
+                           class="attachment-vive-gallery-list size-vive-gallery-list wp-image-372"
+                           decoding="async"
+                           height="610"
+                           loading="lazy"
+                           src="@Url.ContentUrl(Model.OurCustomersLeftImage)"
+                           width="610" />
+                  }
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+  @* ===== COLUMN 2: RIGHT CONTENT ===== *@
+  <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-263b520" data-element_type="column" data-id="263b520" data-settings='{"background_background":"classic","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+      <div class="elementor-widget-wrap elementor-element-populated">
+
+          @* Heading Line 1 - ONLY text is dynamic *@
+          <div class="elementor-element elementor-element-e4c36a7 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="e4c36a7" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+              <div class="elementor-widget-container">
+                  <h2 class="elementor-heading-title elementor-size-default"
+                      @Html.EditAttributes(x => x.OurCustomersHeading1)>
+                      @Model.OurCustomersHeading1
+                  </h2>
+              </div>
+          </div>
+
+          @* Heading Line 2 - ONLY text is dynamic *@
+          <div class="elementor-element elementor-element-ee5d925 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="ee5d925" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+              <div class="elementor-widget-container">
+                  <h2 class="elementor-heading-title elementor-size-default"
+                      @Html.EditAttributes(x => x.OurCustomersHeading2)>
+                      @Model.OurCustomersHeading2
+                  </h2>
+              </div>
+          </div>
+
+          @* ===== TESTIMONIAL CAROUSEL ===== *@
+          <div class="elementor-element elementor-element-0f27200 elementor-widget elementor-widget-vive-testimonial-slider" data-element_type="widget" data-id="0f27200" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-testimonial-slider.default">
+              <div class="elementor-widget-container">
+                  <div class="testimonials-slider-wrapper">
+
+                      @* Iterate manually — no ContentArea wrappers in carousel *@
+                      <div class="testimonial-carousel owl-carousel" data-autoplay="1" data-timer="8000">
+                          @foreach (var testimonial in testimonials)
+                          {
+                              <div class="testimonial-block">
+                                  <div class="inner-box">
+                                      <div class="text">@testimonial.Quote</div>
+                                      <div class="info-box">
+                                          <div class="thumb">
+                                              @if (!ContentReference.IsNullOrEmpty(testimonial.ThumbImage))
+                                              {
+                                                  <img alt="@(testimonial.ThumbImage != null ? ImageService.GetAltText(testimonial.ThumbImage) : "Testimonial")"
+                                                       decoding="async"
+                                                       height="150"
+                                                       src="@Url.ContentUrl(testimonial.ThumbImage)"
+                                                       width="150" />
+                                              }
+                                          </div>
+                                          <h4 class="name">@testimonial.Name</h4>
+                                          <span class="designation">@testimonial.Designation</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          }
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</div>

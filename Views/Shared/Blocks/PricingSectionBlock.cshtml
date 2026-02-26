@@ -1,0 +1,198 @@
+@* Views/Shared/Blocks/PricingSectionBlock.cshtml *@
+@model VIVEcms.Models.Blocks.PricingSectionBlock
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject EPiServer.IContentLoader ContentLoader
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+var pricingCards = new List<VIVEcms.Models.Blocks.PricingCardBlock>();
+if (Model.PricingCards != null)
+{
+    pricingCards = Model.PricingCards.FilteredItems
+        .Select(item => ContentLoader.Get<VIVEcms.Models.Blocks.PricingCardBlock>(item.ContentLink))
+        .Where(block => block != null)
+        .ToList();
+}
+
+@* Original element IDs per card index *@
+var columnIds  = new[] { "dd82987", "14bb632", "40e4045" };
+var titleIds   = new[] { "904dcfe", "3f7796c", "76798a5" };
+var dividerIds = new[] { "64d1c45", "78fcc6a", "550a04c" };
+var priceIds   = new[] { "3c81c79", "8c209f9", "3e424a3" };
+var validIds   = new[] { "cc33ad2", "762b250", "f68aa33" };
+var featIds    = new[] { "4a62277", "1d302bc", "e2cd425" };
+}
+
+@* ===== SHAPE TOP — static ===== *@
+<div class="elementor-shape elementor-shape-top" data-negative="false">
+<svg preserveaspectratio="none" viewbox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+</svg>
+</div>
+
+@* ===== SHAPE BOTTOM — static ===== *@
+<div class="elementor-shape elementor-shape-bottom" data-negative="false">
+<svg preserveaspectratio="none" viewbox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+</svg>
+</div>
+
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-da0436e" data-element_type="column" data-id="da0436e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* ===== ICON ===== *@
+        @if (!ContentReference.IsNullOrEmpty(Model.SectionIcon))
+        {
+            <div class="elementor-element elementor-element-d59d060 elementor-widget__width-auto elementor-widget elementor-widget-image" data-element_type="widget" data-id="d59d060" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_scalex":{"unit":"px","size":0.6999999999999999555910790149937383830547332763671875,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":0.6999999999999999555910790149937383830547332763671875,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+                <div class="elementor-widget-container">
+                    <img alt="@(Model.SectionIcon != null ? ImageService.GetAltText(Model.SectionIcon) : "")"
+                         class="attachment-large size-large wp-image-211"
+                         decoding="async"
+                         height="48"
+                         loading="lazy"
+                         src="@Url.ContentUrl(Model.SectionIcon)"
+                         width="76" />
+                </div>
+            </div>
+        }
+
+        @* ===== HEADING LINE 1 ===== *@
+        <div class="elementor-element elementor-element-3b0f986 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="3b0f986" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.HeadingLine1)>
+                    @Model.HeadingLine1
+                </h2>
+            </div>
+        </div>
+
+        @* ===== HEADING LINE 2 ===== *@
+        <div class="elementor-element elementor-element-a3b6129 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="a3b6129" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.HeadingLine2)>
+                    @Model.HeadingLine2
+                </h2>
+            </div>
+        </div>
+
+        @* ===== DESCRIPTION ===== *@
+        <div class="elementor-element elementor-element-7df471c elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="7df471c" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+            <div class="elementor-widget-container"
+                 @Html.EditAttributes(x => x.Description)>
+                @Html.Raw(Model.Description?.ToString())
+            </div>
+        </div>
+
+        @* ===== BUTTON ===== *@
+        <div class="elementor-element elementor-element-59a8150 elementor-widget__width-auto elementor-widget elementor-widget-button" data-element_type="widget" data-id="59a8150" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+            <div class="elementor-widget-container">
+                <div class="elementor-button-wrapper">
+                    <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate"
+                       href="@(string.IsNullOrWhiteSpace(Model.ButtonUrl) ? "#" : Model.ButtonUrl)">
+                        <span class="elementor-button-content-wrapper">
+                            <span class="elementor-button-text"
+                                  @Html.EditAttributes(x => x.ButtonText)>
+                                @Model.ButtonText
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @* ===== PRICING CARDS ===== *@
+        @if (pricingCards.Any())
+        {
+            <section class="elementor-section elementor-inner-section elementor-element elementor-element-bfaca53 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="bfaca53" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                <div class="elementor-container elementor-column-gap-default">
+
+                    @for (int i = 0; i < pricingCards.Count; i++)
+                    {
+                        var card     = pricingCards[i];
+                        var colId    = i < columnIds.Length  ? columnIds[i]  : i.ToString();
+                        var tId      = i < titleIds.Length   ? titleIds[i]   : i.ToString();
+                        var dId      = i < dividerIds.Length ? dividerIds[i] : i.ToString();
+                        var pId      = i < priceIds.Length   ? priceIds[i]   : i.ToString();
+                        var vId      = i < validIds.Length   ? validIds[i]   : i.ToString();
+                        var fId      = i < featIds.Length    ? featIds[i]    : i.ToString();
+                        var features = !string.IsNullOrWhiteSpace(card.Features)
+                            ? card.Features.Split(',').Select(f => f.Trim()).Where(f => !string.IsNullOrEmpty(f)).ToList()
+                            : new List<string>();
+
+                        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-@colId"
+                             data-element_type="column"
+                             data-id="@colId"
+                             data-settings='{"background_background":"classic","vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_rotatex":{"unit":"px","size":-90,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":120,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":-190,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                            <div class="elementor-widget-wrap elementor-element-populated">
+
+                                @* Card Title *@
+                                <div class="elementor-element elementor-element-@tId elementor-widget elementor-widget-heading" data-element_type="widget" data-id="@tId" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <h2 class="elementor-heading-title elementor-size-default">@card.Title</h2>
+                                    </div>
+                                </div>
+
+                                @* Divider *@
+                                <div class="elementor-element elementor-element-@dId elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-element_type="widget" data-id="@dId" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="divider.default">
+                                    <div class="elementor-widget-container">
+                                        <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                                            .elementor-widget-divider{--divider-border-style:none;--divider-border-width:1px;--divider-color:#0c0d0e;--divider-icon-size:20px;--divider-element-spacing:10px;--divider-pattern-height:24px;--divider-pattern-size:20px;--divider-pattern-url:none;--divider-pattern-repeat:repeat-x}.elementor-widget-divider .elementor-divider{display:flex}.elementor-widget-divider .elementor-divider__text{font-size:15px;line-height:1;max-width:95%}.elementor-widget-divider .elementor-divider__element{margin:0 var(--divider-element-spacing);flex-shrink:0}.elementor-widget-divider .elementor-icon{font-size:var(--divider-icon-size)}.elementor-widget-divider .elementor-divider-separator{display:flex;margin:0;direction:ltr}.elementor-widget-divider--view-line_icon .elementor-divider-separator,.elementor-widget-divider--view-line_text .elementor-divider-separator{align-items:center}.elementor-widget-divider--view-line_icon .elementor-divider-separator:after,.elementor-widget-divider--view-line_icon .elementor-divider-separator:before,.elementor-widget-divider--view-line_text .elementor-divider-separator:after,.elementor-widget-divider--view-line_text .elementor-divider-separator:before{display:block;content:"";border-block-end:0;flex-grow:1;border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--element-align-left .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-left .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-left .elementor-divider__element{margin-left:0}.elementor-widget-divider--element-align-right .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-right .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-right .elementor-divider__element{margin-right:0}.elementor-widget-divider--element-align-start .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-start .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-start .elementor-divider__element{margin-inline-start:0}.elementor-widget-divider--element-align-end .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-end .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-end .elementor-divider__element{margin-inline-end:0}.elementor-widget-divider:not(.elementor-widget-divider--view-line_text):not(.elementor-widget-divider--view-line_icon) .elementor-divider-separator{border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--separator-type-pattern{--divider-border-style:none}.elementor-widget-divider--separator-type-pattern.elementor-widget-divider--view-line .elementor-divider-separator,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:after,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:before,.elementor-widget-divider--separator-type-pattern:not([class*=elementor-widget-divider--view]) .elementor-divider-separator{width:100%;min-height:var(--divider-pattern-height);-webkit-mask-size:var(--divider-pattern-size) 100%;mask-size:var(--divider-pattern-size) 100%;-webkit-mask-repeat:var(--divider-pattern-repeat);mask-repeat:var(--divider-pattern-repeat);background-color:var(--divider-color);-webkit-mask-image:var(--divider-pattern-url);mask-image:var(--divider-pattern-url)}.elementor-widget-divider--no-spacing{--divider-pattern-size:auto}.elementor-widget-divider--bg-round{--divider-pattern-repeat:round}.rtl .elementor-widget-divider .elementor-divider__text{direction:rtl}.e-con-inner>.elementor-widget-divider,.e-con>.elementor-widget-divider{width:var(--container-widget-width,100%);--flex-grow:var(--container-widget-flex-grow)}
+                                        </style>
+                                        <div class="elementor-divider">
+                                            <span class="elementor-divider-separator"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @* Price *@
+                                <div class="elementor-element elementor-element-@pId elementor-widget elementor-widget-heading" data-element_type="widget" data-id="@pId" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="elementor-heading-title elementor-size-default">@card.Price</div>
+                                    </div>
+                                </div>
+
+                                @* Validity *@
+                                <div class="elementor-element elementor-element-@vId elementor-widget elementor-widget-heading" data-element_type="widget" data-id="@vId" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="elementor-heading-title elementor-size-default">@card.Validity</div>
+                                    </div>
+                                </div>
+
+                                @* Features *@
+                                @if (features.Any())
+                                {
+                                    <div class="elementor-element elementor-element-@fId elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-element_type="widget" data-id="@fId" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="icon-list.default">
+                                        <div class="elementor-widget-container">
+                                            @if (i == 0)
+                                            {
+                                                <link href="css/widget-icon-list.min.css" rel="stylesheet" />
+                                            }
+                                            <ul class="elementor-icon-list-items">
+                                                @foreach (var feature in features)
+                                                {
+                                                    <li class="elementor-icon-list-item">
+                                                        <span class="elementor-icon-list-icon">
+                                                            <i aria-hidden="true" class="fas fa-check"></i>
+                                                        </span>
+                                                        <span class="elementor-icon-list-text">@feature</span>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </section>
+        }
+
+    </div>
+</div>
+</div>

@@ -4,6 +4,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
 using EPiServer.Web;
+using VIVEcms.Models.Blocks;
 
 namespace VIVEcms.Models.Pages
 {
@@ -16,9 +17,70 @@ namespace VIVEcms.Models.Pages
     {
         public static class Tabs
         {
-            public const string Footer = "Footer";
             public const string Navbar = "Navbar";
+            public const string Footer = "Footer";
         }
+
+        // =============================================
+        // NAVBAR — Visibility Toggle
+        // =============================================
+
+        [Display(
+            Name = "Show Navbar",
+            Description = "Toggle to show or hide the navbar across all pages",
+            Order = 1,
+            GroupName = Tabs.Navbar
+        )]
+        public virtual bool ShowNavbar { get; set; }
+
+        // =============================================
+        // NAVBAR — Logo
+        // =============================================
+
+        [Display(Name = "Navbar Logo", Order = 10, GroupName = Tabs.Navbar)]
+        [UIHint(UIHint.Image)]
+        public virtual ContentReference? NavbarLogo { get; set; }
+
+        [Display(
+            Name = "Logo Link URL",
+            Description = "Where clicking the logo goes e.g: /",
+            Order = 20,
+            GroupName = Tabs.Navbar
+        )]
+        public virtual string? NavbarLogoUrl { get; set; }
+
+        // =============================================
+        // NAVBAR — CTA Button
+        // =============================================
+
+        [Display(
+            Name = "Button Text",
+            Description = "e.g: Join Membership",
+            Order = 30,
+            GroupName = Tabs.Navbar
+        )]
+        public virtual string? NavbarButtonText { get; set; }
+
+        [Display(
+            Name = "Button URL",
+            Description = "e.g: /membership",
+            Order = 40,
+            GroupName = Tabs.Navbar
+        )]
+        public virtual string? NavbarButtonUrl { get; set; }
+
+        // =============================================
+        // NAVBAR — Navigation Items
+        // =============================================
+
+        [Display(
+            Name = "Nav Items",
+            Description = "Add, remove and reorder top-level navigation items",
+            Order = 50,
+            GroupName = Tabs.Navbar
+        )]
+        [AllowedTypes(typeof(NavMenuItemBlock))]
+        public virtual ContentArea? NavItems { get; set; }
 
         // =============================================
         // FOOTER — Visibility Toggle
@@ -67,12 +129,5 @@ namespace VIVEcms.Models.Pages
 
         [Display(Name = "Footer Links", Order = 90, GroupName = Tabs.Footer)]
         public virtual LinkItemCollection? FooterLinks { get; set; }
-
-        // =============================================
-        // NAVBAR — placeholder for now
-        // =============================================
-
-        [Display(Name = "Navbar — Coming Soon", Order = 10, GroupName = Tabs.Navbar)]
-        public virtual string? NavbarPlaceholder { get; set; }
     }
 }
