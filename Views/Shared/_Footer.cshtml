@@ -18,7 +18,7 @@
                             <div class="elementor-widget-container">
                                 @if (!ContentReference.IsNullOrEmpty(Model.FooterLogo))
                                 {
-                                    <img alt="@ImageService.GetAltText(Model.FooterLogo)" class="attachment-large size-large wp-image-995" height="120" src="@Url.ContentUrl(Model.FooterLogo)" width="236"/>
+                                    <img alt="@(Model.FooterLogo != null ? ImageService.GetAltText(Model.FooterLogo) : "")" class="attachment-large size-large wp-image-995" height="120" src="@Url.ContentUrl(Model.FooterLogo)" width="236"/>
                                 }
                             </div>
                         </div>

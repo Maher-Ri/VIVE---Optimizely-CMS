@@ -8,7 +8,7 @@ namespace VIVEcms.Models.Blocks
 {
     [ContentType(
         DisplayName = "Nav Menu Item",
-        GUID = "your-unique-guid-here",
+        GUID = "3b1f181e-dc8d-481e-9cdc-efbb2cc342d2",
         Description = "A top-level navigation item in the navbar"
     )]
     public class NavMenuItemBlock : BlockData
