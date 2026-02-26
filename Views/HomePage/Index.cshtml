@@ -1,0 +1,593 @@
+@model VIVEcms.Models.ViewModels.PageViewModel<VIVEcms.Models.Pages.HomePage>
+
+   <div class="no-title" id="page-content-wrapper">
+               <div class="inner">
+                  <!-- Begin main content -->
+                  <div class="inner-wrapper">
+                     <div class="sidebar-content fullwidth">
+                        <div class="elementor elementor-1682" data-elementor-id="1682" data-elementor-type="wp-page">
+
+                        @* ===== HEADING SECTION ===== *@
+                        @if (Model.CurrentPage.ShowHeadingSection)
+                        {
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-f3dc1e3 elementor-section-height-min-height elementor-section-items-top elementor-section-content-top elementor-section-stretched elementor-section-boxed elementor-section-height-default" data-element_type="section" data-id="f3dc1e3" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                                                      
+                          @await Html.PartialAsync(
+                              "~/Views/HomePage/Sections/_HeadingSection.cshtml",
+                              Model.CurrentPage)
+
+                           </section>
+                        }
+
+                        @* ===== OUR CLASSES SECTION ===== *@
+                        @if (Model.CurrentPage.ShowOurClassesSection)
+                        {
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-281f7df elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="281f7df" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                           
+                           @await Html.PartialAsync(
+                               "~/Views/HomePage/Sections/_OurClassesSection.cshtml",
+                               Model.CurrentPage)
+
+                           </section>
+                        }
+                         
+                              @* ===== SERVICES SECTION ===== *@
+                        @if (Model.CurrentPage.ShowServicesSection)
+                        {
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-faa80d0 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="faa80d0" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                           
+                           
+                          @await Html.PartialAsync(
+                              "~/Views/HomePage/Sections/_ServicesSection.cshtml",
+                              Model.CurrentPage)
+                              
+                           </section>
+                        }
+                           
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-a75f932 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="a75f932" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              <div class="elementor-container elementor-column-gap-default">
+                                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b5f223d" data-element_type="column" data-id="b5f223d" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-0fd4627 elementor-widget__width-auto elementor-widget elementor-widget-image" data-element_type="widget" data-id="0fd4627" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_scalex":{"unit":"px","size":0.6999999999999999555910790149937383830547332763671875,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":0.6999999999999999555910790149937383830547332763671875,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+                                          <div class="elementor-widget-container">
+                                             <img alt="" class="attachment-large size-large wp-image-211" decoding="async" height="48" loading="lazy" src="images/gym-icon.png" width="76"/>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-bb83a95 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="bb83a95" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="50" data-transition-duration="800">
+                                                <h2>
+                                                   Powered by   
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-f17b02b elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="f17b02b" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="100" data-transition-duration="800">
+                                                <h2>
+                                                   fitness &amp;    
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-b585b1e elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="b585b1e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="150" data-transition-duration="800">
+                                                <h2>
+                                                   inspired 
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-81dd1be elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="81dd1be" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="200" data-transition-duration="800">
+                                                <h2>
+                                                   by helping   
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-c94fc55 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="c94fc55" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="250" data-transition-duration="800">
+                                                <h2>
+                                                   Others   
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ac70797" data-element_type="column" data-id="ac70797" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <section class="elementor-section elementor-inner-section elementor-element elementor-element-2f3b21d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="2f3b21d" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                                          <div class="elementor-container elementor-column-gap-default">
+                                             <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8545d89" data-element_type="column" data-id="8545d89" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                                <div class="elementor-widget-wrap elementor-element-populated">
+                                                   <div class="elementor-element elementor-element-880ee1e elementor-widget elementor-widget-image" data-element_type="widget" data-id="880ee1e" data-settings='{"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+                                                      <div class="elementor-widget-container">
+                                                         <img alt="" class="attachment-vive-gallery-masonry size-vive-gallery-masonry wp-image-1837" decoding="async" height="660" loading="lazy" sizes="(max-width: 440px) 100vw, 440px" src="images/afro-athlete-woman-running-outdoors-9CEQYM8-440x660.jpg" srcset="images/afro-athlete-woman-running-outdoors-9CEQYM8-440x660.jpg 440w, images/afro-athlete-woman-running-outdoors-9CEQYM8-200x300.jpg 200w, images/afro-athlete-woman-running-outdoors-9CEQYM8-600x900.jpg 600w, images/afro-athlete-woman-running-outdoors-9CEQYM8-147x220.jpg 147w, images/afro-athlete-woman-running-outdoors-9CEQYM8.jpg 683w" width="440"/>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-8b5648e elementor-widget elementor-widget-heading" data-element_type="widget" data-id="8b5648e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <h2 class="elementor-heading-title elementor-size-default">Motivate</h2>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-373b3ef elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="373b3ef" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                                                      <div class="elementor-widget-container">
+                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-84dfe7a" data-element_type="column" data-id="84dfe7a" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                                <div class="elementor-widget-wrap elementor-element-populated">
+                                                   <div class="elementor-element elementor-element-8a17380 elementor-widget elementor-widget-image" data-element_type="widget" data-id="8a17380" data-settings='{"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+                                                      <div class="elementor-widget-container">
+                                                         <img alt="" class="attachment-vive-gallery-masonry size-vive-gallery-masonry wp-image-1839" decoding="async" height="660" loading="lazy" sizes="(max-width: 440px) 100vw, 440px" src="images/couple-of-young-fitness-people-exercising-with-dum-HAN9UYM-440x660.jpg" srcset="images/couple-of-young-fitness-people-exercising-with-dum-HAN9UYM-440x660.jpg 440w, images/couple-of-young-fitness-people-exercising-with-dum-HAN9UYM-200x300.jpg 200w, images/couple-of-young-fitness-people-exercising-with-dum-HAN9UYM-600x900.jpg 600w, images/couple-of-young-fitness-people-exercising-with-dum-HAN9UYM-147x220.jpg 147w, images/couple-of-young-fitness-people-exercising-with-dum-HAN9UYM.jpg 683w" width="440"/>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-b9e26b6 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="b9e26b6" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <h2 class="elementor-heading-title elementor-size-default">Inspire</h2>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-6ec520b elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="6ec520b" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                                                      <div class="elementor-widget-container">
+                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </section>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-35ee381 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="35ee381" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              <div class="elementor-container elementor-column-gap-default">
+                                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-303c055" data-element_type="column" data-id="303c055" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-3cc08c7 elementor-widget elementor-widget-vive-gallery-horizontal" data-element_type="widget" data-id="3cc08c7" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-gallery-horizontal.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="horizontal-gallery-wrapper" data-autoplay="0" data-fullscreen="0" data-loop="0" data-navigation="0" data-pagination="0" data-parallax="0" id="horizontal-gallery-3cc08c7">
+                                                <div class="horizontal-gallery-cell" style="margin-right:40px">
+                                                   <img alt="" class="horizontal-gallery-cell-img" data-flickity-lazyload="images/woman-training-with-dumbbells-in-the-gym-2021-07-15-16-56-14-utc.jpg" style="height:600px;"/>
+                                                </div>
+                                                <div class="horizontal-gallery-cell" style="margin-right:40px">
+                                                   <img alt="" class="horizontal-gallery-cell-img" data-flickity-lazyload="images/athletes-foot-close-up-PWPQP4Z-1024x684.jpg" style="height:600px;"/>
+                                                </div>
+                                                <div class="horizontal-gallery-cell" style="margin-right:40px">
+                                                   <img alt="" class="horizontal-gallery-cell-img" data-flickity-lazyload="images/attractive-woman-drinking-water-from-sport-bottle-2021-04-06-18-09-19-utc-1024x1024.jpg" style="height:600px;"/>
+                                                </div>
+                                                <div class="horizontal-gallery-cell" style="margin-right:40px">
+                                                   <img alt="" class="horizontal-gallery-cell-img" data-flickity-lazyload="images/people-exercising-at-fitness-gym-2021-04-02-19-54-26-utc.jpg" style="height:600px;"/>
+                                                </div>
+                                                <div class="horizontal-gallery-cell" style="margin-right:40px">
+                                                   <img alt="" class="horizontal-gallery-cell-img" data-flickity-lazyload="images/trainer8.jpg" style="height:600px;"/>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-a38c864 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="a38c864" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              <div class="elementor-container elementor-column-gap-default">
+                                 <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-d9f53c5" data-element_type="column" data-id="d9f53c5" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-fb33e50 elementor-widget__width-initial elementor-absolute mobile-static elementor-widget elementor-widget-image" data-element_type="widget" data-id="fb33e50" data-settings='{"_position":"absolute","vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+                                          <div class="elementor-widget-container">
+                                             <img alt="" class="attachment-vive-gallery-list size-vive-gallery-list wp-image-372" decoding="async" height="610" loading="lazy" sizes="(max-width: 610px) 100vw, 610px" src="images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-610x610.jpg" srcset="images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-610x610.jpg 610w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-300x300.jpg 300w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-150x150.jpg 150w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-768x768.jpg 768w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-109x109.jpg 109w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-100x100.jpg 100w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-440x440.jpg 440w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-600x600.jpg 600w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-220x220.jpg 220w, images/woman-athlete-exercising-with-medicine-ball-PYB74ZY.jpg 1024w" width="610"/>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-263b520" data-element_type="column" data-id="263b520" data-settings='{"background_background":"classic","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-e4c36a7 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="e4c36a7" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                          <div class="elementor-widget-container">
+                                             <h2 class="elementor-heading-title elementor-size-default">Trusted by</h2>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-ee5d925 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="ee5d925" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                          <div class="elementor-widget-container">
+                                             <h2 class="elementor-heading-title elementor-size-default">Our Customers</h2>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-0f27200 elementor-widget elementor-widget-vive-testimonial-slider" data-element_type="widget" data-id="0f27200" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-testimonial-slider.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="testimonials-slider-wrapper">
+                                                <div class="testimonial-carousel owl-carousel" data-autoplay="1" data-timer="8000">
+                                                   <div class="testimonial-block">
+                                                      <div class="inner-box">
+                                                         <div class="text">A good coach makes sure that they have the right incentive before taking on a client. Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</div>
+                                                         <div class="info-box">
+                                                            <div class="thumb">
+                                                               <img alt="" decoding="async" height="150" src="images/trainer7-150x150.jpg" width="150"/>
+                                                            </div>
+                                                            <h4 class="name">Jonathan Smith</h4>
+                                                            <span class="designation">Athlete </span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="testimonial-block">
+                                                      <div class="inner-box">
+                                                         <div class="text">A good coach makes sure that they have the right incentive before taking on a client. Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</div>
+                                                         <div class="info-box">
+                                                            <div class="thumb">
+                                                               <img alt="" decoding="async" height="150" src="images/trainer8-150x150.jpg" width="150"/>
+                                                            </div>
+                                                            <h4 class="name">Samatha Jone</h4>
+                                                            <span class="designation">Athlete </span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-0a29367 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="0a29367" data-settings='{"stretch_section":"section-stretched","background_background":"classic","shape_divider_top":"tilt","shape_divider_bottom":"tilt","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              <div class="elementor-shape elementor-shape-top" data-negative="false">
+                                 <svg preserveaspectratio="none" viewbox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+                                 </svg>
+                              </div>
+                              <div class="elementor-shape elementor-shape-bottom" data-negative="false">
+                                 <svg preserveaspectratio="none" viewbox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+                                 </svg>
+                              </div>
+                              <div class="elementor-container elementor-column-gap-default">
+                                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-da0436e" data-element_type="column" data-id="da0436e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-d59d060 elementor-widget__width-auto elementor-widget elementor-widget-image" data-element_type="widget" data-id="d59d060" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_scalex":{"unit":"px","size":0.6999999999999999555910790149937383830547332763671875,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":0.6999999999999999555910790149937383830547332763671875,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+                                          <div class="elementor-widget-container">
+                                             <img alt="" class="attachment-large size-large wp-image-211" decoding="async" height="48" loading="lazy" src="images/gym-icon.png" width="76"/>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-3b0f986 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="3b0f986" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                          <div class="elementor-widget-container">
+                                             <h2 class="elementor-heading-title elementor-size-default">Be physically fit</h2>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-a3b6129 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="a3b6129" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                          <div class="elementor-widget-container">
+                                             <h2 class="elementor-heading-title elementor-size-default">Join Today</h2>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-7df471c elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="7df471c" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                                          <div class="elementor-widget-container">
+                                             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin</p>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-59a8150 elementor-widget__width-auto elementor-widget elementor-widget-button" data-element_type="widget" data-id="59a8150" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="elementor-button-wrapper">
+                                                <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate" href="classes.html">
+                                                <span class="elementor-button-content-wrapper">
+                                                <span class="elementor-button-text">Checkout Classes</span>
+                                                </span>
+                                                </a>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <section class="elementor-section elementor-inner-section elementor-element elementor-element-bfaca53 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="bfaca53" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                                          <div class="elementor-container elementor-column-gap-default">
+                                             <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-dd82987" data-element_type="column" data-id="dd82987" data-settings='{"background_background":"classic","vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_rotatex":{"unit":"px","size":-90,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":120,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":-190,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                                <div class="elementor-widget-wrap elementor-element-populated">
+                                                   <div class="elementor-element elementor-element-904dcfe elementor-widget elementor-widget-heading" data-element_type="widget" data-id="904dcfe" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <h2 class="elementor-heading-title elementor-size-default">One Day Pass</h2>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-64d1c45 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-element_type="widget" data-id="64d1c45" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="divider.default">
+                                                      <div class="elementor-widget-container">
+                                                         <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                                                            .elementor-widget-divider{--divider-border-style:none;--divider-border-width:1px;--divider-color:#0c0d0e;--divider-icon-size:20px;--divider-element-spacing:10px;--divider-pattern-height:24px;--divider-pattern-size:20px;--divider-pattern-url:none;--divider-pattern-repeat:repeat-x}.elementor-widget-divider .elementor-divider{display:flex}.elementor-widget-divider .elementor-divider__text{font-size:15px;line-height:1;max-width:95%}.elementor-widget-divider .elementor-divider__element{margin:0 var(--divider-element-spacing);flex-shrink:0}.elementor-widget-divider .elementor-icon{font-size:var(--divider-icon-size)}.elementor-widget-divider .elementor-divider-separator{display:flex;margin:0;direction:ltr}.elementor-widget-divider--view-line_icon .elementor-divider-separator,.elementor-widget-divider--view-line_text .elementor-divider-separator{align-items:center}.elementor-widget-divider--view-line_icon .elementor-divider-separator:after,.elementor-widget-divider--view-line_icon .elementor-divider-separator:before,.elementor-widget-divider--view-line_text .elementor-divider-separator:after,.elementor-widget-divider--view-line_text .elementor-divider-separator:before{display:block;content:"";border-block-end:0;flex-grow:1;border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--element-align-left .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-left .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-left .elementor-divider__element{margin-left:0}.elementor-widget-divider--element-align-right .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-right .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-right .elementor-divider__element{margin-right:0}.elementor-widget-divider--element-align-start .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-start .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-start .elementor-divider__element{margin-inline-start:0}.elementor-widget-divider--element-align-end .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-end .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-end .elementor-divider__element{margin-inline-end:0}.elementor-widget-divider:not(.elementor-widget-divider--view-line_text):not(.elementor-widget-divider--view-line_icon) .elementor-divider-separator{border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--separator-type-pattern{--divider-border-style:none}.elementor-widget-divider--separator-type-pattern.elementor-widget-divider--view-line .elementor-divider-separator,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:after,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:before,.elementor-widget-divider--separator-type-pattern:not([class*=elementor-widget-divider--view]) .elementor-divider-separator{width:100%;min-height:var(--divider-pattern-height);-webkit-mask-size:var(--divider-pattern-size) 100%;mask-size:var(--divider-pattern-size) 100%;-webkit-mask-repeat:var(--divider-pattern-repeat);mask-repeat:var(--divider-pattern-repeat);background-color:var(--divider-color);-webkit-mask-image:var(--divider-pattern-url);mask-image:var(--divider-pattern-url)}.elementor-widget-divider--no-spacing{--divider-pattern-size:auto}.elementor-widget-divider--bg-round{--divider-pattern-repeat:round}.rtl .elementor-widget-divider .elementor-divider__text{direction:rtl}.e-con-inner>.elementor-widget-divider,.e-con>.elementor-widget-divider{width:var(--container-widget-width,100%);--flex-grow:var(--container-widget-flex-grow)}
+                                                         </style>
+                                                         <div class="elementor-divider">
+                                                            <span class="elementor-divider-separator">
+                                                            </span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-3c81c79 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="3c81c79" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-heading-title elementor-size-default">$9.9/day</div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-cc33ad2 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="cc33ad2" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-heading-title elementor-size-default">Valid 90 days</div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-4a62277 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-element_type="widget" data-id="4a62277" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="icon-list.default">
+                                                      <div class="elementor-widget-container">
+                                                         <link href="css/widget-icon-list.min.css" rel="stylesheet"/>
+                                                         <ul class="elementor-icon-list-items">
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">24 hours access</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Unlimited Classes</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Flexible Classes</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">BMI Tracker</span>
+                                                            </li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-14bb632" data-element_type="column" data-id="14bb632" data-settings='{"background_background":"classic","vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_rotatex":{"unit":"px","size":-90,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":120,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":-190,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                                <div class="elementor-widget-wrap elementor-element-populated">
+                                                   <div class="elementor-element elementor-element-3f7796c elementor-widget elementor-widget-heading" data-element_type="widget" data-id="3f7796c" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <h2 class="elementor-heading-title elementor-size-default">Month Pass</h2>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-78fcc6a elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-element_type="widget" data-id="78fcc6a" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="divider.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-divider">
+                                                            <span class="elementor-divider-separator">
+                                                            </span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-8c209f9 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="8c209f9" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-heading-title elementor-size-default">$99/month</div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-762b250 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="762b250" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-heading-title elementor-size-default">Valid 120 days</div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-1d302bc elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-element_type="widget" data-id="1d302bc" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="icon-list.default">
+                                                      <div class="elementor-widget-container">
+                                                         <ul class="elementor-icon-list-items">
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">24 hours access</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Unlimited Classes</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Flexible Classes</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">BMI Tracker</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Personal Trainer</span>
+                                                            </li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-40e4045" data-element_type="column" data-id="40e4045" data-settings='{"background_background":"classic","vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_rotatex":{"unit":"px","size":-90,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":120,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":-190,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                                <div class="elementor-widget-wrap elementor-element-populated">
+                                                   <div class="elementor-element elementor-element-76798a5 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="76798a5" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <h2 class="elementor-heading-title elementor-size-default">Yearly Pass</h2>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-550a04c elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-element_type="widget" data-id="550a04c" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="divider.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-divider">
+                                                            <span class="elementor-divider-separator">
+                                                            </span>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-3e424a3 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="3e424a3" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-heading-title elementor-size-default">$599/year</div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-f68aa33 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="f68aa33" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                                      <div class="elementor-widget-container">
+                                                         <div class="elementor-heading-title elementor-size-default">Valid 365 days</div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="elementor-element elementor-element-e2cd425 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-element_type="widget" data-id="e2cd425" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="icon-list.default">
+                                                      <div class="elementor-widget-container">
+                                                         <ul class="elementor-icon-list-items">
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">24 hours access</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Unlimited Classes</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Flexible Classes</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">BMI Tracker</span>
+                                                            </li>
+                                                            <li class="elementor-icon-list-item">
+                                                               <span class="elementor-icon-list-icon">
+                                                               <i aria-hidden="true" class="fas fa-check"></i> </span>
+                                                               <span class="elementor-icon-list-text">Personal Trainer</span>
+                                                            </li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </section>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-946860c elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="946860c" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              <div class="elementor-container elementor-column-gap-default">
+                                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4c246d2" data-element_type="column" data-id="4c246d2" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-6301137 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="6301137" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="0" data-transition-duration="800">
+                                                <h2>
+                                                   Focus on 
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-cac115c elementor-widget__width-auto elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="cac115c" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="50" data-transition-duration="800">
+                                                <h2>
+                                                   Your 
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-61d3659 elementor-widget__width-auto elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="61d3659" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="50" data-transition-duration="800">
+                                                <h2>
+                                                   Fitness  
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-b54a703 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="b54a703" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="100" data-transition-duration="800">
+                                                <h2>
+                                                   not your 
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-9a72e09 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="9a72e09" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="150" data-transition-duration="800">
+                                                <h2>
+                                                   Loss 
+                                                </h2>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-8f67d74 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="8f67d74" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                                          <div class="elementor-widget-container">
+                                             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature.</p>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-db06d59 elementor-widget__width-auto animated-fast elementor-invisible elementor-widget elementor-widget-button" data-element_type="widget" data-id="db06d59" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"_animation":"fadeIn","_animation_delay":400,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="elementor-button-wrapper">
+                                                <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate" href="index.html">
+                                                <span class="elementor-button-content-wrapper">
+                                                <span class="elementor-button-text">Schedule a Workout</span>
+                                                </span>
+                                                </a>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5ea316e" data-element_type="column" data-id="5ea316e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-54d8c24 mobile-static elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-initial elementor-absolute elementor-widget elementor-widget-image" data-element_type="widget" data-id="54d8c24" data-settings='{"_position":"absolute","vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default">
+                                          <div class="elementor-widget-container">
+                                             <img alt="" class="attachment-large size-large wp-image-1007" decoding="async" height="683" loading="lazy" sizes="(max-width: 1024px) 100vw, 1024px" src="images/stretched-runner.png" srcset="images/stretched-runner.png 1024w, images/stretched-runner-300x200.png 300w, images/stretched-runner-768x512.png 768w, images/stretched-runner-700x466.png 700w, images/stretched-runner-440x293.png 440w, images/stretched-runner-600x400.png 600w, images/stretched-runner-330x220.png 330w" width="1024"/>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-6924c51 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="6924c51" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              <div class="elementor-container elementor-column-gap-default">
+                                 <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b5a6b70" data-element_type="column" data-id="b5a6b70" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                       <div class="elementor-element elementor-element-915c1b6 elementor-widget elementor-widget-vive-gallery-grid" data-element_type="widget" data-id="915c1b6" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-gallery-grid.default">
+                                          <div class="elementor-widget-container">
+                                             <div class="vive-gallery-grid-content-wrapper layout-vive-five-cols has-no-space">
+                                                <div class="gallery-grid-item disable_all vive-five-cols smoove fade-in" data-delay="150" data-minwidth="5000" data-opacity="0">
+                                                   <a class="vive_gallery_lightbox" data-rel="tg_gallery915c1b6" data-thumb="images/women-exercising-on-treadmill-2021-04-05-23-17-40-utc-300x300.jpg" href="images/women-exercising-on-treadmill-2021-04-05-23-17-40-utc.jpg">
+                                                   <img alt="" class="" decoding="async" height="610" src="images/women-exercising-on-treadmill-2021-04-05-23-17-40-utc-610x610.jpg" width="610"/>
+                                                   </a>
+                                                </div>
+                                                <div class="gallery-grid-item disable_all vive-five-cols smoove fade-in" data-delay="300" data-minwidth="5000" data-opacity="0">
+                                                   <a class="vive_gallery_lightbox" data-rel="tg_gallery915c1b6" data-thumb="images/sporty-woman-with-barbell-in-a-gym-PYRQHD7-300x300.jpg" href="images/sporty-woman-with-barbell-in-a-gym-PYRQHD7.jpg">
+                                                   <img alt="" class="" decoding="async" height="610" src="images/sporty-woman-with-barbell-in-a-gym-PYRQHD7-610x610.jpg" width="610"/>
+                                                   </a>
+                                                </div>
+                                                <div class="gallery-grid-item disable_all vive-five-cols smoove fade-in" data-delay="450" data-minwidth="5000" data-opacity="0">
+                                                   <a class="vive_gallery_lightbox" data-rel="tg_gallery915c1b6" data-thumb="images/african-bodybuilder-exercising-with-dumbbells-PYYBBGT-300x300.jpg" href="images/african-bodybuilder-exercising-with-dumbbells-PYYBBGT.jpg">
+                                                   <img alt="" class="" decoding="async" height="610" src="images/african-bodybuilder-exercising-with-dumbbells-PYYBBGT-610x610.jpg" width="610"/>
+                                                   </a>
+                                                </div>
+                                                <div class="gallery-grid-item disable_all vive-five-cols smoove fade-in" data-delay="600" data-minwidth="5000" data-opacity="0">
+                                                   <a class="vive_gallery_lightbox" data-rel="tg_gallery915c1b6" data-thumb="images/woman-jogging-outdoors-in-the-fall-2021-04-02-20-48-01-utc-300x300.jpg" href="images/woman-jogging-outdoors-in-the-fall-2021-04-02-20-48-01-utc.jpg">
+                                                   <img alt="" class="" decoding="async" height="610" src="images/woman-jogging-outdoors-in-the-fall-2021-04-02-20-48-01-utc-610x610.jpg" width="610"/>
+                                                   </a>
+                                                </div>
+                                                <div class="gallery-grid-item disable_all vive-five-cols last smoove fade-in" data-delay="750" data-minwidth="5000" data-opacity="0">
+                                                   <a class="vive_gallery_lightbox" data-rel="tg_gallery915c1b6" data-thumb="images/personal-trainer-with-woman-in-the-gym-PJJX4BW-300x300.jpg" href="images/personal-trainer-with-woman-in-the-gym-PJJX4BW.jpg">
+                                                   <img alt="" class="" decoding="async" height="610" src="images/personal-trainer-with-woman-in-the-gym-PJJX4BW-610x610.jpg" width="610"/>
+                                                   </a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-element elementor-element-e2ebae0 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-element_type="widget" data-id="e2ebae0" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                          <div class="elementor-widget-container">
+                                             <h2 class="elementor-heading-title elementor-size-default">@@vivetrainer</h2>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
+                        </div>
+                        <div class="comment_disable_clearer"></div>
+                     </div>
+                  </div>
+                  <!-- End main content -->
+               </div>
+   </div>

@@ -1,0 +1,25 @@
+@using EPiServer.Web.Mvc.Html
+@using VIVEcms.Models
+@model ServiceItemBlock
+
+<div class="item">
+  <div class="item-bg" style="background-image:url('@Url.ContentUrl(Model.BackgroundImage)');"></div>
+  <div class="item-content">
+      <h3 class="service-carousel-title"
+          @Html.EditAttributes(x => x.Title)>
+          @Model.Title
+      </h3>
+      <div class="service-carousel-desc"
+           @Html.EditAttributes(x => x.Description)>
+          @Model.Description
+      </div>
+      @if (!string.IsNullOrWhiteSpace(Model.ButtonText))
+      {
+          <a class="service-carousel-button button"
+             href="@Model.ButtonUrl"
+             @Html.EditAttributes(x => x.ButtonUrl)>
+              @Model.ButtonText
+          </a>
+      }
+  </div>
+</div>

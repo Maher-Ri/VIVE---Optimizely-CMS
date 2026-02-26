@@ -1,0 +1,58 @@
+@using EPiServer.Web.Mvc.Html
+@model VIVEcms.Models.Pages.HomePage
+
+<div class="elementor-container elementor-column-gap-default">
+
+@* ===== COLUMN 1: LEFT HEADINGS ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ed9aff1" data-element_type="column" data-id="ed9aff1" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_smoove_translatex":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Heading Line 1 - ONLY text is dynamic *@
+        <div class="elementor-element elementor-element-b188cce elementor-widget elementor-widget-heading" data-element_type="widget" data-id="b188cce" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.OurClassesHeading1)>
+                    @Model.OurClassesHeading1
+                </h2>
+            </div>
+        </div>
+
+        @* Heading Line 2 - ONLY text is dynamic *@
+        <div class="elementor-element elementor-element-372040d elementor-widget elementor-widget-heading" data-element_type="widget" data-id="372040d" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.OurClassesHeading2)>
+                    @Model.OurClassesHeading2
+                </h2>
+            </div>
+        </div>
+
+        @* Heading Line 3 - ONLY text is dynamic *@
+        <div class="elementor-element elementor-element-38372f7 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="38372f7" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.OurClassesHeading3)>
+                    @Model.OurClassesHeading3
+                </h2>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@* ===== COLUMN 2: RIGHT DESCRIPTION ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-be29bb6" data-element_type="column" data-id="be29bb6" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_smoove_translatex":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Description - XhtmlString renders Rich Text from CMS *@
+        <div class="elementor-element elementor-element-f0a2dce elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="f0a2dce" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+            <div class="elementor-widget-container"
+                 @Html.EditAttributes(x => x.OurClassesDescription)>
+                @Html.Raw(Model.OurClassesDescription?.ToString())
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>

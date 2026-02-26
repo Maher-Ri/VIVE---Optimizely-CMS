@@ -1,0 +1,43 @@
+@using EPiServer.Core.Internal
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.ServiceLocation
+@model VIVEcms.Models.Pages.HomePage
+
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+<div class="elementor-container elementor-column-gap-default">
+  <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-267a81e" data-element_type="column" data-id="267a81e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+      <div class="elementor-widget-wrap elementor-element-populated">
+          <div class="elementor-element elementor-element-21219bf elementor-widget elementor-widget-vive-service-carousel" data-element_type="widget" data-id="21219bf" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-service-carousel.default">
+              <div class="elementor-widget-container">
+                  <div class="service-carousel-wrapper style2">
+
+                      <div class="owl-carousel" data-autoplay="0" data-items="4" data-margin="30" data-pagination="0" data-stage-padding="60" data-timer="8000">
+
+                          @* ===== Iterate blocks manually — no wrapper divs ===== *@
+                          @if (Model.ServicesItems != null && Model.ServicesItems.FilteredItems.Any())
+                          {
+                              foreach (var contentAreaItem in Model.ServicesItems.FilteredItems)
+                              {
+                                  var block = contentLoader.Get<ServiceItemBlock>(
+                                      contentAreaItem.ContentLink);
+
+                                  if (block != null)
+                                  {
+                                      @await Html.PartialAsync(
+                                          "~/Views/Shared/Blocks/ServiceItemBlock.cshtml",
+                                          block)
+                                  }
+                              }
+                          }
+
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

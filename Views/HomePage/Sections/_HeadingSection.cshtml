@@ -1,0 +1,278 @@
+@model VIVEcms.Models.Pages.HomePage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject IImageService ImageService
+@{
+    // Split the animated words string into a list
+    // Fallback to empty list if not set
+    var animatedWords = (!string.IsNullOrWhiteSpace(Model.HeadingAnimatedWords))
+        ? Model.HeadingAnimatedWords
+            .Split(',')
+            .Select(w => w.Trim())
+            .Where(w => !string.IsNullOrEmpty(w))
+            .ToList()
+        : new List<string>();
+}
+<div class="elementor-container elementor-column-gap-default">
+
+    @* ===== COLUMN 1: LEFT IMAGE ===== *@
+    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-c239592"
+         data-element_type="column" data-id="c239592"
+         data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+
+            @* Spacer - unchanged *@
+            <div class="elementor-element elementor-element-d71549d elementor-widget elementor-widget-spacer"
+                 data-element_type="widget" data-id="d71549d"
+                 data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="spacer.default">
+                <div class="elementor-widget-container">
+                    <style>
+                                            /*! elementor - v3.21.0 - 08-05-2024 */
+                                            .elementor-column .elementor-spacer-inner {
+                                                height: var(--spacer-size)
+                                            }
+
+                                            .e-con {
+                                                --container-widget-width: 100%
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer,
+                                            .e-con>.elementor-widget-spacer {
+                                                width: var(--container-widget-width, var(--spacer-size));
+                                                --align-self: var(--container-widget-align-self, initial);
+                                                --flex-shrink: 0
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer>.elementor-widget-container,
+                                            .e-con>.elementor-widget-spacer>.elementor-widget-container {
+                                                height: 100%;
+                                                width: 100%
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer,
+                                            .e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer {
+                                                height: 100%
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner,
+                                            .e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner {
+                                                height: var(--container-widget-height, var(--spacer-size))
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer.elementor-widget-empty,
+                                            .e-con>.elementor-widget-spacer.elementor-widget-empty {
+                                                position: relative;
+                                                min-height: 22px;
+                                                min-width: 22px
+                                            }
+
+                                            .e-con-inner>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon,
+                                            .e-con>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon {
+                                                position: absolute;
+                                                top: 0;
+                                                bottom: 0;
+                                                left: 0;
+                                                right: 0;
+                                                margin: auto;
+                                                padding: 0;
+                                                width: 22px;
+                                                height: 22px
+                                            }
+                    </style>
+                    <div class="elementor-spacer">
+                        <div class="elementor-spacer-inner"></div>
+                    </div>
+                </div>
+            </div>
+
+            @* Left Image - ONLY src is dynamic *@
+            <div class="elementor-element elementor-element-7a405f1 mobile-static elementor-widget__width-initial elementor-absolute elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-image"
+                 data-element_type="widget" data-id="7a405f1"
+                 data-settings='{"vive_image_is_animation":"true","vive_image_animation_effect":"slide_up","_position":"absolute","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="image.default" @Html.EditAttributes(x => x.HeadingLeftImage)>
+                <div class="elementor-widget-container">
+                    @if (!ContentReference.IsNullOrEmpty(Model.HeadingLeftImage))
+                    {
+                        <img alt="@ImageService.GetAltText(Model.HeadingLeftImage ?? ContentReference.EmptyReference)" class="attachment-medium_large size-medium_large" decoding="async" loading="lazy"
+                             src="@Url.ContentUrl(Model.HeadingLeftImage)" />
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @* ===== COLUMN 2: CENTER HEADINGS ===== *@
+    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-aa62333"
+         data-element_type="column" data-id="aa62333"
+         data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+
+            @* Heading Line 1 - ONLY text is dynamic *@
+            <div class="elementor-element elementor-element-6a7e357 elementor-widget elementor-widget-heading"
+                 data-element_type="widget" data-id="6a7e357"
+                 data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <style>
+                                            /*! elementor - v3.21.0 - 08-05-2024 */
+                                            .elementor-heading-title {
+                                                padding: 0;
+                                                margin: 0;
+                                                line-height: 1
+                                            }
+
+                                            .elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {
+                                                color: inherit;
+                                                font-size: inherit;
+                                                line-height: inherit
+                                            }
+
+                                            .elementor-widget-heading .elementor-heading-title.elementor-size-small {
+                                                font-size: 15px
+                                            }
+
+                                            .elementor-widget-heading .elementor-heading-title.elementor-size-medium {
+                                                font-size: 19px
+                                            }
+
+                                            .elementor-widget-heading .elementor-heading-title.elementor-size-large {
+                                                font-size: 29px
+                                            }
+
+                                            .elementor-widget-heading .elementor-heading-title.elementor-size-xl {
+                                                font-size: 39px
+                                            }
+
+                                            .elementor-widget-heading .elementor-heading-title.elementor-size-xxl {
+                                                font-size: 59px
+                                            }
+                    </style>
+                    <h2 class="elementor-heading-title elementor-size-default"                        @Html.EditAttributes(x =>
+                                                                                                                                                      x.HeadingLine1)>
+                        @Model.HeadingLine1
+                    </h2>
+                </div>
+            </div>
+
+            @* Heading Line 2 - ONLY text is dynamic *@
+            <div class="elementor-element elementor-element-7a4e755 elementor-widget elementor-widget-heading"
+                 data-element_type="widget" data-id="7a4e755"
+                 data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default"                        @Html.EditAttributes(x =>
+                                                                                                                                                      x.HeadingLine2)>
+                        @Model.HeadingLine2
+                    </h2>
+                </div>
+            </div>
+
+            @* Heading Line 3 - ONLY text is dynamic *@
+            <div class="elementor-element elementor-element-8c1a1e9 elementor-widget elementor-widget-heading"
+                 data-element_type="widget" data-id="8c1a1e9"
+                 data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default"                        @Html.EditAttributes(x =>
+                                                                                                                                                      x.HeadingLine3)>
+                        @Model.HeadingLine3
+                    </h2>
+                </div>
+            </div>
+
+            @* Animated Words - ONLY the <b> tags are dynamic *@
+            <div class="elementor-element elementor-element-994fd1e mobile-static elementor-widget elementor-widget-vive-animated-headline"
+                 data-element_type="widget" data-id="994fd1e"
+                 data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="vive-animated-headline.default">
+                <div class="elementor-widget-container">
+                    <div class="themegoods-animated-headline text-alignment-left" data-animation="zoom">
+                        <h2 class="animated-headline ah-headline">
+                            <span class="ah-words-wrapper"                                  @Html.EditAttributes(x => x.HeadingAnimatedWords)>
+                                @if (animatedWords.Any())
+                                {
+                                    @for (int i = 0; i < animatedWords.Count; i++)
+                                    {
+                                        <b class="@(i == 0 ? "is-visible" : "")">@animatedWords[i]</b>
+                                    }
+                                }
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @* ===== COLUMN 3: RIGHT CONTENT ===== *@
+    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-2d38368"
+         data-element_type="column" data-id="2d38368"
+         data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+
+            @* Description Text - ONLY text is dynamic *@
+            <div class="elementor-element elementor-element-d440226 elementor-widget__width-initial elementor-absolute mobile-static elementor-widget-tablet__width-initial elementor-widget elementor-widget-text-editor"
+                 data-element_type="widget" data-id="d440226"
+                 data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"_position":"absolute","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="text-editor.default">
+                <div class="elementor-widget-container">
+                    <style>
+                                            /*! elementor - v3.21.0 - 08-05-2024 */
+                                            .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
+                                                background-color: #69727d;
+                                                color: #fff
+                                            }
+
+                                            .elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap {
+                                                color: #69727d;
+                                                border: 3px solid;
+                                                background-color: transparent
+                                            }
+
+                                            .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap {
+                                                margin-top: 8px
+                                            }
+
+                                            .elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter {
+                                                width: 1em;
+                                                height: 1em
+                                            }
+
+                                            .elementor-widget-text-editor .elementor-drop-cap {
+                                                float: left;
+                                                text-align: center;
+                                                line-height: 1;
+                                                font-size: 50px
+                                            }
+
+                                            .elementor-widget-text-editor .elementor-drop-cap-letter {
+                                                display: inline-block
+                                            }
+                    </style>
+                    <p @Html.EditAttributes(x => x.HeadingDescription)>
+                        @Model.HeadingDescription
+                    </p>
+                </div>
+            </div>
+
+            @* Right Image - ONLY src is dynamic *@
+            <div class="elementor-element elementor-element-82a03f3 elementor-widget__width-initial elementor-absolute mobile-static elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-widget elementor-widget-image"
+                 data-element_type="widget" data-id="82a03f3"
+                 data-settings='{"vive_image_is_animation":"true","_position":"absolute","vive_image_animation_effect":"slide_down","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="image.default" @Html.EditAttributes(x => x.HeadingRightImage)>
+                <div class="elementor-widget-container">
+                    @if (!ContentReference.IsNullOrEmpty(Model.HeadingRightImage))
+                    {
+                        <img alt="@ImageService.GetAltText(Model.HeadingRightImage ?? ContentReference.EmptyReference)" class="attachment-medium_large size-medium_large" decoding="async" loading="lazy"
+                             src="@Url.ContentUrl(Model.HeadingRightImage)" />
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

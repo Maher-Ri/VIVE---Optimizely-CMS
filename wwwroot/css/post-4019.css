@@ -1,0 +1,784 @@
+.elementor-4019 .elementor-element.elementor-element-00443a8>.elementor-container {
+	min-height: 100vh;
+}
+
+.elementor-4019 .elementor-element.elementor-element-00443a8 {
+	overflow: hidden;
+	transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-00443a8:not(.elementor-motion-effects-element-type-background),
+.elementor-4019 .elementor-element.elementor-element-00443a8>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+	background-color: #000000;
+	background-image: url("../images/woman-athlete-with-fitness-tracker-ties-shoelaces-LFM9E7H.jpg");
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.elementor-4019 .elementor-element.elementor-element-00443a8>.elementor-background-overlay {
+	background-color: transparent;
+	background-image: linear-gradient(90deg, #000000 0%, #F2295B00 100%);
+	opacity: 0.5;
+	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-4019 .elementor-element.elementor-element-07bc0db>.elementor-element-populated {
+	margin: 0px 0px 0px 0px;
+	--e-column-margin-right: 0px;
+	--e-column-margin-left: 0px;
+	padding: 60px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-d041e1a {
+	text-align: left;
+}
+
+.elementor-4019 .elementor-element.elementor-element-d041e1a .elementor-heading-title {
+	color: #FFFFFF;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 85px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 85px;
+}
+
+.elementor-element.elementor-element-d041e1a {
+	transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000) !important;
+	transition-delay: 50ms !important;
+}
+
+.elementor-widget.elementor-element-d041e1a {
+	opacity: 0;
+}
+
+.elementor-4019 .elementor-element.elementor-element-01fd63a {
+	text-align: left;
+}
+
+.elementor-4019 .elementor-element.elementor-element-01fd63a .elementor-heading-title {
+	color: #FFFFFF;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 85px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 85px;
+}
+
+.elementor-element.elementor-element-01fd63a {
+	transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000) !important;
+	transition-delay: 100ms !important;
+}
+
+.elementor-widget.elementor-element-01fd63a {
+	opacity: 0;
+}
+
+.elementor-4019 .elementor-element.elementor-element-a27fc0e {
+	text-align: left;
+	color: #FFFFFF;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.elementor-4019 .elementor-element.elementor-element-a27fc0e>.elementor-widget-container {
+	margin: 0% 50% 0% 0%;
+}
+
+.elementor-element.elementor-element-a27fc0e {
+	transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000) !important;
+	transition-delay: 150ms !important;
+}
+
+.elementor-widget.elementor-element-a27fc0e {
+	opacity: 0;
+}
+
+.elementor-4019 .elementor-element.elementor-element-920a2c6 .elementor-button {
+	font-family: "Montserrat", Sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	fill: #000000;
+	color: #000000;
+	background-color: #A6FF00;
+	border-style: solid;
+	border-width: 2px 2px 2px 2px;
+	border-color: #A6FF00;
+	border-radius: 500px 500px 500px 500px;
+	padding: 18px 40px 16px 40px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-920a2c6 .elementor-button:hover,
+.elementor-4019 .elementor-element.elementor-element-920a2c6 .elementor-button:focus {
+	color: #000000;
+	background-color: #9EF300;
+	border-color: #9EF300;
+}
+
+.elementor-4019 .elementor-element.elementor-element-920a2c6 .elementor-button:hover svg,
+.elementor-4019 .elementor-element.elementor-element-920a2c6 .elementor-button:focus svg {
+	fill: #000000;
+}
+
+.elementor-4019 .elementor-element.elementor-element-920a2c6>.elementor-widget-container {
+	margin: 30px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-920a2c6 {
+	width: 100%;
+	max-width: 100%;
+}
+
+.elementor-element.elementor-element-920a2c6 {
+	transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000) !important;
+	transition-delay: 200ms !important;
+}
+
+.elementor-widget.elementor-element-920a2c6 {
+	opacity: 0;
+}
+
+.elementor-4019 .elementor-element.elementor-element-6eeea02 {
+	margin-top: 60px;
+	margin-bottom: 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-05de8ce>.elementor-element-populated {
+	padding: 0px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5928186 .woocommerce ul.products li.product a img {
+	border-radius: 15px 15px 15px 15px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product h2.woocommerce-loop-product__title {
+	color: #000000;
+	font-family: "Montserrat", Sans-serif;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product {
+	text-align: center;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product span.price {
+	color: #000000;
+	font-family: "Montserrat", Sans-serif;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product .onsale {
+	background: #D22226;
+	color: #ffffff;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product a.button {
+	font-family: "Montserrat", Sans-serif;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 3em;
+	background: #A6FF00;
+	border-color: #A6FF00;
+	color: #000000;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product a.button:hover {
+	background: #9EF300;
+	border-color: #9EF300;
+	color: #000000;
+}
+
+.elementor-4019 .elementor-element.elementor-element-c9c015e {
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-04150a7>.elementor-element-populated {
+	padding: 0px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-efe8064 .elementor-heading-title {
+	font-family: "Montserrat", Sans-serif;
+	font-size: 30px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1a3f856 {
+	margin-top: 60px;
+	margin-bottom: 100px;
+}
+
+.elementor-bc-flex-widget .elementor-4019 .elementor-element.elementor-element-6ed9930.elementor-column .elementor-widget-wrap {
+	align-items: flex-end;
+}
+
+.elementor-4019 .elementor-element.elementor-element-6ed9930.elementor-column.elementor-element[data-element_type="column"]>.elementor-widget-wrap.elementor-element-populated {
+	align-content: flex-end;
+	align-items: flex-end;
+}
+
+.elementor-4019 .elementor-element.elementor-element-6ed9930:not(.elementor-motion-effects-element-type-background)>.elementor-widget-wrap,
+.elementor-4019 .elementor-element.elementor-element-6ed9930>.elementor-widget-wrap>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+	background-image: url("../images/flat-lay-with-sneakers-dumbbells-sport-bottle-towe-LQHB7PG.jpg");
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.elementor-4019 .elementor-element.elementor-element-6ed9930>.elementor-element-populated,
+.elementor-4019 .elementor-element.elementor-element-6ed9930>.elementor-element-populated>.elementor-background-overlay,
+.elementor-4019 .elementor-element.elementor-element-6ed9930>.elementor-background-slideshow {
+	border-radius: 15px 15px 15px 15px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-6ed9930>.elementor-element-populated {
+	transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+	margin: 0px 40px 0px 0px;
+	--e-column-margin-right: 40px;
+	--e-column-margin-left: 0px;
+	padding: 45px 30px 45px 30px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-6ed9930>.elementor-element-populated>.elementor-background-overlay {
+	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-4019 .elementor-element.elementor-element-08c9203 .elementor-heading-title {
+	color: #FFFFFF;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 26px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.3em;
+}
+
+.elementor-4019 .elementor-element.elementor-element-08c9203>.elementor-widget-container {
+	margin: 0% 0% 0% 0%;
+}
+
+.elementor-4019 .elementor-element.elementor-element-f998b88 .elementor-button {
+	font-family: "Montserrat", Sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	fill: #000000;
+	color: #000000;
+	background-color: #A6FF00;
+	border-style: solid;
+	border-width: 2px 2px 2px 2px;
+	border-color: #A6FF00;
+	border-radius: 500px 500px 500px 500px;
+	padding: 14px 30px 13px 30px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-f998b88 .elementor-button:hover,
+.elementor-4019 .elementor-element.elementor-element-f998b88 .elementor-button:focus {
+	color: #000000;
+	background-color: #9EF300;
+	border-color: #9EF300;
+}
+
+.elementor-4019 .elementor-element.elementor-element-f998b88 .elementor-button:hover svg,
+.elementor-4019 .elementor-element.elementor-element-f998b88 .elementor-button:focus svg {
+	fill: #000000;
+}
+
+.elementor-4019 .elementor-element.elementor-element-f998b88>.elementor-widget-container {
+	margin: 20px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-f998b88 {
+	width: auto;
+	max-width: auto;
+}
+
+.elementor-4019 .elementor-element.elementor-element-4eddeec>.elementor-element-populated {
+	padding: 0px 0px 0px 0px;
+}
+
+.elementor-bc-flex-widget .elementor-4019 .elementor-element.elementor-element-0b62daa.elementor-column .elementor-widget-wrap {
+	align-items: flex-end;
+}
+
+.elementor-4019 .elementor-element.elementor-element-0b62daa.elementor-column.elementor-element[data-element_type="column"]>.elementor-widget-wrap.elementor-element-populated {
+	align-content: flex-end;
+	align-items: flex-end;
+}
+
+.elementor-4019 .elementor-element.elementor-element-0b62daa:not(.elementor-motion-effects-element-type-background)>.elementor-widget-wrap,
+.elementor-4019 .elementor-element.elementor-element-0b62daa>.elementor-widget-wrap>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+	background-image: url("../images/sportive-woman-training-2021-04-21-02-54-58-utc-1.jpg");
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.elementor-4019 .elementor-element.elementor-element-0b62daa>.elementor-element-populated,
+.elementor-4019 .elementor-element.elementor-element-0b62daa>.elementor-element-populated>.elementor-background-overlay,
+.elementor-4019 .elementor-element.elementor-element-0b62daa>.elementor-background-slideshow {
+	border-radius: 15px 15px 15px 15px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-0b62daa>.elementor-element-populated {
+	transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+	margin: 0px 30px 0px 0px;
+	--e-column-margin-right: 30px;
+	--e-column-margin-left: 0px;
+	padding: 120px 30px 45px 30px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-0b62daa>.elementor-element-populated>.elementor-background-overlay {
+	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5bf84de .elementor-heading-title {
+	color: #000000;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 26px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.3em;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5bf84de>.elementor-widget-container {
+	margin: 0% 60% 0% 0%;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1ec16fd .elementor-button {
+	font-family: "Montserrat", Sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	fill: #000000;
+	color: #000000;
+	background-color: #A6FF00;
+	border-style: solid;
+	border-width: 2px 2px 2px 2px;
+	border-color: #A6FF00;
+	border-radius: 500px 500px 500px 500px;
+	padding: 14px 30px 13px 30px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1ec16fd .elementor-button:hover,
+.elementor-4019 .elementor-element.elementor-element-1ec16fd .elementor-button:focus {
+	color: #000000;
+	background-color: #9EF300;
+	border-color: #9EF300;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1ec16fd .elementor-button:hover svg,
+.elementor-4019 .elementor-element.elementor-element-1ec16fd .elementor-button:focus svg {
+	fill: #000000;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1ec16fd>.elementor-widget-container {
+	margin: 20px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1ec16fd {
+	width: auto;
+	max-width: auto;
+}
+
+.elementor-4019 .elementor-element.elementor-element-7104a1f {
+	margin-top: 40px;
+	margin-bottom: 0px;
+}
+
+.elementor-bc-flex-widget .elementor-4019 .elementor-element.elementor-element-5d53ac5.elementor-column .elementor-widget-wrap {
+	align-items: center;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5d53ac5.elementor-column.elementor-element[data-element_type="column"]>.elementor-widget-wrap.elementor-element-populated {
+	align-content: center;
+	align-items: center;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5d53ac5:not(.elementor-motion-effects-element-type-background)>.elementor-widget-wrap,
+.elementor-4019 .elementor-element.elementor-element-5d53ac5>.elementor-widget-wrap>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+	background-image: url("../images/fitness-woman-PUZ3HTN.jpg");
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5d53ac5>.elementor-element-populated,
+.elementor-4019 .elementor-element.elementor-element-5d53ac5>.elementor-element-populated>.elementor-background-overlay,
+.elementor-4019 .elementor-element.elementor-element-5d53ac5>.elementor-background-slideshow {
+	border-radius: 15px 15px 15px 15px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5d53ac5>.elementor-element-populated {
+	transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+	margin: 0px 30px 0px 0px;
+	--e-column-margin-right: 30px;
+	--e-column-margin-left: 0px;
+	padding: 85px 30px 45px 30px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-5d53ac5>.elementor-element-populated>.elementor-background-overlay {
+	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-4019 .elementor-element.elementor-element-45dea6e .elementor-heading-title {
+	color: #000000;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 26px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 1.3em;
+}
+
+.elementor-4019 .elementor-element.elementor-element-45dea6e>.elementor-widget-container {
+	margin: 0% 40% 0% 0%;
+}
+
+.elementor-4019 .elementor-element.elementor-element-ecfcb75 .elementor-button {
+	font-family: "Montserrat", Sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	fill: #000000;
+	color: #000000;
+	background-color: #A6FF00;
+	border-style: solid;
+	border-width: 2px 2px 2px 2px;
+	border-color: #A6FF00;
+	border-radius: 500px 500px 500px 500px;
+	padding: 14px 30px 13px 30px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-ecfcb75 .elementor-button:hover,
+.elementor-4019 .elementor-element.elementor-element-ecfcb75 .elementor-button:focus {
+	color: #000000;
+	background-color: #9EF300;
+	border-color: #9EF300;
+}
+
+.elementor-4019 .elementor-element.elementor-element-ecfcb75 .elementor-button:hover svg,
+.elementor-4019 .elementor-element.elementor-element-ecfcb75 .elementor-button:focus svg {
+	fill: #000000;
+}
+
+.elementor-4019 .elementor-element.elementor-element-ecfcb75>.elementor-widget-container {
+	margin: 20px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-ecfcb75 {
+	width: auto;
+	max-width: auto;
+}
+
+.elementor-4019 .elementor-element.elementor-element-2f62ef6:not(.elementor-motion-effects-element-type-background),
+.elementor-4019 .elementor-element.elementor-element-2f62ef6>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+	background-color: #000000;
+}
+
+.elementor-4019 .elementor-element.elementor-element-2f62ef6 {
+	transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+	padding: 100px 0px 60px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-2f62ef6>.elementor-background-overlay {
+	transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-4019 .elementor-element.elementor-element-b064799>.elementor-element-populated {
+	padding: 0px 0px 0px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1991570 .elementor-heading-title {
+	color: #FFFFFF;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 85px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 85px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-1991570>.elementor-widget-container {
+	margin: 0px 0px 0px 140px;
+}
+
+.elementor-element.elementor-element-1991570 {
+	transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000) !important;
+	transition-delay: 50ms !important;
+}
+
+.elementor-widget.elementor-element-1991570 {
+	opacity: 0;
+}
+
+.elementor-4019 .elementor-element.elementor-element-90acf67 .elementor-heading-title {
+	color: #FFFFFF;
+	font-family: "Montserrat", Sans-serif;
+	font-size: 85px;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: 85px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-90acf67>.elementor-widget-container {
+	margin: 0px 0px 0px 300px;
+}
+
+.elementor-element.elementor-element-90acf67 {
+	transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000) !important;
+	transition-delay: 100ms !important;
+}
+
+.elementor-widget.elementor-element-90acf67 {
+	opacity: 0;
+}
+
+.elementor-4019 .elementor-element.elementor-element-846e481 .elementor-button {
+	font-family: "Montserrat", Sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: uppercase;
+	fill: #FFFFFF;
+	color: #FFFFFF;
+	background-color: #02010100;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	border-color: #FFFFFF;
+	border-radius: 0px 0px 0px 0px;
+	padding: 0px 0px 5px 0px;
+}
+
+.elementor-4019 .elementor-element.elementor-element-846e481>.elementor-widget-container {
+	margin: 30px 0px 0px 300px;
+}
+
+@media(max-width:1024px) {
+	.elementor-4019 .elementor-element.elementor-element-00443a8>.elementor-container {
+		min-height: 80vh;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-07bc0db>.elementor-element-populated {
+		margin: 0px 0px 0px 0px;
+		--e-column-margin-right: 0px;
+		--e-column-margin-left: 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-d041e1a .elementor-heading-title {
+		font-size: 60px;
+		line-height: 60px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-01fd63a .elementor-heading-title {
+		font-size: 60px;
+		line-height: 60px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-a27fc0e>.elementor-widget-container {
+		margin: 0px 0px 0px 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-920a2c6 .elementor-button {
+		font-size: 14px;
+		padding: 16px 30px 16px 30px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-6eeea02 {
+		margin-top: 60px;
+		margin-bottom: 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product h2.woocommerce-loop-product__title {
+		font-size: 14px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product a.button {
+		font-size: 10px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-efe8064 .elementor-heading-title {
+		font-size: 24px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-1a3f856 {
+		margin-top: 40px;
+		margin-bottom: 60px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-08c9203 .elementor-heading-title {
+		font-size: 24px;
+		line-height: 1.4em;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-08c9203>.elementor-widget-container {
+		margin: 0% 30% 0% 0%;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-f998b88 .elementor-button {
+		padding: 18px 30px 16px 30px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-5bf84de .elementor-heading-title {
+		font-size: 24px;
+		line-height: 1.4em;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-5bf84de>.elementor-widget-container {
+		margin: 0% 30% 0% 0%;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-1ec16fd .elementor-button {
+		padding: 18px 30px 16px 30px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-45dea6e .elementor-heading-title {
+		font-size: 24px;
+		line-height: 1.4em;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-45dea6e>.elementor-widget-container {
+		margin: 0% 30% 0% 0%;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-ecfcb75 .elementor-button {
+		padding: 18px 30px 16px 30px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-1991570 .elementor-heading-title {
+		font-size: 70px;
+		line-height: 70px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-90acf67 .elementor-heading-title {
+		font-size: 70px;
+		line-height: 70px;
+	}
+}
+
+@media(max-width:767px) {
+	.elementor-4019 .elementor-element.elementor-element-00443a8>.elementor-container {
+		min-height: 70vh;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-07bc0db>.elementor-element-populated {
+		margin: 0px 0px 0px 0px;
+		--e-column-margin-right: 0px;
+		--e-column-margin-left: 0px;
+		padding: 60px 20px 0px 20px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-d041e1a .elementor-heading-title {
+		font-size: 33px;
+		line-height: 40px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-01fd63a .elementor-heading-title {
+		font-size: 33px;
+		line-height: 40px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-a27fc0e {
+		text-align: left;
+		font-size: 16px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-a27fc0e>.elementor-widget-container {
+		margin: 0px 0px 0px 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-920a2c6 .elementor-button {
+		padding: 14px 25px 14px 25px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-920a2c6>.elementor-widget-container {
+		margin: 20px 0px 0px 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-5928186 ul.products li.product h2.woocommerce-loop-product__title {
+		font-size: 14px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-efe8064 .elementor-heading-title {
+		font-size: 22px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-1a3f856 {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-6ed9930>.elementor-element-populated {
+		margin: 0px 0px 40px 0px;
+		--e-column-margin-right: 0px;
+		--e-column-margin-left: 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-f998b88 .elementor-button {
+		padding: 16px 25px 14px 25px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-50aa822 {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-0b62daa>.elementor-element-populated {
+		margin: 0px 0px 40px 0px;
+		--e-column-margin-right: 0px;
+		--e-column-margin-left: 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-1ec16fd .elementor-button {
+		padding: 16px 25px 14px 25px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-7104a1f {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-5d53ac5>.elementor-element-populated {
+		margin: 0px 0px 40px 0px;
+		--e-column-margin-right: 0px;
+		--e-column-margin-left: 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-ecfcb75 .elementor-button {
+		padding: 16px 25px 14px 25px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-2f62ef6 {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding: 80px 0px 80px 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-b064799>.elementor-element-populated {
+		padding: 0px 20px 0px 20px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-1991570 .elementor-heading-title {
+		font-size: 45px;
+		line-height: 50px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-1991570>.elementor-widget-container {
+		margin: 0px 0px 0px 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-90acf67 .elementor-heading-title {
+		font-size: 45px;
+		line-height: 50px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-90acf67>.elementor-widget-container {
+		margin: 0px 0px 0px 0px;
+	}
+
+	.elementor-4019 .elementor-element.elementor-element-846e481>.elementor-widget-container {
+		margin: 40px 0px 0px 0px;
+	}
+}

@@ -1,0 +1,37 @@
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Framework.Web.Mvc.Html
+@model VIVEcms.Models.ViewModels.IPageViewModel
+
+<!DOCTYPE html>
+<html data-menu="leftalign" lang="en-US">
+<head>
+    @await Html.PartialAsync("_Head", Model)
+    @Html.RequiredClientResources("Header")
+</head>
+<body class="page-template-default page page-id-1682 theme-vive woocommerce-no-js lightbox-white leftalign loftloader-lite-enabled elementor-default elementor-kit-6 elementor-page elementor-page-1682">
+    <!-- Loader -->
+    <div class="pl-imgloading" data-max-load-time="0" data-show-close-time="15000" id="loftloader-wrapper">
+        <div class="loader-section section-fade"></div>
+        <div class="loader-inner">
+            <div id="loader">
+                <div class="imgloading-container"><span style="background-image: url('images/logo-white-big.png');"></span></div>
+                <img alt="loader image" class="skip-lazy" data-no-lazy="1" height="60" src="~/images/logo-white-big.png" width="118" />
+            </div>
+        </div>
+        <div class="loader-close-button" style="display: none;"><span class="screen-reader-text">Close</span></div>
+    </div>
+
+    <div id="perspective" style="">
+        @await Html.PartialAsync("_Navbar", Model.Layout)
+
+        @RenderBody()
+
+        </div><!-- End #wrapper -->
+
+        @await Html.PartialAsync("_Footer", Model.Layout)
+
+    </div><!-- End #perspective -->
+
+    @Html.RequiredClientResources("Footer")
+</body>
+</html>
