@@ -1,0 +1,88 @@
+@* Views/BlogPostPage/Sections/_RelatedSection.cshtml *@
+@model VIVEcms.Models.Pages.BlogPostPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.IContentLoader ContentLoader
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+var relatedPosts = new List<VIVEcms.Models.Pages.BlogPostPage>();
+
+if (Model.ShowRelatedSection && Model.RelatedPosts != null)
+{
+    relatedPosts = Model.RelatedPosts.FilteredItems
+        .Select(item => ContentLoader.Get<VIVEcms.Models.Pages.BlogPostPage>(item.ContentLink))
+        .Where(post => post != null)
+        .Take(2)
+        .ToList();
+}
+}
+
+@if (relatedPosts.Any())
+{
+<div class="post-related">
+    <h3>Related Articles</h3>
+    <br class="clear" />
+
+    @for (int i = 0; i < relatedPosts.Count; i++)
+    {
+        var post     = relatedPosts[i];
+        var postUrl  = UrlResolver.GetUrl(post.ContentLink);
+        var isLast   = i == relatedPosts.Count - 1;
+        var tags     = !string.IsNullOrWhiteSpace(post.Tags)
+                        ? post.Tags.Split(',').Select(t => t.Trim()).Where(t => !string.IsNullOrEmpty(t)).ToList()
+                        : new List<string>();
+
+        <div class="one-half @(isLast ? "last" : "")">
+            <div class="post type-post status-publish format-standard has-post-thumbnail hentry">
+                <div class="post-wrapper grid-layout has-featured-img">
+
+                    <a class="post-related-link" href="@postUrl"></a>
+
+                    @if (!ContentReference.IsNullOrEmpty(post.FeaturedImage))
+                    {
+                        <img alt="@(post.FeaturedImage != null ? ImageService.GetAltText(post.FeaturedImage) : "")"
+                             class="post-related-featured-img"
+                             height="610"
+                             src="@Url.ContentUrl(post.FeaturedImage)"
+                             width="610" />
+                    }
+
+                    <div class="post-header-wrapper">
+                        <div class="post-header grid related">
+                            <h6>
+                                <a href="@postUrl" title="@post.Name">
+                                    @post.Name
+                                </a>
+                            </h6>
+                        </div>
+                        <div class="post-detail single-post">
+                            <div class="post-info-date">
+                                @post.PostDate.ToString("MMMM d, yyyy")
+                            </div>
+                            @if (tags.Any())
+                            {
+                                <span class="post-info-cat">
+                                    @for (int t = 0; t < tags.Count; t++)
+                                    {
+                                        <a href="#">@tags[t]</a>
+                                        @if (t < tags.Count - 1)
+                                        {
+                                            <text> · </text>
+                                        }
+                                    }
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+    <br class="clear" />
+</div>
+}

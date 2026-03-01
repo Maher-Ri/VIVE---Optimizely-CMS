@@ -15,6 +15,10 @@ namespace VIVEcms.Models.Pages
     )]
     public partial class HomePage : SitePageData // Inheriting our SEO properties!
     {
+
+        [ScaffoldColumn(false)]
+        public override string PageCssFile => "";
+
         /* ============================================================
          TAB NAMES - add new tabs here as we build each section
          ============================================================ */

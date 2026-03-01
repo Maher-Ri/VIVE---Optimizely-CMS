@@ -1,0 +1,113 @@
+@* Views/BlogPostPage/Sections/_CommentSection.cshtml *@
+@model VIVEcms.Models.Pages.BlogPostPage
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+
+@if (Model.ShowCommentSection)
+{
+@* Get current page URL for form action *@
+var pageUrl = UrlResolver.GetUrl(Model.ContentLink);
+
+<div class="fullwidth-comment-wrapper sidebar theme-border">
+    <div class="comment-respond" id="respond">
+
+        <h3 class="comment-reply-title" id="reply-title">
+            @(string.IsNullOrWhiteSpace(Model.CommentFormTitle)
+                ? "Leave A Reply"
+                : Model.CommentFormTitle)
+        </h3>
+
+        @* Success message *@
+        @if (TempData["CommentSuccess"] != null)
+        {
+            <div style="color:green; margin-bottom:15px; padding:10px; border:1px solid green;">
+                @TempData["CommentSuccess"]
+            </div>
+        }
+
+        @* ✅ Posts to current page URL — Optimizely routes to SubmitComment *@
+        <form action="@pageUrl"
+              class="comment-form"
+              id="commentform"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" name="PostId" value="@Model.ContentLink.ID" />
+
+            <p class="comment-notes">
+                <span id="email-notes">Your email address will not be published.</span>
+                <span class="required-field-message">
+                    Required fields are marked <span class="required">*</span>
+                </span>
+            </p>
+
+            <p class="comment-form-comment input-wrapper">
+                <textarea aria-required="true"
+                          class="input-effect"
+                          cols="45"
+                          id="comment"
+                          name="Comment"
+                          placeholder="Comment"
+                          rows="8"></textarea>
+                <span class="focus-border"></span>
+            </p>
+
+            <p class="comment-form-author input-wrapper">
+                <input aria-required="true"
+                       class="input-effect"
+                       id="author"
+                       name="Author"
+                       placeholder="Name *"
+                       size="30"
+                       type="text"
+                       value="" />
+                <span class="focus-border"></span>
+            </p>
+
+            <p class="comment-form-email input-wrapper">
+                <input aria-required="true"
+                       class="input-effect"
+                       id="email"
+                       name="Email"
+                       placeholder="Email *"
+                       size="30"
+                       type="text"
+                       value="" />
+                <span class="focus-border"></span>
+            </p>
+
+            <p class="comment-form-url input-wrapper">
+                <input class="input-effect"
+                       id="url"
+                       name="Url"
+                       placeholder="Website"
+                       size="30"
+                       type="text"
+                       value="" />
+                <span class="focus-border"></span>
+            </p>
+
+            <p class="comment-form-cookies-consent">
+                <input id="wp-comment-cookies-consent"
+                       name="SaveInfo"
+                       type="checkbox"
+                       value="yes" />
+                <label for="wp-comment-cookies-consent">
+                    Save my name, email, and website in this browser for the next time I comment.
+                </label>
+            </p>
+
+            <p class="form-submit">
+                <input class="submit"
+                       id="submit"
+                       name="submit"
+                       type="submit"
+                       value="Post Comment" />
+            </p>
+
+        </form>
+    </div>
+</div>
+}

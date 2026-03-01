@@ -1,4 +1,4 @@
-// Models/Pages/HomePage/HomePage.ScheduleSection.cs
+// Models/Pages/AboutPage/AboutPage.ScheduleSection.cs
 using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAnnotations;
@@ -6,7 +6,7 @@ using VIVEcms.Models.Blocks;
 
 namespace VIVEcms.Models.Pages
 {
-    public partial class HomePage
+    public partial class AboutPage
     {
         [Display(
             Name = "Show Schedule Section",

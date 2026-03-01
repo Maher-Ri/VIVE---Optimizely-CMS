@@ -1,4 +1,4 @@
-// Models/Pages/HomePage/HomePage.PricingSection.cs
+// Models/Pages/ClassesPage/ClassesPage.PricingSection.cs
 using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAnnotations;
@@ -6,11 +6,11 @@ using VIVEcms.Models.Blocks;
 
 namespace VIVEcms.Models.Pages
 {
-    public partial class HomePage
+    public partial class ClassesPage
     {
         [Display(
             Name = "Show Pricing Section",
-            Description = "Toggle to show or hide this section on the page",
+            Description = "Toggle to show or hide this section",
             Order = 1,
             GroupName = Tabs.PricingSection
         )]

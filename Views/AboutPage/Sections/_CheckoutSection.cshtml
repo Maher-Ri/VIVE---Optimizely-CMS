@@ -1,0 +1,90 @@
+@* Views/AboutPage/Sections/_CheckoutSection.cshtml *@
+@model VIVEcms.Models.Pages.AboutPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject VIVEcms.Services.IImageService ImageService
+
+<div class="elementor-container elementor-column-gap-default">
+
+@* ===== COLUMN 1: LEFT CONTENT ===== *@
+<div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-a5dcfe1" data-element_type="column" data-id="a5dcfe1" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Heading Line 1 - ONLY text is dynamic *@
+        <div class="elementor-element elementor-element-675e281 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="675e281" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="50" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.CheckoutHeading1)>
+                        @Model.CheckoutHeading1
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Heading Line 2 - ONLY text is dynamic *@
+        <div class="elementor-element elementor-element-47aa152 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="47aa152" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="50" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.CheckoutHeading2)>
+                        @Model.CheckoutHeading2
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Heading Line 3 - ONLY text is dynamic *@
+        <div class="elementor-element elementor-element-5ed874d elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="5ed874d" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="100" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.CheckoutHeading3)>
+                        @Model.CheckoutHeading3
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Button - text and URL are dynamic *@
+        <div class="elementor-element elementor-element-db2445d elementor-widget__width-auto animated-fast elementor-invisible elementor-widget elementor-widget-button" data-element_type="widget" data-id="db2445d" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"_animation":"fadeIn","_animation_delay":400,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+            <div class="elementor-widget-container">
+                <div class="elementor-button-wrapper">
+                    <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate"
+                       href="@(string.IsNullOrWhiteSpace(Model.CheckoutButtonUrl) ? "#" : Model.CheckoutButtonUrl)">
+                        <span class="elementor-button-content-wrapper">
+                            <span class="elementor-button-text"
+                                  @Html.EditAttributes(x => x.CheckoutButtonText)>
+                                @Model.CheckoutButtonText
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@* ===== COLUMN 2: RIGHT IMAGE ===== *@
+<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3bb5fa9" data-element_type="column" data-id="3bb5fa9" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Image - ONLY src and alt are dynamic *@
+        <div class="elementor-element elementor-element-4f7db57 elementor-widget elementor-widget-image" data-element_type="widget" data-id="4f7db57" data-settings='{"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default"
+             @Html.EditAttributes(x => x.CheckoutImage)>
+            <div class="elementor-widget-container">
+                @if (!ContentReference.IsNullOrEmpty(Model.CheckoutImage))
+                {
+                    <img alt="@(Model.CheckoutImage != null ? ImageService.GetAltText(Model.CheckoutImage) : "")"
+                         class="attachment-vive-gallery-masonry size-vive-gallery-masonry wp-image-1837"
+                         decoding="async"
+                         height="660"
+                         loading="lazy"
+                         src="@Url.ContentUrl(Model.CheckoutImage)"
+                         width="440" />
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>

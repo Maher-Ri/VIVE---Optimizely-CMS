@@ -1,0 +1,50 @@
+@* Views/BlogPostPage/Sections/_NavigationSection.cshtml *@
+@model VIVEcms.Models.Pages.BlogPostPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.IContentLoader ContentLoader
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+  VIVEcms.Models.Pages.BlogPostPage? previousPost = null;
+
+  if (Model.ShowNavigation)
+  {
+      previousPost = ContentLoader
+          .GetChildren<VIVEcms.Models.Pages.BlogPostPage>(Model.ParentLink)
+          .Where(p => p.PostDate < Model.PostDate)
+          .OrderByDescending(p => p.PostDate)
+          .FirstOrDefault()!;
+  }
+}
+
+@if (previousPost != null)
+{
+  var prevUrl = UrlResolver.GetUrl(previousPost.ContentLink);
+
+      <a href="@prevUrl">
+          <div class="navigation-post-content">
+
+              <div class="post-featured-image static">
+                  <div class="post-featured-image-hover lazy">
+                      @if (!ContentReference.IsNullOrEmpty(previousPost.FeaturedImage))
+                      {
+                          <img alt="@(previousPost.FeaturedImage != null ? ImageService.GetAltText(previousPost.FeaturedImage) : "")"
+                               class="smoove"
+                               height="610"
+                               src="@Url.ContentUrl(previousPost.FeaturedImage)"
+                               width="610" />
+                      }
+                  </div>
+              </div>
+
+              <h7>@previousPost.Name</h7>
+
+          </div>
+          <div class="navigation-anchor">
+              Previous Article
+          </div>
+      </a>
+}

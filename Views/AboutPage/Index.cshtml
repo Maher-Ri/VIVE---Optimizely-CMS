@@ -1,0 +1,93 @@
+@model VIVEcms.Models.ViewModels.PageViewModel<VIVEcms.Models.Pages.AboutPage>
+@using EPiServer.Core
+@using VIVEcms.Models.Blocks
+@inject EPiServer.IContentLoader ContentLoader
+
+
+    <!-- Begin content -->
+    <div class="no-title" id="page-content-wrapper">
+        <div class="inner">
+           <!-- Begin main content -->
+           <div class="inner-wrapper">
+              <div class="sidebar-content fullwidth">
+                 <div class="elementor elementor-3202" data-elementor-id="3202" data-elementor-type="wp-page">
+
+                    @* ===== HEADER SECTION ===== *@
+                    @if (Model.CurrentPage.ShowHeaderSection)
+                    {
+                    @await Html.PartialAsync(
+                        "~/Views/AboutPage/Sections/_HeaderSection.cshtml",
+                        Model.CurrentPage)
+                    }
+                    
+                     @* ===== CHECKOUT SECTION ===== *@
+                     @if (Model.CurrentPage.ShowCheckoutSection)
+                     {
+                     <section class="elementor-section elementor-top-section elementor-element elementor-element-d4e5f5c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="d4e5f5c" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                     
+                     @await Html.PartialAsync(
+                         "~/Views/AboutPage/Sections/_CheckoutSection.cshtml",
+                         Model.CurrentPage)
+                         </section>
+                     }  
+                    
+                     @* ===== PROCESS SECTION ===== *@
+                     @if (Model.CurrentPage.ShowProcessSection)
+                     {
+                     <section class="elementor-section elementor-top-section elementor-element elementor-element-8987b0b elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="8987b0b" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                     
+                     @await Html.PartialAsync(
+                         "~/Views/AboutPage/Sections/_ProcessSection.cshtml",
+                         Model.CurrentPage)
+                         </section>
+                     }
+
+                     @* ===== SCHEDULE SECTION ===== *@
+                     @{
+                     ScheduleSectionBlock? scheduleBlock = null;
+                     if (Model.CurrentPage.ScheduleSection != null
+                         && Model.CurrentPage.ScheduleSection.FilteredItems.Any())
+                     {
+                         scheduleBlock = ContentLoader.Get<ScheduleSectionBlock>(
+                             Model.CurrentPage.ScheduleSection.FilteredItems.First().ContentLink);
+                     }
+                     }
+                     @if (Model.CurrentPage.ShowScheduleSection && scheduleBlock != null)
+                     {
+                        <section class="elementor-section elementor-top-section elementor-element elementor-element-b888d45 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="b888d45" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>                        
+                                                
+                     @* ✅ Uses AboutPage view — correct element IDs for post-3202.css *@
+                     @await Html.PartialAsync(
+
+                         "~/Views/AboutPage/Sections/_ScheduleSection.cshtml",
+                         scheduleBlock)
+                          </section>
+                     }
+
+                     @* ===== VIVE TRAINER SECTION ===== *@
+                     @{
+                     ViveTrainerSectionBlock? viveTrainerBlock = null;
+                     if (Model.CurrentPage.ViveTrainerSection != null
+                         && Model.CurrentPage.ViveTrainerSection.FilteredItems.Any())
+                     {
+                         viveTrainerBlock = ContentLoader.Get<ViveTrainerSectionBlock>(
+                             Model.CurrentPage.ViveTrainerSection.FilteredItems.First().ContentLink);
+                     }
+                     }
+                     @if (Model.CurrentPage.ShowViveTrainerSection && viveTrainerBlock != null)
+                     {
+                     <section class="elementor-section elementor-top-section elementor-element elementor-element-75aa256 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="75aa256" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                     
+                     @* ✅ Uses AboutPage view — correct element IDs for post-3202.css *@
+                     @await Html.PartialAsync(
+                         "~/Views/AboutPage/Sections/_ViveTrainerSection.cshtml",
+                         viveTrainerBlock)
+                        </section>
+                     }
+                 </div>
+                 <div class="comment_disable_clearer"></div>
+              </div>
+           </div>
+           <!-- End main content -->
+        </div>
+    </div>

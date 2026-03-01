@@ -1,0 +1,74 @@
+@* Views/BlogPostPage/Sections/_HeaderSection.cshtml *@
+@model VIVEcms.Models.Pages.BlogPostPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+var tags = !string.IsNullOrWhiteSpace(Model.Tags)
+    ? Model.Tags.Split(',').Select(t => t.Trim()).Where(t => !string.IsNullOrEmpty(t)).ToList()
+    : new List<string>();
+}
+
+<div class="has-featured" id="page-header" style="display: flex; justify-content: center; align-items: center; ">
+<div class="page-title-wrapper" style="margin-top: auto;">
+    <div class="standard-wrapper">
+        <div class="page-title-inner">
+            <div class="page-title-content title_align_center">
+
+                @* Title — auto from page Name *@
+                <h1 style="color: white !important;"><span>@Model.Name</span></h1>
+
+                <div class="post-detail single-post">
+
+                    @* Author *@
+                    <div class="post-author">
+                        <div class="gravatar">
+                            @if (!ContentReference.IsNullOrEmpty(Model.AuthorAvatar))
+                            {
+                                <img alt="@Model.AuthorName"
+                                     class="avatar avatar-200 photo"
+                                     decoding="async"
+                                     height="200"
+                                     src="@Url.ContentUrl(Model.AuthorAvatar)"
+                                     width="200" />
+                            }
+                        </div>
+                        <div class="post-author-detail">
+                            <span class="post-author-name-before">
+                                <span class="post-author-name">
+                                    <h6 @Html.EditAttributes(x => x.AuthorName)>
+                                        @Model.AuthorName
+                                    </h6>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    @* Date *@
+                    <div class="post-info-date">
+                        @Model.PostDate.ToString("MMMM d, yyyy")
+                    </div>
+
+                    @* Tags as Categories *@
+                    @if (tags.Any())
+                    {
+                        <span class="post-info-cat"
+                              @Html.EditAttributes(x => x.Tags)>
+                            @for (int i = 0; i < tags.Count; i++)
+                            {
+                                <a href="#">@tags[i]</a>
+                                @if (i < tags.Count - 1)
+                                {
+                                    <text> · </text>
+                                }
+                            }
+                        </span>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

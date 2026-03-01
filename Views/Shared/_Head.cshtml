@@ -1,6 +1,5 @@
 @model VIVEcms.Models.ViewModels.IPageViewModel
 
-
     <meta charset="UTF-8">
 
     <!-- OPTIMIZELY DYNAMIC SEO DATA -->
@@ -51,6 +50,7 @@
         <!-- YOUR STYLESHEETS -->
         <link data-minify="1" href="~/css/dashicons.min.css" media="all" rel="stylesheet" type="text/css">
         <link data-minify="1" href="~/css/reset.css" media="all" rel="stylesheet" type="text/css">
+        <link data-minify="1" href="~/css/responsive.css" media="all" rel="stylesheet" type="text/css">
         <link data-minify="1" href="~/css/wordpress.css" media="all" rel="stylesheet" type="text/css">
         <link data-minify="1" href="~/css/screen.css" media="all" rel="stylesheet" type="text/css" />
         <link data-minify="1" href="~/css/modulobox.css" media="all" rel="stylesheet" type="text/css" />
@@ -72,6 +72,11 @@
         <link data-minify="1" href="~/css/vive-elementor.css" media="all" rel="stylesheet" type="text/css" />
         <link data-minify="1" href="~/css/vive-elementor-responsive.css" media="all" rel="stylesheet" type="text/css" />
         <link href="~/css/post-1682.css" media="all" rel="stylesheet" type="text/css" />
+        @* ===== PAGE SPECIFIC — loads per page only ===== *@
+        @if (!string.IsNullOrWhiteSpace(Model.CurrentPage.PageCssFile))
+        {
+         <link href="~/css/@Model.CurrentPage.PageCssFile" media="all" rel="stylesheet" type="text/css" />
+        }
         <link data-minify="1" href="~/css/responsive.css" media="all" rel="stylesheet" type="text/css" />
         <link href="~/css/fontawesome.min.css" media="all" rel="stylesheet" type="text/css" />
         <link data-minify="1" href="~/css/solid.min.css" media="all" rel="stylesheet" type="text/css" />

@@ -1,0 +1,66 @@
+@* Views/BlogPostPage/Sections/_GallerySection.cshtml *@
+@model VIVEcms.Models.Pages.BlogPostPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject EPiServer.IContentLoader ContentLoader
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+var galleryItems = new List<VIVEcms.Models.Blocks.GalleryItemBlock>();
+if (Model.GalleryImages != null)
+{
+    galleryItems = Model.GalleryImages.FilteredItems
+        .Select(item => ContentLoader.Get<VIVEcms.Models.Blocks.GalleryItemBlock>(item.ContentLink))
+        .Where(block => block != null)
+        .ToList();
+}
+}
+
+@if (galleryItems.Any())
+{
+<div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-585493db" data-element_type="column" data-id="585493db" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-3913e42 elementor-widget elementor-widget-vive-gallery-grid" data-element_type="widget" data-id="3913e42" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-gallery-grid.default">
+                <div class="elementor-widget-container">
+                    <div class="vive-gallery-grid-content-wrapper layout-vive-three-cols">
+
+                        @for (int i = 0; i < galleryItems.Count; i++)
+                        {
+                            var item     = galleryItems[i];
+                            var delay    = ((i % 3) + 1) * 150;
+                            var isLast   = (i + 1) % 3 == 0;
+                            var imageUrl = !ContentReference.IsNullOrEmpty(item.Image)
+                                            ? Url.ContentUrl(item.Image) : string.Empty;
+                            var thumbUrl = !ContentReference.IsNullOrEmpty(item.ThumbnailImage)
+                                            ? Url.ContentUrl(item.ThumbnailImage) : imageUrl;
+
+                            <div class="gallery-grid-item disable_all vive-three-cols @(isLast ? "last" : "") smoove fade-in"
+                                 data-delay="@delay"
+                                 data-minwidth="5000"
+                                 data-opacity="0">
+                                <a class="vive_gallery_lightbox"
+                                   data-rel="tg_gallery3913e42"
+                                   data-thumb="@thumbUrl"
+                                   href="@imageUrl">
+                                    @if (!ContentReference.IsNullOrEmpty(item.Image))
+                                    {
+                                        <img alt="@(item.Image == null || ContentReference.IsNullOrEmpty(item.Image) ? string.Empty : ImageService.GetAltText(item.Image))"
+                                             class=""
+                                             decoding="async"
+                                             height="466"
+                                             src="@imageUrl"
+                                             width="700" />
+                                    }
+                                </a>
+                            </div>
+                        }
+
+                        <br class="clear" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

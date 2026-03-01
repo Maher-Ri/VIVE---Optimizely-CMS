@@ -1,0 +1,140 @@
+@* Views/BlogPage/Index.cshtml *@
+@model VIVEcms.Models.ViewModels.BlogPageViewModel
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+@inject VIVEcms.Services.IImageService ImageService
+
+<div class="no-title" id="page-content-wrapper">
+<div class="inner">
+    <div class="inner-wrapper">
+        <div class="sidebar-content fullwidth">
+            <div class="elementor elementor-3810" data-elementor-id="3810" data-elementor-type="wp-page">
+
+                <section class="elementor-section elementor-top-section elementor-element elementor-element-5941b04 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="5941b04" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                    <div class="elementor-container elementor-column-gap-default">
+                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ff3380c" data-element_type="column" data-id="ff3380c" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-2c20011 elementor-widget elementor-widget-vive-blog-posts" data-element_type="widget" data-id="2c20011" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-blog-posts.default">
+                                    <div class="elementor-widget-container">
+                                        <div class="blog-post-content-wrapper layout-metro">
+
+                                            @* ===== LEFT — FEATURED POST (first child) ===== *@
+                                            <div class="post-metro-left-wrapper">
+                                                @if (Model.FeaturedPost != null)
+                                                {
+                                                    var featuredUrl = UrlResolver.GetUrl(Model.FeaturedPost.ContentLink);
+
+                                                    <div class="blog-posts-metro post type-post status-publish format-standard has-post-thumbnail hentry">
+                                                        <div class="post-wrapper">
+                                                            <div class="post-featured-image static">
+                                                                <div class="post-featured-image-hover">
+                                                                    <div class="post-featured-image-overlay"></div>
+                                                                    <div class="post-featured-date-wrapper">
+                                                                        <div class="post-featured-date">
+                                                                            @Model.FeaturedPost.PostDate.ToString("dd")
+                                                                        </div>
+                                                                        <div class="post-featured-month">
+                                                                            @Model.FeaturedPost.PostDate.ToString("MMM")
+                                                                        </div>
+                                                                    </div>
+                                                                    @if (!ContentReference.IsNullOrEmpty(Model.FeaturedPost.FeaturedImage))
+                                                                    {
+                                                                        <img alt="@(Model.FeaturedPost.FeaturedImage != null ? ImageService.GetAltText(Model.FeaturedPost.FeaturedImage) : "")"
+                                                                             class="lazy_masonry smoove"
+                                                                             decoding="async"
+                                                                             height="610"
+                                                                             src="@Url.ContentUrl(Model.FeaturedPost.FeaturedImage)"
+                                                                             width="610" />
+                                                                    }
+                                                                    <a href="@featuredUrl"></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-content-wrapper text-">
+                                                                <div class="post-header">
+                                                                    <div class="post-header-title">
+                                                                        <h5>
+                                                                            <a href="@featuredUrl"
+                                                                               title="@Model.FeaturedPost.Name">
+                                                                                @Model.FeaturedPost.Name
+                                                                            </a>
+                                                                        </h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="post-header-wrapper">
+                                                                    <br class="clear" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+
+                                            @* ===== RIGHT — REGULAR POSTS (remaining children) ===== *@
+                                            <div class="post-metro-right-wrapper layout-metro_masonry">
+                                                @foreach (var post in Model.RegularPosts)
+                                                {
+                                                    var postUrl = UrlResolver.GetUrl(post.ContentLink);
+
+                                                    <div class="blog-posts-metro post type-post status-publish format-standard has-post-thumbnail hentry">
+                                                        <div class="post-wrapper">
+                                                            <div class="post-featured-image static">
+                                                                <div class="post-featured-image-hover">
+                                                                    <div class="post-featured-image-overlay"></div>
+                                                                    <div class="post-featured-date-wrapper">
+                                                                        <div class="post-featured-date">
+                                                                            @post.PostDate.ToString("dd")
+                                                                        </div>
+                                                                        <div class="post-featured-month">
+                                                                            @post.PostDate.ToString("MMM")
+                                                                        </div>
+                                                                    </div>
+                                                                    @if (!ContentReference.IsNullOrEmpty(post.FeaturedImage))
+                                                                    {
+                                                                        <img alt="@(post.FeaturedImage != null ? ImageService.GetAltText(post.FeaturedImage) : "")"
+                                                                             class="lazy_masonry smoove"
+                                                                             decoding="async"
+                                                                             height="604"
+                                                                             src="@Url.ContentUrl(post.FeaturedImage)"
+                                                                             width="960" />
+                                                                    }
+                                                                    <a href="@postUrl"></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-content-wrapper text-">
+                                                                <div class="post-header">
+                                                                    <div class="post-header-title">
+                                                                        <h5>
+                                                                            <a href="@postUrl"
+                                                                               title="@post.Name">
+                                                                                @post.Name
+                                                                            </a>
+                                                                        </h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="post-header-wrapper">
+                                                                    <br class="clear" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+
+                                            <br class="clear" />
+                                        </div>
+                                        <br class="clear" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+        <div class="comment_disable_clearer"></div>
+    </div>
+</div>
+</div>

@@ -1,4 +1,5 @@
 using VIVEcms.Models.Pages;
+
 // This is a generic class. It will take any page type (like HomePage, AboutPage, etc.) and combine it with the LayoutModel.
 namespace VIVEcms.Models.ViewModels
 {

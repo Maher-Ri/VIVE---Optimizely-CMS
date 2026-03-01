@@ -1,0 +1,120 @@
+@* Views/AboutPage/Sections/_ScheduleSection.cshtml *@
+@model VIVEcms.Models.Blocks.ScheduleSectionBlock
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject VIVEcms.Services.IImageService ImageService
+
+<div class="elementor-container elementor-column-gap-default">
+
+@* ===== COLUMN 1: LEFT CONTENT ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7e33cfd" data-element_type="column" data-id="7e33cfd" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Heading Line 1 *@
+        <div class="elementor-element elementor-element-427f3d0 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="427f3d0" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="0" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.HeadingLine1)>
+                        @Model.HeadingLine1
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Heading Line 2 *@
+        <div class="elementor-element elementor-element-4e7684e elementor-widget__width-auto elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="4e7684e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="50" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.HeadingLine2)>
+                        @Model.HeadingLine2
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Heading Line 3 *@
+        <div class="elementor-element elementor-element-0f9cfc0 elementor-widget__width-auto elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="0f9cfc0" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="50" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.HeadingLine3)>
+                        @Model.HeadingLine3
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Heading Line 4 *@
+        <div class="elementor-element elementor-element-c77fa90 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="c77fa90" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="100" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.HeadingLine4)>
+                        @Model.HeadingLine4
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Heading Line 5 *@
+        <div class="elementor-element elementor-element-c742e41 elementor-widget elementor-widget-vive-animated-text" data-element_type="widget" data-id="c742e41" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-text.default">
+            <div class="elementor-widget-container">
+                <div class="themegoods-animated-text text-alignment-left transition-bottom overflow-hidden" data-delimiter="sentence" data-transition="100" data-transition-delay="150" data-transition-duration="800">
+                    <h2 @Html.EditAttributes(x => x.HeadingLine5)>
+                        @Model.HeadingLine5
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        @* Description *@
+        <div class="elementor-element elementor-element-5a563ab elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="5a563ab" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+            <div class="elementor-widget-container"
+                 @Html.EditAttributes(x => x.Description)>
+                @Html.Raw(Model.Description?.ToString())
+            </div>
+        </div>
+
+        @* Button *@
+        <div class="elementor-element elementor-element-aa81386 elementor-widget__width-auto animated-fast elementor-invisible elementor-widget elementor-widget-button" data-element_type="widget" data-id="aa81386" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"_animation":"fadeIn","_animation_delay":400,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+            <div class="elementor-widget-container">
+                <div class="elementor-button-wrapper">
+                    <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate"
+                       href="@(string.IsNullOrWhiteSpace(Model.ButtonUrl) ? "#" : Model.ButtonUrl)">
+                        <span class="elementor-button-content-wrapper">
+                            <span class="elementor-button-text"
+                                  @Html.EditAttributes(x => x.ButtonText)>
+                                @Model.ButtonText
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@* ===== COLUMN 2: RIGHT IMAGE ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-8f97a4f" data-element_type="column" data-id="8f97a4f" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Image - ONLY src and alt are dynamic *@
+        <div class="elementor-element elementor-element-4978c2d mobile-static elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-initial elementor-absolute elementor-widget elementor-widget-image" data-element_type="widget" data-id="4978c2d" data-settings='{"_position":"absolute","vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default"
+             @Html.EditAttributes(x => x.SectionImage)>
+            <div class="elementor-widget-container">
+                @if (!ContentReference.IsNullOrEmpty(Model.SectionImage))
+                {
+                    <img alt="@(Model.SectionImage != null ? ImageService.GetAltText(Model.SectionImage) : "")"
+                         class="attachment-large size-large wp-image-1007"
+                         decoding="async"
+                         height="683"
+                         loading="lazy"
+                         src="@Url.ContentUrl(Model.SectionImage)"
+                         width="1024" />
+                }
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>

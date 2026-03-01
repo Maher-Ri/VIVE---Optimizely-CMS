@@ -1,0 +1,171 @@
+@* Views/AboutPage/Sections/_ProcessSection.cshtml *@
+@model VIVEcms.Models.Pages.AboutPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject VIVEcms.Services.IImageService ImageService
+
+<div class="elementor-container elementor-column-gap-default">
+
+@* ===== COLUMN 1: LEFT IMAGE ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-0be5a80" data-element_type="column" data-id="0be5a80" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+        <div class="elementor-element elementor-element-90f6802 elementor-widget elementor-widget-image" data-element_type="widget" data-id="90f6802" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default"
+             @Html.EditAttributes(x => x.ProcessImage)>
+            <div class="elementor-widget-container">
+                @if (!ContentReference.IsNullOrEmpty(Model.ProcessImage))
+                {
+                    <img alt="@(Model.ProcessImage != null ? ImageService.GetAltText(Model.ProcessImage) : "")"
+                         class="attachment-medium_large size-medium_large wp-image-1438"
+                         decoding="async"
+                         height="768"
+                         loading="lazy"
+                         sizes="(max-width: 768px) 100vw, 768px"
+                         src="@Url.ContentUrl(Model.ProcessImage)"
+                         srcset="@Url.ContentUrl(Model.ProcessImage) 768w"
+                         width="768" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@* ===== COLUMN 2: RIGHT CONTENT (3 PROCESS ITEMS) ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61bb63f" data-element_type="column" data-id="61bb63f" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* ===== PROCESS ITEM 1 ===== *@
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-4abc737 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="4abc737" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d40d61f" data-element_type="column" data-id="d40d61f" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-8272c43 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="8272c43" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.ProcessItem1Number)>
+                                    @Model.ProcessItem1Number
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-f8ac9d5" data-element_type="column" data-id="f8ac9d5" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-3ec4f08 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="3ec4f08" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.ProcessItem1Heading)>
+                                    @Model.ProcessItem1Heading
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-e160ec4 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="e160ec4" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                                    .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}
+                                </style>
+                                <p @Html.EditAttributes(x => x.ProcessItem1Description)>
+                                    @Model.ProcessItem1Description
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @* ===== PROCESS ITEM 2 ===== *@
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-0b5313a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="0b5313a" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-21c2559" data-element_type="column" data-id="21c2559" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-e15cb99 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="e15cb99" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.ProcessItem2Number)>
+                                    @Model.ProcessItem2Number
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-4e5d331" data-element_type="column" data-id="4e5d331" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-ff16a8a elementor-widget elementor-widget-heading" data-element_type="widget" data-id="ff16a8a" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.ProcessItem2Heading)>
+                                    @Model.ProcessItem2Heading
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-30e8950 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="30e8950" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <p @Html.EditAttributes(x => x.ProcessItem2Description)>
+                                    @Model.ProcessItem2Description
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @* ===== PROCESS ITEM 3 ===== *@
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-76dcbf7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="76dcbf7" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+            <div class="elementor-container elementor-column-gap-default">
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5f2eb03" data-element_type="column" data-id="5f2eb03" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-180dfa6 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="180dfa6" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.ProcessItem3Number)>
+                                    @Model.ProcessItem3Number
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8961ff9" data-element_type="column" data-id="8961ff9" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-767a1fc elementor-widget elementor-widget-heading" data-element_type="widget" data-id="767a1fc" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.ProcessItem3Heading)>
+                                    @Model.ProcessItem3Heading
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-c270a87 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="c270a87" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <p @Html.EditAttributes(x => x.ProcessItem3Description)>
+                                    @Model.ProcessItem3Description
+                                </p>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-5fa8bdd elementor-widget elementor-widget-button" data-element_type="widget" data-id="5fa8bdd" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+                            <div class="elementor-widget-container">
+                                <div class="elementor-button-wrapper">
+                                    <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-skew-forward"
+                                       href="@(string.IsNullOrWhiteSpace(Model.ProcessButtonUrl) ? "#" : Model.ProcessButtonUrl)">
+                                        <span class="elementor-button-content-wrapper">
+                                            <span class="elementor-button-icon elementor-align-icon-right">
+                                                <i aria-hidden="true" class="fas fa-arrow-right"></i>
+                                            </span>
+                                            <span class="elementor-button-text"
+                                                  @Html.EditAttributes(x => x.ProcessButtonText)>
+                                                @Model.ProcessButtonText
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+</div>

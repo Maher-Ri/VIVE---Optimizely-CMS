@@ -13,11 +13,11 @@ namespace VIVEcms.Models.Pages
             Name = "Show Our Customers Section",
             Description = "Toggle to show or hide this section on the page",
             Order = 1,
-            GroupName = "Our Customers Section"
+            GroupName = Tabs.OurCustomersSection
         )]
         public virtual bool ShowOurCustomersSection { get; set; }
 
-        [Display(Name = "Left Image", Order = 10, GroupName = "Our Customers Section")]
+        [Display(Name = "Left Image", Order = 10, GroupName = Tabs.OurCustomersSection)]
         [UIHint(UIHint.Image)]
         public virtual ContentReference? OurCustomersLeftImage { get; set; }
 
@@ -25,7 +25,7 @@ namespace VIVEcms.Models.Pages
             Name = "Heading Line 1",
             Description = "e.g: Trusted by",
             Order = 20,
-            GroupName = "Our Customers Section"
+            GroupName = Tabs.OurCustomersSection
         )]
         public virtual string? OurCustomersHeading1 { get; set; }
 
@@ -33,7 +33,7 @@ namespace VIVEcms.Models.Pages
             Name = "Heading Line 2",
             Description = "e.g: Our Customers",
             Order = 30,
-            GroupName = "Our Customers Section"
+            GroupName = Tabs.OurCustomersSection
         )]
         public virtual string? OurCustomersHeading2 { get; set; }
 
@@ -41,7 +41,7 @@ namespace VIVEcms.Models.Pages
             Name = "Testimonials",
             Description = "Add testimonial items for the carousel",
             Order = 40,
-            GroupName = "Our Customers Section"
+            GroupName = Tabs.OurCustomersSection
         )]
         [AllowedTypes(typeof(TestimonialItemBlock))]
         public virtual ContentArea? OurCustomersTestimonials { get; set; }

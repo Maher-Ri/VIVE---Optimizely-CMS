@@ -1,0 +1,73 @@
+@model VIVEcms.Models.ViewModels.PageViewModel<VIVEcms.Models.Pages.ClassesPage>
+@using EPiServer.Core
+@using VIVEcms.Models.Blocks
+@inject EPiServer.IContentLoader ContentLoader
+
+
+<!-- Begin content -->
+            <div class="no-title" id="page-content-wrapper">
+               <div class="inner">
+                  <!-- Begin main content -->
+                  <div class="inner-wrapper">
+                     <div class="sidebar-content fullwidth">
+                        <div class="elementor elementor-2952" data-elementor-id="2952" data-elementor-type="wp-page">
+
+                            @* ===== HEADER SECTION ===== *@
+                           @if (Model.CurrentPage.ShowHeaderSection)
+                           {
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-0a3cf08 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="0a3cf08" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              @await Html.PartialAsync(
+                                  "~/Views/ClassesPage/Sections/_HeaderSection.cshtml",
+                                  Model.CurrentPage)
+                           </section>
+                           }
+
+                            @* ===== SERVICE CAROUSEL SECTION ===== *@
+                            @if (Model.CurrentPage.ShowServiceCarouselSection)
+                            {
+                            <section class="elementor-section elementor-top-section elementor-element elementor-element-e7575b8 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="e7575b8" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                            
+                            @await Html.PartialAsync(
+                                "~/Views/ClassesPage/Sections/_ServiceCarouselSection.cshtml",
+                                Model.CurrentPage)
+                                </section>
+                            }
+
+                            @* ===== PRICING SECTION ===== *@
+                            @{
+                            PricingSectionBlock? pricingBlock = null;
+                            if (Model.CurrentPage.PricingSection != null
+                                && Model.CurrentPage.PricingSection.FilteredItems.Any())
+                            {
+                                pricingBlock = ContentLoader.Get<PricingSectionBlock>(
+                                    Model.CurrentPage.PricingSection.FilteredItems.First().ContentLink);
+                            }
+                            }
+                            @if (Model.CurrentPage.ShowPricingSection && pricingBlock != null)
+                            {
+                            <section class="elementor-section elementor-top-section elementor-element elementor-element-aee67dd elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="aee67dd" data-settings='{"stretch_section":"section-stretched","background_background":"classic","shape_divider_top":"tilt","shape_divider_bottom":"tilt","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                            
+                            @await Html.PartialAsync(
+                                "~/Views/ClassesPage/Sections/_PricingSection.cshtml",
+                                pricingBlock)
+
+                            </section>
+                            }
+
+                            @* ===== FAQ SECTION ===== *@
+                            @if (Model.CurrentPage.ShowFaqSection)
+                            {
+                            <section class="elementor-section elementor-top-section elementor-element elementor-element-526fd8c elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="526fd8c" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                            
+                            @await Html.PartialAsync(
+                                "~/Views/ClassesPage/Sections/_FaqSection.cshtml",
+                                Model.CurrentPage) @* ← pass ClassesPage directly *@
+                                </section>
+                            }
+                        </div>
+                        <div class="comment_disable_clearer"></div>
+                     </div>
+                  </div>
+                  <!-- End main content -->
+               </div>
+            </div>

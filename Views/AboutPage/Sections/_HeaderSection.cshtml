@@ -1,0 +1,83 @@
+@* Views/AboutPage/Sections/_HeaderSection.cshtml *@
+@model VIVEcms.Models.Pages.AboutPage
+@using EPiServer.Web.Mvc.Html
+@{
+  var animatedWords = (!string.IsNullOrWhiteSpace(Model.HeaderAnimatedWords))
+      ? Model.HeaderAnimatedWords
+          .Split(',')
+          .Select(w => w.Trim())
+          .Where(w => !string.IsNullOrEmpty(w))
+          .ToList()
+      : new List<string>();
+}
+<section class="elementor-section elementor-top-section elementor-element elementor-element-51a4cff elementor-section-height-min-height elementor-section-items-top elementor-section-stretched elementor-section-boxed elementor-section-height-default" data-element_type="section" data-id="51a4cff" 
+                    style="@(!ContentReference.IsNullOrEmpty(Model.HeaderBackgroundImage) ? $"background-image: url('{Url.ContentUrl(Model.HeaderBackgroundImage)}');" : "")" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+<div class="elementor-container elementor-column-gap-default">
+
+  @* ===== COLUMN 1: EMPTY ===== *@
+  <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-4290ea0" data-element_type="column" data-id="4290ea0" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+      <div class="elementor-widget-wrap"></div>
+  </div>
+
+  @* ===== COLUMN 2: HEADINGS ===== *@
+  <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-126dd9e" data-element_type="column" data-id="126dd9e" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+      <div class="elementor-widget-wrap elementor-element-populated">
+
+          @* Heading Line 1 - ONLY text is dynamic *@
+          <div class="elementor-element elementor-element-04b35ae elementor-widget elementor-widget-heading" data-element_type="widget" data-id="04b35ae" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+              <div class="elementor-widget-container">
+                  <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                      .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
+                  </style>
+                  <h2 class="elementor-heading-title elementor-size-default"
+                      @Html.EditAttributes(x => x.HeaderHeading1)>
+                      @Model.HeaderHeading1
+                  </h2>
+              </div>
+          </div>
+
+          @* Heading Line 2 - ONLY text is dynamic *@
+          <div class="elementor-element elementor-element-1094a40 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="1094a40" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+              <div class="elementor-widget-container">
+                  <h2 class="elementor-heading-title elementor-size-default"
+                      @Html.EditAttributes(x => x.HeaderHeading2)>
+                      @Model.HeaderHeading2
+                  </h2>
+              </div>
+          </div>
+
+          @* Heading Line 3 - ONLY text is dynamic *@
+          <div class="elementor-element elementor-element-e4643ac elementor-widget elementor-widget-heading" data-element_type="widget" data-id="e4643ac" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+              <div class="elementor-widget-container">
+                  <h2 class="elementor-heading-title elementor-size-default"
+                      @Html.EditAttributes(x => x.HeaderHeading3)>
+                      @Model.HeaderHeading3
+                  </h2>
+              </div>
+          </div>
+
+          @* Animated Words - ONLY words are dynamic *@
+          <div class="elementor-element elementor-element-b2a7d3b mobile-static elementor-widget elementor-widget-vive-animated-headline" data-element_type="widget" data-id="b2a7d3b" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1200,"vive_ext_smoove_translatey":{"unit":"px","size":50,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-animated-headline.default">
+              <div class="elementor-widget-container">
+                  <div class="themegoods-animated-headline text-alignment-left" data-animation="zoom">
+                      <h2 class="animated-headline ah-headline">
+                          <span class="ah-words-wrapper"
+                                @Html.EditAttributes(x => x.HeaderAnimatedWords)>
+                              @if (animatedWords.Any())
+                              {
+                                  @for (int i = 0; i < animatedWords.Count; i++)
+                                  {
+                                      <b class="@(i == 0 ? "is-visible" : "")">@animatedWords[i]</b>
+                                  }
+                              }
+                          </span>
+                      </h2>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+</div>
+</section>

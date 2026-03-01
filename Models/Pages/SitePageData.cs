@@ -6,10 +6,27 @@ using EPiServer.Web;
 
 namespace VIVEcms.Models.Pages
 {
+    // =============================================
+    // TAB ORDER — controls order across ALL pages
+    // =============================================
+    [GroupDefinitions]
+    public static class TabNames
+    {
+        [Display(Name = "SEO", Order = 1)]
+        public const string SEO = "SEO";
+    }
+
     // We make this abstract because we never want an editor to create a "SitePageData" directly.
     // They will create specific pages like "HomePage" that inherit from this.
     public abstract class SitePageData : PageData
     {
+        [ScaffoldColumn(false)]
+        public virtual string PageCssFile => string.Empty;
+
+        // =============================================
+        // PAGE SPECIFIC CSS — override per page type
+        // =============================================
+
         [Display(
             Name = "Meta Title",
             Description = "The SEO title of the page.",

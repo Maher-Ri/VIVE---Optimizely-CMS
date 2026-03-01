@@ -1,0 +1,87 @@
+@using EPiServer.Web.Mvc.Html
+@* Views/ClassesPage/Sections/_FaqSection.cshtml *@
+@model VIVEcms.Models.Pages.ClassesPage
+@inject EPiServer.IContentLoader ContentLoader
+
+@{
+var faqItems = new List<VIVEcms.Models.Blocks.FaqItemBlock>();
+
+if (Model.FaqItems != null)
+{
+    faqItems = Model.FaqItems.FilteredItems
+        .Select(item => ContentLoader
+            .Get<VIVEcms.Models.Blocks.FaqItemBlock>(item.ContentLink))
+        .Where(block => block != null)
+        .ToList();
+}
+}
+
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a8de9ff" data-element_type="column" data-id="a8de9ff" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Heading 1 *@
+        <div class="elementor-element elementor-element-ba06e68 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="ba06e68" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.FaqHeading1)>
+                    @Model.FaqHeading1
+                </h2>
+            </div>
+        </div>
+
+        @* Heading 2 *@
+        <div class="elementor-element elementor-element-c8b853b elementor-widget elementor-widget-heading" data-element_type="widget" data-id="c8b853b" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.FaqHeading2)>
+                    @Model.FaqHeading2
+                </h2>
+            </div>
+        </div>
+
+        @* FAQ Toggle *@
+        <div class="elementor-element elementor-element-dc78af5 elementor-widget elementor-widget-toggle" data-element_type="widget" data-id="dc78af5" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="toggle.default">
+            <div class="elementor-widget-container">
+                <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                    .elementor-toggle{text-align:start}.elementor-toggle .elementor-tab-title{font-weight:700;line-height:1;margin:0;padding:15px;border-bottom:1px solid #d5d8dc;cursor:pointer;outline:none}.elementor-toggle .elementor-tab-title .elementor-toggle-icon{display:inline-block;width:1em}.elementor-toggle .elementor-tab-title .elementor-toggle-icon svg{margin-inline-start:-5px;width:1em;height:1em}.elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-right{float:right;text-align:right}.elementor-toggle .elementor-tab-title .elementor-toggle-icon.elementor-toggle-icon-left{float:left;text-align:left}.elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-closed{display:block}.elementor-toggle .elementor-tab-title .elementor-toggle-icon .elementor-toggle-icon-opened{display:none}.elementor-toggle .elementor-tab-title.elementor-active{border-bottom:none}.elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-closed{display:none}.elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon-opened{display:block}.elementor-toggle .elementor-tab-content{padding:15px;border-bottom:1px solid #d5d8dc;display:none}
+                </style>
+                <div class="elementor-toggle">
+                    @for (int i = 0; i < faqItems.Count; i++)
+                    {
+                        var item  = faqItems[i];
+                        var tabId = 2310 + (i + 1);
+
+                        <div class="elementor-toggle-item">
+                            <div aria-controls="elementor-tab-content-@tabId"
+                                 aria-expanded="false"
+                                 class="elementor-tab-title"
+                                 data-tab="@(i + 1)"
+                                 id="elementor-tab-title-@tabId"
+                                 role="button">
+                                <span aria-hidden="true" class="elementor-toggle-icon elementor-toggle-icon-right">
+                                    <span class="elementor-toggle-icon-closed">
+                                        <i class="far fa-caret-square-down"></i>
+                                    </span>
+                                    <span class="elementor-toggle-icon-opened">
+                                        <i class="elementor-toggle-icon-opened far fa-caret-square-up"></i>
+                                    </span>
+                                </span>
+                                <a class="elementor-toggle-title" tabindex="0">@item.Question</a>
+                            </div>
+                            <div aria-labelledby="elementor-tab-title-@tabId"
+                                 class="elementor-tab-content elementor-clearfix"
+                                 data-tab="@(i + 1)"
+                                 id="elementor-tab-content-@tabId"
+                                 role="region">
+                                @Html.Raw(item.Answer?.ToString())
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

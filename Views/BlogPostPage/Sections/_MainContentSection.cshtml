@@ -1,0 +1,164 @@
+@* Views/BlogPostPage/Sections/_MainContentSection.cshtml *@
+@model VIVEcms.Models.Pages.BlogPostPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject VIVEcms.Services.IImageService ImageService
+
+<div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-14817e02" data-element_type="column" data-id="14817e02" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+
+            @* ===== INTRO TEXT ===== *@
+            @if (Model.IntroContent != null)
+            {
+                <div class="elementor-element elementor-element-1e574538 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="1e574538" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                    <div class="elementor-widget-container">
+                        <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                            .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}
+                        </style>
+                        <div @Html.EditAttributes(x => x.IntroContent)>
+                            @Html.Raw(Model.IntroContent?.ToString())
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @* ===== QUOTE SECTION — 2 columns ===== *@
+            @if (!string.IsNullOrWhiteSpace(Model.QuoteText))
+            {
+                <section class="elementor-section elementor-inner-section elementor-element elementor-element-a70a03a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="a70a03a" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                    <div class="elementor-container elementor-column-gap-default">
+
+                        @* Quote Left Column *@
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-56bc97d1" data-element_type="column" data-id="56bc97d1" data-settings='{"background_background":"classic","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                            <div class="elementor-widget-wrap elementor-element-populated">
+
+                                <div class="elementor-element elementor-element-6db5fe3f elementor-widget elementor-widget-heading" data-element_type="widget" data-id="6db5fe3f" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                                            .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
+                                        </style>
+                                        <div class="elementor-heading-title elementor-size-default"
+                                             @Html.EditAttributes(x => x.QuoteText)>
+                                            @Model.QuoteText
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="elementor-element elementor-element-7014ba87 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="7014ba87" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                                    <div class="elementor-widget-container">
+                                        <span class="elementor-heading-title elementor-size-default"
+                                              @Html.EditAttributes(x => x.QuoteAuthor)>
+                                            @Model.QuoteAuthor
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        @* Quote Right Column *@
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-63b7f5c0" data-element_type="column" data-id="63b7f5c0" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-6a8c2bfb elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="6a8c2bfb" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                                    <div class="elementor-widget-container"
+                                         @Html.EditAttributes(x => x.QuoteSideText)>
+                                        @Html.Raw(Model.QuoteSideText?.ToString())
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            }
+
+            @* ===== ADDITIONAL TEXT ===== *@
+            @if (Model.AdditionalContent != null)
+            {
+                <div class="elementor-element elementor-element-24c5f5c0 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="24c5f5c0" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                    <div class="elementor-widget-container"
+                         @Html.EditAttributes(x => x.AdditionalContent)>
+                        @Html.Raw(Model.AdditionalContent?.ToString())
+                    </div>
+                </div>
+            }
+
+            @* ===== TWO SIDE-BY-SIDE IMAGES ===== *@
+            @if (!ContentReference.IsNullOrEmpty(Model.ContentImage1) ||
+                 !ContentReference.IsNullOrEmpty(Model.ContentImage2))
+            {
+                <section class="elementor-section elementor-inner-section elementor-element elementor-element-2451aebc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="2451aebc" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                    <div class="elementor-container elementor-column-gap-default">
+
+                        @* Image 1 *@
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-77e32243" data-element_type="column" data-id="77e32243" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-bbd51e8 elementor-widget elementor-widget-image" data-element_type="widget" data-id="bbd51e8" data-settings='{"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default"
+                                     @Html.EditAttributes(x => x.ContentImage1)>
+                                    <div class="elementor-widget-container">
+                                        @if (!ContentReference.IsNullOrEmpty(Model.ContentImage1))
+                                        {
+                                            <img alt="@(Model.ContentImage1 != null ? ImageService.GetAltText(Model.ContentImage1) : "")"
+                                                 decoding="async"
+                                                 height="1024"
+                                                 loading="lazy"
+                                                 src="@Url.ContentUrl(Model.ContentImage1)"
+                                                 width="1024" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @* Image 2 *@
+                        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-7cc8e392" data-element_type="column" data-id="7cc8e392" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                            <div class="elementor-widget-wrap elementor-element-populated">
+                                <div class="elementor-element elementor-element-662cce31 elementor-widget elementor-widget-image" data-element_type="widget" data-id="662cce31" data-settings='{"vive_image_is_animation":"false","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="image.default"
+                                     @Html.EditAttributes(x => x.ContentImage2)>
+                                    <div class="elementor-widget-container">
+                                        @if (!ContentReference.IsNullOrEmpty(Model.ContentImage2))
+                                        {
+                                            <img alt="@(Model.ContentImage2 != null ? ImageService.GetAltText(Model.ContentImage2) : "")"
+                                                 decoding="async"
+                                                 height="1024"
+                                                 loading="lazy"
+                                                 src="@Url.ContentUrl(Model.ContentImage2)"
+                                                 width="1024" />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            }
+
+            @* ===== SUB HEADING ===== *@
+            @if (!string.IsNullOrWhiteSpace(Model.SubHeading))
+            {
+                <div class="elementor-element elementor-element-6cd5fb6 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="6cd5fb6" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                    <div class="elementor-widget-container">
+                        <h3 class="elementor-heading-title elementor-size-default"
+                            @Html.EditAttributes(x => x.SubHeading)>
+                            @Model.SubHeading
+                        </h3>
+                    </div>
+                </div>
+            }
+
+            @* ===== FINAL TEXT ===== *@
+            @if (Model.PostContent != null)
+            {
+                <div class="elementor-element elementor-element-54c573a6 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="54c573a6" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                    <div class="elementor-widget-container"
+                         @Html.EditAttributes(x => x.PostContent)>
+                        @Html.Raw(Model.PostContent?.ToString())
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

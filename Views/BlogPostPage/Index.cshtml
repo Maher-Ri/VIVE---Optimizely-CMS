@@ -1,0 +1,80 @@
+@* Views/BlogPostPage/Index.cshtml *@
+@model VIVEcms.Models.ViewModels.PageViewModel<VIVEcms.Models.Pages.BlogPostPage>
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject VIVEcms.Services.IImageService ImageService
+
+@* ===== OUTER WRAPPER — dynamic background image ===== *@
+<div id="post-featured-header"
+ style="@(!ContentReference.IsNullOrEmpty(Model.CurrentPage.FeaturedImage)
+            ? $"background-image:url('{Url.ContentUrl(Model.CurrentPage.FeaturedImage)}');"
+            : "") background-position: top center; backrepeat: no-repeat; background-size: cover; height: 100vh; min-height: 650px;">
+
+@* ===== HEADER SECTION ===== *@
+@await Html.PartialAsync(
+    "~/Views/BlogPostPage/Sections/_HeaderSection.cshtml",
+    Model.CurrentPage)
+    </div>
+@* ===== CONTENT WRAPPER — next sections go here ===== *@
+<div class="blog-wrapper hasbg" id="page-content-wrapper">
+    <div class="inner">
+        <div class="inner-wrapper" style="padding-top: 0px !important;">
+            <div class="sidebar-content fullwidth blog_f">
+                <div class="post-3599 post type-post status-publish format-standard has-post-thumbnail hentry" id="post-3599">
+                    <div class="post-wrapper">
+                        <div class="elementor elementor-3599" data-elementor-id="3599" data-elementor-type="wp-post">
+
+                                    <section class="elementor-section elementor-top-section elementor-element elementor-element-692372cc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="692372cc" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                                      @* ===== MAIN CONTENT SECTION ===== *@
+                                    @await Html.PartialAsync(
+                                    "~/Views/BlogPostPage/Sections/_MainContentSection.cshtml",
+                                    Model.CurrentPage)
+                                    </section>
+
+                                    <section class="elementor-section elementor-top-section elementor-element elementor-element-6736851e elementor-section-height-min-height elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-element_type="section" data-id="6736851e" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                                       @* ===== GALLERY SECTION ===== *@
+                                        @await Html.PartialAsync(
+                                        "~/Views/BlogPostPage/Sections/_GallerySection.cshtml",
+                                        Model.CurrentPage)
+                                    </section>
+
+                                    <section class="elementor-section elementor-top-section elementor-element elementor-element-18e10c98 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="18e10c98" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                                       @* ===== CLOSING CONTENT SECTION ===== *@
+                                        @await Html.PartialAsync(
+                                        "~/Views/BlogPostPage/Sections/_ClosingContentSection.cshtml",
+                                        Model.CurrentPage)
+                                    </section>
+
+                                 </div>
+                                 <br class="clear"/>
+                                 <div class="post-excerpt post-tag">
+                                    <a href="index.html"><i class="far fa-bookmark"></i>Exercise</a><a href="index.html"><i class="far fa-bookmark"></i>Lifestyle</a><a href="index.html"><i class="far fa-bookmark"></i>Training</a>
+                                 </div>
+                                 <br class="clear"/>
+                              </div>
+                              @* ===== RELATED SECTION — outside elementor wrapper ===== *@
+                              @await Html.PartialAsync(
+                              "~/Views/BlogPostPage/Sections/_RelatedSection.cshtml",
+                              Model.CurrentPage)
+
+                           </div>
+                           <!-- End each blog post -->
+                           <div class="fullwidth-comment-wrapper sidebar theme-border">
+                              @* ===== SECTION 6: COMMENTS ===== *@
+                              @await Html.PartialAsync(
+                              "~/Views/BlogPostPage/Sections/_CommentSection.cshtml",
+                              Model.CurrentPage)
+                              <!-- #respond -->
+                           </div>
+                           <div class="post-navigation previous">
+                               @* ===== SECTION 7: NAVIGATION ===== *@
+                               @await Html.PartialAsync(
+                               "~/Views/BlogPostPage/Sections/_NavigationSection.cshtml",
+                               Model.CurrentPage)
+                           </div>
+                        </div>
+                     </div>
+                     <!-- End main content -->
+                  </div>
+                  <br class="clear"/>
+</div>

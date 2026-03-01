@@ -1,4 +1,5 @@
 using VIVEcms.Models.Pages;
+
 //Because _Layout.cshtml is shared across all pages, it doesn't know if it's currently displaying a HomePage or an AboutPage.
 //To make our Layout strongly-typed so it can read the SEO data and Layout data safely, we need a quick tiny interface.
 namespace VIVEcms.Models.ViewModels
