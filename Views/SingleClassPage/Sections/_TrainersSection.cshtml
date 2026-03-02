@@ -1,0 +1,74 @@
+@* Views/SingleClassPage/Sections/_TrainersSection.cshtml *@
+@model VIVEcms.Models.Pages.SingleClassPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject EPiServer.IContentLoader ContentLoader
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+@* Load trainer items manually — avoids carousel wrapper issue *@
+var trainers = new List<VIVEcms.Models.Blocks.TrainerItemBlock>();
+if (Model.TrainerItems != null)
+{
+    trainers = Model.TrainerItems.FilteredItems
+        .Select(item => ContentLoader.Get<VIVEcms.Models.Blocks.TrainerItemBlock>(item.ContentLink))
+        .Where(block => block != null)
+        .ToList();
+}
+}
+
+@if (trainers.Any())
+{
+<div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-286a883" data-element_type="column" data-id="286a883" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-7843c11 elementor-widget elementor-widget-vive-team-carousel" data-element_type="widget" data-id="7843c11" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-team-carousel.default">
+                <div class="elementor-widget-container">
+                    <div class="team-carousel-wrapper style2">
+
+                        @* ===== OWL CAROUSEL — iterate manually ===== *@
+                        <div class="owl-carousel"
+                             data-autoplay="0"
+                             data-items="4"
+                             data-margin="20"
+                             data-pagination="0"
+                             data-stage-padding="70"
+                             data-timer="8000">
+
+                            @foreach (var trainer in trainers)
+                            {
+                                var bgUrl = !ContentReference.IsNullOrEmpty(trainer.BackgroundImage)
+                                    ? Url.ContentUrl(trainer.BackgroundImage)
+                                    : string.Empty;
+
+                                <div class="item">
+                                    <div class="team-carousel-handle">
+                                        @if (!string.IsNullOrWhiteSpace(trainer.LinkUrl))
+                                        {
+                                            <a class="team-carousel-link" href="@trainer.LinkUrl"></a>
+                                        }
+                                    </div>
+                                    <div class="item-bg"
+                                         style="@(!string.IsNullOrEmpty(bgUrl) ? $"background-image:url({bgUrl});" : "")">
+                                    </div>
+                                    <div class="item-content">
+                                        <div class="team-carousel-subtitle">
+                                            @trainer.Subtitle
+                                        </div>
+                                        <h3 class="team-carousel-title">
+                                            @trainer.Name
+                                        </h3>
+                                        <div class="team-carousel-desc"></div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

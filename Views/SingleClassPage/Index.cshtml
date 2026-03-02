@@ -1,0 +1,97 @@
+@* Views/SingleClassPage/Index.cshtml *@
+@model VIVEcms.Models.ViewModels.PageViewModel<VIVEcms.Models.Pages.SingleClassPage>
+@using EPiServer.Core
+@using VIVEcms.Models.Blocks
+@inject EPiServer.IContentLoader ContentLoader
+
+<!-- Begin content -->
+    <div class="no-title" id="page-content-wrapper">
+       <div class="inner">
+          <!-- Begin main content -->
+          <div class="inner-wrapper">
+             <div class="sidebar-content fullwidth">
+                <div class="elementor elementor-2984" data-elementor-id="2984" data-elementor-type="wp-page">
+                     
+                     @* ===== HEADER SECTION ===== *@
+                     @if (Model.CurrentPage.ShowHeaderSection)
+                     {
+                        <section class="elementor-section elementor-top-section elementor-element elementor-element-20ab6b3 elementor-section-height-min-height elementor-section-items-top elementor-section-stretched elementor-section-boxed elementor-section-height-default" data-element_type="section" data-id="20ab6b3" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                        
+                         @await Html.PartialAsync(
+                             "~/Views/SingleClassPage/Sections/_HeaderSection.cshtml",
+                             Model.CurrentPage)
+                        </section>
+                     }
+
+                  
+                     @* ===== STATS SECTION ===== *@
+                     @if (Model.CurrentPage.ShowStatsSection)
+                     {
+                        <section class="elementor-section elementor-top-section elementor-element elementor-element-cac4967 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="cac4967" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                        
+                     @await Html.PartialAsync(
+                         "~/Views/SingleClassPage/Sections/_StatsSection.cshtml",
+                         Model.CurrentPage)
+                         </section>
+                     }
+                   
+                     @* ===== BENEFITS SECTION ===== *@
+                     @if (Model.CurrentPage.ShowBenefitsSection)
+                     {
+                        <section class="elementor-section elementor-top-section elementor-element elementor-element-9d89df1 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="9d89df1" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                        
+                     @await Html.PartialAsync(
+                         "~/Views/SingleClassPage/Sections/_BenefitsSection.cshtml",
+                         Model.CurrentPage)
+                         </section>
+                     }
+                   
+                     @* ===== TRAINERS SECTION ===== *@
+                     @if (Model.CurrentPage.ShowTrainersSection)
+                     {
+                        <section class="elementor-section elementor-top-section elementor-element elementor-element-dbce6fe elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="dbce6fe" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                        
+                     @await Html.PartialAsync(
+                         "~/Views/SingleClassPage/Sections/_TrainersSection.cshtml",
+                         Model.CurrentPage)
+                         </section>
+                     }
+                   
+                     @* ===== PRICING SECTION ===== *@
+                     @if (Model.CurrentPage.ShowPricingSection)
+                     {
+                     <section class="elementor-section elementor-top-section elementor-element elementor-element-d322853 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="d322853" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                                          
+                     @await Html.PartialAsync(
+                         "~/Views/SingleClassPage/Sections/_PricingSection.cshtml",
+                         Model.CurrentPage)
+                     </section>
+
+                     }
+                    
+                    @* ===== VIVE TRAINER SECTION ===== *@
+                    @{
+                    VIVEcms.Models.Blocks.ViveTrainerSectionBlock? viveTrainerBlock = null;
+                    if (Model.CurrentPage.ViveTrainerSection != null
+                        && Model.CurrentPage.ViveTrainerSection.FilteredItems.Any())
+                    {
+                        viveTrainerBlock = ContentLoader.Get<VIVEcms.Models.Blocks.ViveTrainerSectionBlock>(
+                            Model.CurrentPage.ViveTrainerSection.FilteredItems.First().ContentLink);
+                    }
+                    }
+                    @if (Model.CurrentPage.ShowViveTrainerSection && viveTrainerBlock != null)
+                    {                   <section class="elementor-section elementor-top-section elementor-element elementor-element-06c25f5 elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="06c25f5" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                    
+                    @await Html.PartialAsync(
+                        "~/Views/SingleClassPage/Sections/_ViveTrainerSection.cshtml",
+                        viveTrainerBlock)
+                        </section>
+                    }
+                   
+                </div>
+                <div class="comment_disable_clearer"></div>
+             </div>
+          </div>
+          <!-- End main content -->
+       </div>
+    </div>

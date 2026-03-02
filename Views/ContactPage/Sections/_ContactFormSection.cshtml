@@ -1,0 +1,257 @@
+@* Views/ContactPage/Sections/_ContactFormSection.cshtml *@
+@model VIVEcms.Models.Pages.ContactPage
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+
+@{
+var pageUrl = UrlResolver.GetUrl(Model.ContentLink);
+}
+
+<div class="elementor-container elementor-column-gap-default">
+
+@* ===== COLUMN 1: STEPS ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-741e196" data-element_type="column" data-id="741e196" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+
+        @* Section Heading *@
+        <div class="elementor-element elementor-element-beb2dc4 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="beb2dc4" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default"
+                    @Html.EditAttributes(x => x.ContactSectionHeading)>
+                    @Model.ContactSectionHeading
+                </h2>
+            </div>
+        </div>
+
+        @* ===== STEP 1 ===== *@
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-5efaf0b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="5efaf0b" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+            <div class="elementor-container elementor-column-gap-default">
+
+                @* Step 1 Number — static *@
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-f18b514" data-element_type="column" data-id="f18b514" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-b22de83 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="b22de83" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">1</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Step 1 Content *@
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b30329e" data-element_type="column" data-id="b30329e" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-b55d136 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="b55d136" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.Step1Title)>
+                                    @Model.Step1Title
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-3d3a9a7 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="3d3a9a7" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container">
+                                <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                                    .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}
+                                </style>
+                                <div @Html.EditAttributes(x => x.Step1Description)>
+                                    @Html.Raw(Model.Step1Description?.ToString())
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        @* ===== STEP 2 ===== *@
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-145fe73 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="145fe73" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+            <div class="elementor-container elementor-column-gap-default">
+
+                @* Step 2 Number — static *@
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-76c1e2b" data-element_type="column" data-id="76c1e2b" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-3f9bdcb elementor-widget elementor-widget-heading" data-element_type="widget" data-id="3f9bdcb" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">2</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Step 2 Content *@
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b0e7abf" data-element_type="column" data-id="b0e7abf" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-aa60ea4 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="aa60ea4" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.Step2Title)>
+                                    @Model.Step2Title
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="elementor-element elementor-element-3b574e4 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="3b574e4" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container"
+                                 @Html.EditAttributes(x => x.Step2Description)>
+                                @Html.Raw(Model.Step2Description?.ToString())
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        @* ===== STEP 3 ===== *@
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-ad4f7a7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="ad4f7a7" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+            <div class="elementor-container elementor-column-gap-default">
+
+                @* Step 3 Number — static *@
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-03ed032" data-element_type="column" data-id="03ed032" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+                        <div class="elementor-element elementor-element-aa5ba40 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="aa5ba40" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default">3</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @* Step 3 Content + Button *@
+                <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-6066859" data-element_type="column" data-id="6066859" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+                    <div class="elementor-widget-wrap elementor-element-populated">
+
+                        <div class="elementor-element elementor-element-65d8cf5 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="65d8cf5" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                            <div class="elementor-widget-container">
+                                <h2 class="elementor-heading-title elementor-size-default"
+                                    @Html.EditAttributes(x => x.Step3Title)>
+                                    @Model.Step3Title
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div class="elementor-element elementor-element-73dd2ee elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="73dd2ee" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                            <div class="elementor-widget-container"
+                                 @Html.EditAttributes(x => x.Step3Description)>
+                                @Html.Raw(Model.Step3Description?.ToString())
+                            </div>
+                        </div>
+
+                        @if (!string.IsNullOrWhiteSpace(Model.Step3ButtonText))
+                        {
+                            <div class="elementor-element elementor-element-9d58891 elementor-widget elementor-widget-button" data-element_type="widget" data-id="9d58891" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+                                <div class="elementor-widget-container">
+                                    <div class="elementor-button-wrapper">
+                                        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-skew-forward"
+                                           href="@(string.IsNullOrWhiteSpace(Model.Step3ButtonUrl) ? "#" : Model.Step3ButtonUrl)">
+                                            <span class="elementor-button-content-wrapper">
+                                                <span class="elementor-button-icon elementor-align-icon-right">
+                                                    <i aria-hidden="true" class="fas fa-arrow-right"></i>
+                                                </span>
+                                                <span class="elementor-button-text"
+                                                      @Html.EditAttributes(x => x.Step3ButtonText)>
+                                                    @Model.Step3ButtonText
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</div>
+
+@* ===== COLUMN 2: CONTACT FORM ===== *@
+<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-69defef" data-element_type="column" data-id="69defef" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+    <div class="elementor-widget-wrap elementor-element-populated">
+        <div class="elementor-element elementor-element-739b7ae elementor-widget elementor-widget-shortcode" data-element_type="widget" data-id="739b7ae" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":800,"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="shortcode.default">
+            <div class="elementor-widget-container">
+                <div class="elementor-shortcode">
+                    <div class="wpcf7 no-js" id="wpcf7-f5-p3374-o1">
+
+                        @* Success Message *@
+                        @if (TempData["ContactSuccess"] != null)
+                        {
+                            <div class="response success" style="display:block;">
+                                @TempData["ContactSuccess"]
+                            </div>
+                        }
+
+                        <form action="@pageUrl"
+                              class="wpcf7-form init"
+                              method="post">
+
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="Subject" value="Vive: Contact Page" />
+
+                            <label>Your name
+                                <span class="wpcf7-form-control-wrap" data-name="your-name">
+                                    <input type="text"
+                                           placeholder="Name*"
+                                           aria-required="true"
+                                           size="43"
+                                           name="Name"
+                                           required />
+                                </span>
+                            </label>
+
+                            <label>Your email
+                                <span class="wpcf7-form-control-wrap" data-name="your-email">
+                                    <input type="email"
+                                           placeholder="E-mail address*"
+                                           aria-required="true"
+                                           size="43"
+                                           name="Email"
+                                           required />
+                                </span>
+                            </label>
+
+                            <label>Subject
+                                <span class="wpcf7-form-control-wrap" data-name="your-subject">
+                                    <input type="text"
+                                           placeholder="Subject*"
+                                           size="43"
+                                           name="Subject"
+                                           required />
+                                </span>
+                            </label>
+
+                            <label>Your message
+                                <span class="wpcf7-form-control-wrap" data-name="your-message">
+                                    <textarea placeholder="Message*"
+                                              rows="9"
+                                              cols="40"
+                                              name="Message"
+                                              required></textarea>
+                                </span>
+                            </label>
+
+                            <input class="wpcf7-form-control wpcf7-submit"
+                                   type="submit"
+                                   value="Submit" />
+
+                            <div class="response success" style="display:none;">
+                                Thanks. Your message was sent!
+                            </div>
+                            <div class="response error" style="display:none;">
+                                We could not sent your message!
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

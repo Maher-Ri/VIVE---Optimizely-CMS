@@ -17,7 +17,7 @@ namespace VIVEcms.Models.Pages
         [Display(
             Name = "Heading Line 1",
             Description = "e.g: Contact US",
-            Order = 10,
+            Order = 100,
             GroupName = Tabs.HeaderSection
         )]
         public virtual string? HeaderHeading1 { get; set; }
@@ -25,7 +25,7 @@ namespace VIVEcms.Models.Pages
         [Display(
             Name = "Heading Line 2",
             Description = "e.g: At Our Gym",
-            Order = 20,
+            Order = 200,
             GroupName = Tabs.HeaderSection
         )]
         public virtual string? HeaderHeading2 { get; set; }
