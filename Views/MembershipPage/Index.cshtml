@@ -1,0 +1,60 @@
+@using EPiServer.Core.Internal
+@using VIVEcms.Models.Blocks
+@inject EPiServer.IContentLoader ContentLoader
+<!-- Begin content -->
+            <div class="no-title" id="page-content-wrapper">
+               <div class="inner">
+                  <!-- Begin main content -->
+                  <div class="inner-wrapper">
+                     <div class="sidebar-content fullwidth">
+                        <div class="elementor elementor-4854" data-elementor-id="4854" data-elementor-type="wp-page">
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-8bda58a elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="8bda58a" data-settings='{"stretch_section":"section-stretched","background_background":"classic","shape_divider_top":"tilt","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                              <div class="elementor-shape elementor-shape-top" data-negative="false">
+                                 <svg preserveaspectratio="none" viewbox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+                                 </svg>
+                              </div>
+                            @* ===== PRICING SECTION ===== *@
+                            @{
+                            PricingSectionBlock? pricingBlock = null;
+                            var pricingSection = Model.CurrentPage.PricingSection as EPiServer.Core.ContentArea;
+                            if (pricingSection != null && pricingSection.FilteredItems.Any())
+                            {
+                                pricingBlock = ContentLoader.Get<PricingSectionBlock>(
+                                    pricingSection.FilteredItems.First().ContentLink);
+                            }
+                            }
+                            @if (Model.CurrentPage.ShowPricingSection && pricingBlock != null)
+                            {
+                            @await Html.PartialAsync(
+                                "~/Views/MembershipPage/Sections/_PricingSection.cshtml",
+                                pricingBlock)
+                            }
+                           </section>
+                           
+                           @* ===== FAQ SECTION ===== *@
+                           @if (Model.CurrentPage.ShowFaqSection)
+                           {
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-f9348c7 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="f9348c7" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                               @await Html.PartialAsync(
+                                   "~/Views/MembershipPage/Sections/_FaqSection.cshtml",
+                                   (object)Model.CurrentPage)
+                           </section>
+                           }
+
+                           @* ===== CTA SECTION ===== *@
+                           @if (Model.CurrentPage.ShowCtaSection)
+                           {
+                           <section class="elementor-section elementor-top-section elementor-element elementor-element-d5e4baf elementor-section-height-min-height elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-element_type="section" data-id="d5e4baf" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                               @await Html.PartialAsync(
+                                   "~/Views/MembershipPage/Sections/_CtaSection.cshtml",
+                                   (object)Model.CurrentPage)
+                           </section>
+                           }
+                        </div>
+                        <div class="comment_disable_clearer"></div>
+                     </div>
+                  </div>
+                  <!-- End main content -->
+               </div>
+            </div>

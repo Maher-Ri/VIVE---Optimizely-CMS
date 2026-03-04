@@ -1,0 +1,96 @@
+@* Views/MembershipPage/Sections/_CtaSection.cshtml *@
+@model VIVEcms.Models.Pages.MembershipPage
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Core
+
+<div class="elementor-container elementor-column-gap-default">
+
+    @* ===== LEFT COLUMN ===== *@
+    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7e54e9f"
+         data-element_type="column" data-id="7e54e9f"
+         data-settings='{"background_background":"classic","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+         @Html.EditAttributes(x => x.CtaLeftBackgroundImage)>
+        <div class="elementor-widget-wrap elementor-element-populated"
+             style="@(!ContentReference.IsNullOrEmpty(Model.CtaLeftBackgroundImage) ? $"background-image:url('{Url.ContentUrl(Model.CtaLeftBackgroundImage)}')" : "")">
+
+            @* Left Heading *@
+            <div class="elementor-element elementor-element-57d46ff elementor-widget elementor-widget-heading"
+                 data-element_type="widget" data-id="57d46ff"
+                 data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-heading-title elementor-size-default"
+                         @Html.EditAttributes(x => x.CtaLeftHeading)>
+                        @Model.CtaLeftHeading
+                    </div>
+                </div>
+            </div>
+
+            @* Left Button *@
+            <div class="elementor-element elementor-element-fe26c7a elementor-widget__width-auto elementor-widget elementor-widget-button"
+                 data-element_type="widget" data-id="fe26c7a"
+                 data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-button-wrapper">
+                        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate"
+                           href="@(string.IsNullOrWhiteSpace(Model.CtaLeftButtonUrl) ? "#" : Model.CtaLeftButtonUrl)">
+                            <span class="elementor-button-content-wrapper">
+                                <span class="elementor-button-text"
+                                      @Html.EditAttributes(x => x.CtaLeftButtonText)>
+                                    @Model.CtaLeftButtonText
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @* ===== RIGHT COLUMN ===== *@
+    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-93243c7"
+         data-element_type="column" data-id="93243c7"
+         data-settings='{"background_background":"classic","vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+         @Html.EditAttributes(x => x.CtaRightBackgroundImage)>
+        <div class="elementor-widget-wrap elementor-element-populated"
+             style="@(!ContentReference.IsNullOrEmpty(Model.CtaRightBackgroundImage) ? $"background-image:url('{Url.ContentUrl(Model.CtaRightBackgroundImage)}')" : "")">
+
+            @* Right Heading *@
+            <div class="elementor-element elementor-element-35d240b elementor-widget elementor-widget-heading"
+                 data-element_type="widget" data-id="35d240b"
+                 data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-heading-title elementor-size-default"
+                         @Html.EditAttributes(x => x.CtaRightHeading)>
+                        @Model.CtaRightHeading
+                    </div>
+                </div>
+            </div>
+
+            @* Right Button *@
+            <div class="elementor-element elementor-element-ac39461 elementor-widget__width-auto elementor-align-right elementor-widget elementor-widget-button"
+                 data-element_type="widget" data-id="ac39461"
+                 data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'
+                 data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-button-wrapper">
+                        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate"
+                           href="@(string.IsNullOrWhiteSpace(Model.CtaRightButtonUrl) ? "#" : Model.CtaRightButtonUrl)">
+                            <span class="elementor-button-content-wrapper">
+                                <span class="elementor-button-text"
+                                      @Html.EditAttributes(x => x.CtaRightButtonText)>
+                                    @Model.CtaRightButtonText
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

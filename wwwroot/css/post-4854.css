@@ -645,7 +645,7 @@ body:not(.rtl) .elementor-4854 .elementor-element.elementor-element-4955438 .ele
 
 .elementor-4854 .elementor-element.elementor-element-7e54e9f:not(.elementor-motion-effects-element-type-background)>.elementor-widget-wrap,
 .elementor-4854 .elementor-element.elementor-element-7e54e9f>.elementor-widget-wrap>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-	background-image: url("../images/fitness-woman-PUZ3HTN.jpg");
+	/* background-image: url("../images/fitness-woman-PUZ3HTN.jpg"); */
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
