@@ -1,0 +1,20 @@
+@* Views/ShopPage/Sections/_TrendExplorerSection.cshtml *@
+@model VIVEcms.Models.Pages.ShopPage
+@using EPiServer.Web.Mvc.Html
+
+<div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-04150a7"
+         data-element_type="column" data-id="04150a7">
+        <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-efe8064 elementor-widget elementor-widget-heading"
+                 data-element_type="widget" data-id="efe8064" data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default"
+                        @Html.EditAttributes(x => x.TrendExplorerHeading)>
+                        @Model.TrendExplorerHeading
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

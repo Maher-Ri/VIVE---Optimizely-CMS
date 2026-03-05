@@ -1,0 +1,44 @@
+@* Views/Shared/Blocks/TrainerItemBlock.cshtml *@
+@model VIVEcms.Models.Blocks.TrainerItemBlock
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+@inject VIVEcms.Services.IImageService ImageService
+
+@{
+  var imgUrl = !ContentReference.IsNullOrEmpty(Model.BackgroundImage)
+      ? UrlResolver.GetUrl(Model.BackgroundImage)
+      : string.Empty;
+}
+
+<div class="item">
+
+  @* Profile handle — shows link only if URL is set *@
+  <div class="team-carousel-handle">
+      @if (!string.IsNullOrWhiteSpace(Model.LinkUrl))
+      {
+          <a class="team-carousel-link" href="@Model.LinkUrl"></a>
+      }
+  </div>
+
+  @* Background Image *@
+  <div class="item-bg"
+       style="@(!string.IsNullOrEmpty(imgUrl) ? $"background-image:url({imgUrl});" : "")"
+       @Html.EditAttributes(x => x.BackgroundImage)>
+  </div>
+
+  @* Content *@
+  <div class="item-content">
+      <div class="team-carousel-subtitle"
+           @Html.EditAttributes(x => x.Subtitle)>
+          @Model.Subtitle
+      </div>
+      <h3 class="team-carousel-title"
+          @Html.EditAttributes(x => x.Name)>
+          @Model.Name
+      </h3>
+      <div class="team-carousel-desc"></div>
+  </div>
+
+</div>

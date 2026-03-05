@@ -1,0 +1,64 @@
+@* Views/ShopPage/Sections/_CtaSection.cshtml *@
+@model VIVEcms.Models.Pages.ShopPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@{
+@* Background image on <section> element — NOT on container div *@
+var bgStyle = !ContentReference.IsNullOrEmpty(Model.CtaBackgroundImage)
+    ? $"background-image:url('{Url.ContentUrl(Model.CtaBackgroundImage)}');"
+    : "";
+}
+
+<section class="elementor-section elementor-top-section elementor-element elementor-element-2f62ef6 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="2f62ef6" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'
+     style="@bgStyle"
+     @Html.EditAttributes(x => x.CtaBackgroundImage)>
+<div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b064799" data-element_type="column" data-id="b064799" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+
+            @* CTA Sub-Title *@
+            <div class="elementor-element elementor-element-1991570 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="1991570" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1600,"vive_ext_smoove_rotatey":{"unit":"px","size":10,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":-8,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":75,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h2 class="elementor-heading-title elementor-size-default"
+                        @Html.EditAttributes(x => x.CtaSubTitle)>
+                        @Model.CtaSubTitle
+                    </h2>
+                </div>
+            </div>
+
+            @* CTA Title *@
+            <div class="elementor-element elementor-element-90acf67 elementor-widget elementor-widget-heading" data-element_type="widget" data-id="90acf67" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1600,"vive_ext_smoove_rotatey":{"unit":"px","size":10,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":-8,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":75,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h1 class="elementor-heading-title elementor-size-default"
+                        @Html.EditAttributes(x => x.CtaTitle)>
+                        @Model.CtaTitle
+                    </h1>
+                </div>
+            </div>
+
+            @* CTA Button *@
+            <div class="elementor-element elementor-element-846e481 elementor-widget elementor-widget-button" data-element_type="widget" data-id="846e481" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-button-wrapper">
+                        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-skew-forward"
+                           href="@(Model.CtaButtonUrl?.ToString() ?? "#")"
+                           @Html.EditAttributes(x => x.CtaButtonUrl)>
+                            <span class="elementor-button-content-wrapper">
+                                <span class="elementor-button-icon elementor-align-icon-right">
+                                    <i aria-hidden="true" class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="elementor-button-text"
+                                      @Html.EditAttributes(x => x.CtaButtonText)>
+                                    @Model.CtaButtonText
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>

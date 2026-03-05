@@ -1,0 +1,160 @@
+@* Views/SingleProductPage/Sections/_RelatedSection.cshtml *@
+@model VIVEcms.Models.Pages.SingleProductPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+@inject VIVEcms.Services.IImageService ImageService
+@inject EPiServer.IContentLoader ContentLoader
+
+@if (Model.ShowRelatedProducts && Model.RelatedProducts != null && !Model.RelatedProducts.IsEmpty)
+{
+    <style>
+        .sp-related {
+            border-top: 1px solid #eee;
+            padding-top: 64px;
+        }
+        .sp-related__heading {
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: #111;
+            margin: 0 0 32px;
+        }
+        .sp-related__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        @@media (max-width: 900px) {
+            .sp-related__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @@media (max-width: 480px) {
+            .sp-related__grid { grid-template-columns: 1fr; }
+        }
+
+        /* Card */
+        .sp-rel-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #eee;
+            transition: box-shadow .25s, transform .25s;
+        }
+        .sp-rel-card:hover {
+            box-shadow: 0 10px 36px rgba(0,0,0,.09);
+            transform: translateY(-5px);
+        }
+        .sp-rel-card__link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .sp-rel-card__img-wrap {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            background: #f4f4f4;
+        }
+        .sp-rel-card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .4s ease;
+        }
+        .sp-rel-card:hover .sp-rel-card__img { transform: scale(1.06); }
+        .sp-rel-card__body {
+            padding: 16px 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+        .sp-rel-card__name {
+            font-size: 0.93rem;
+            font-weight: 700;
+            color: #111;
+            margin: 0;
+            line-height: 1.35;
+        }
+        .sp-rel-card__price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #e94f2e;
+        }
+        .sp-rel-card__btn {
+            display: block;
+            margin-top: 12px;
+            padding: 10px;
+            background: #111;
+            color: #fff;
+            text-align: center;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            text-decoration: none;
+            border-radius: 7px;
+            transition: background .2s;
+        }
+        .sp-rel-card__btn:hover { background: #e94f2e; }
+    </style>
+
+    <section class="sp-related related products">
+        <h2 class="sp-related__heading">Related products</h2>
+        <ul class="sp-related__grid products columns-4">
+            @foreach (var item in Model.RelatedProducts.FilteredItems)
+            {
+                var product = ContentLoader.Get<VIVEcms.Models.Pages.SingleProductPage>(item.ContentLink);
+                if (product != null)
+                {
+                    var productUrl = UrlResolver.GetUrl(product.ContentLink);
+                    var imgUrl = product.MainImage != null
+                        ? UrlResolver.GetUrl(product.MainImage)
+                        : string.Empty;
+                    var imgAlt = product.MainImage != null
+                        ? ImageService.GetAltText(product.MainImage)
+                        : product.Name;
+
+                    <li class="sp-rel-card product">
+                        <a class="sp-rel-card__link woocommerce-LoopProduct-link woocommerce-loop-product__link"
+                           href="@productUrl">
+                            <div class="sp-rel-card__img-wrap">
+                                @if (!string.IsNullOrEmpty(imgUrl))
+                                {
+                                    <img class="sp-rel-card__img attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                         src="@imgUrl" alt="@imgAlt"
+                                         loading="lazy" decoding="async"
+                                         width="300" height="400" />
+                                }
+                            </div>
+                            <div class="sp-rel-card__body">
+                                <h2 class="sp-rel-card__name woocommerce-loop-product__title">@product.Name</h2>
+                                @if (!string.IsNullOrWhiteSpace(product.Price))
+                                {
+                                    <span class="sp-rel-card__price price">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <bdi><span class="woocommerce-Price-currencySymbol">$</span>@product.Price</bdi>
+                                        </span>
+                                    </span>
+                                }
+                                <span class="sp-rel-card__btn button product_type_variable add_to_cart_button">
+                                    Select options
+                                </span>
+                            </div>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </section>
+}

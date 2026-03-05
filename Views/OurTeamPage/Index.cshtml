@@ -1,0 +1,38 @@
+@* Views/OurTeamPage/Index.cshtml *@
+@model VIVEcms.Models.ViewModels.PageViewModel<VIVEcms.Models.Pages.OurTeamPage>
+
+<!-- Begin content -->
+<div class="no-title" id="page-content-wrapper">
+   <div class="inner">
+      <!-- Begin main content -->
+      <div class="inner-wrapper">
+         <div class="sidebar-content fullwidth">
+            <div class="elementor elementor-3365" data-elementor-id="3365" data-elementor-type="wp-page">
+                @* ===== HEADER SECTION ===== *@
+                @if (Model.CurrentPage.ShowHeaderSection)
+                {
+                <section class="elementor-section elementor-top-section elementor-element elementor-element-1bcb10b elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="1bcb10b" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                
+                @await Html.PartialAsync(
+                    "~/Views/OurTeamPage/Sections/_HeaderSection.cshtml",
+                    Model.CurrentPage)
+                     </section>
+                }
+                
+                @* ===== TEAM SECTION ===== *@
+                @if (Model.CurrentPage.ShowTeamSection)
+                {
+                    <section class="elementor-section elementor-top-section elementor-element elementor-element-f414d0e elementor-section-full_width elementor-section-stretched elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="f414d0e" data-settings='{"stretch_section":"section-stretched","vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                     @await Html.PartialAsync(
+                      "~/Views/OurTeamPage/Sections/_TeamSection.cshtml",
+                      Model.CurrentPage)
+                      </section>
+                }
+               
+            </div>
+            <div class="comment_disable_clearer"></div>
+         </div>
+      </div>
+      <!-- End main content -->
+   </div>
+</div>

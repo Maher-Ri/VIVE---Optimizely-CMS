@@ -1,0 +1,47 @@
+﻿@* Views/ShopPage/Index.cshtml *@
+@model VIVEcms.Models.ViewModels.ShopPageViewModel
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+@inject VIVEcms.Services.IImageService ImageService
+
+<div class="no-title" id="page-content-wrapper">
+    <div class="inner">
+        <!-- Begin main content -->
+        <div class="inner-wrapper">
+         <div class="sidebar-content fullwidth">
+            <div class="elementor elementor-4019" data-elementor-id="4019" data-elementor-type="wp-page">
+                @* ===== SECTION 1: HERO ===== *@
+                    @await Html.PartialAsync(
+                        "~/Views/ShopPage/Sections/_HeroSection.cshtml",
+                        Model.CurrentPage)
+
+                @* ===== SECTION 2: PRODUCT GRID ===== *@
+                        @await Html.PartialAsync(
+                        "~/Views/ShopPage/Sections/_ProductGridSection.cshtml",
+                        Model)
+ 
+                @* ===== SECTION 3: TREND EXPLORER ===== *@
+                <section class="elementor-section elementor-top-section elementor-element elementor-element-c9c015e elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+                         data-element_type="section" data-id="c9c015e"
+                         data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+                    @await Html.PartialAsync(
+                        "~/Views/ShopPage/Sections/_TrendExplorerSection.cshtml",
+                        Model.CurrentPage)
+                </section>
+                @* ===== SECTION 4: CATEGORY BANNERS ===== *@
+                        @await Html.PartialAsync(
+                        "~/Views/ShopPage/Sections/_CategoryBannerSection.cshtml",
+                        Model.CurrentPage)
+
+                @* ===== SECTION 5: CTA ===== *@
+                        @await Html.PartialAsync(
+                        "~/Views/ShopPage/Sections/_CtaSection.cshtml",
+                        Model.CurrentPage)
+            </div>
+            <div class="comment_disable_clearer"></div>
+         </div>
+      </div>
+      <!-- End main content -->
+   </div>
+</div>

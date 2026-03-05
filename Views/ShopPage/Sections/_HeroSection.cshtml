@@ -1,0 +1,80 @@
+@* Views/ShopPage/Sections/_HeroSection.cshtml *@
+@model VIVEcms.Models.Pages.ShopPage
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@{
+@* Background image applied to section element — NOT the overlay div *@
+var bgStyle = !ContentReference.IsNullOrEmpty(Model.HeroBackgroundImage)
+    ? $"background-image:url('{Url.ContentUrl(Model.HeroBackgroundImage)}');"
+    : "";
+}
+
+<section class="elementor-section elementor-top-section elementor-element elementor-element-00443a8 elementor-section-height-min-height elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-element_type="section" data-id="00443a8" data-settings='{"stretch_section":"section-stretched","background_background":"classic","vive_ext_is_background_parallax":"true","vive_ext_is_background_parallax_speed":{"unit":"px","size":0.8000000000000000444089209850062616169452667236328125,"sizes":[]},"vive_ext_is_background_on_scroll":"false"}'
+     style="@bgStyle"
+     @Html.EditAttributes(x => x.HeroBackgroundImage)>
+
+@* Overlay — static, no dynamic content *@
+<div class="elementor-background-overlay"></div>
+
+<div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-07bc0db" data-element_type="column" data-id="07bc0db" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+
+            @* Sub-Title *@
+            <div class="elementor-element elementor-element-d041e1a elementor-widget elementor-widget-heading" data-element_type="widget" data-id="d041e1a" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1600,"vive_ext_smoove_rotatey":{"unit":"px","size":10,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":-8,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":75,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                        .elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}
+                    </style>
+                    <h2 class="elementor-heading-title elementor-size-default"
+                        @Html.EditAttributes(x => x.HeroSubTitle)>
+                        @Model.HeroSubTitle
+                    </h2>
+                </div>
+            </div>
+
+            @* Main Title *@
+            <div class="elementor-element elementor-element-01fd63a elementor-widget elementor-widget-heading" data-element_type="widget" data-id="01fd63a" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1600,"vive_ext_smoove_rotatey":{"unit":"px","size":10,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":-8,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":75,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="heading.default">
+                <div class="elementor-widget-container">
+                    <h1 class="elementor-heading-title elementor-size-default"
+                        @Html.EditAttributes(x => x.HeroTitle)>
+                        @Model.HeroTitle
+                    </h1>
+                </div>
+            </div>
+
+            @* Description *@
+            <div class="elementor-element elementor-element-a27fc0e elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="a27fc0e" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1600,"vive_ext_smoove_rotatey":{"unit":"px","size":10,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":75,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":-9,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="text-editor.default">
+                <div class="elementor-widget-container">
+                    <style>/*! elementor - v3.21.0 - 08-05-2024 */
+                        .elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}
+                    </style>
+                    <p @Html.EditAttributes(x => x.HeroDescription)>
+                        @Model.HeroDescription
+                    </p>
+                </div>
+            </div>
+
+            @* Button *@
+            <div class="elementor-element elementor-element-920a2c6 elementor-widget__width-inherit elementor-align-left elementor-widget elementor-widget-button" data-element_type="widget" data-id="920a2c6" data-settings='{"vive_ext_is_smoove":"true","vive_ext_smoove_disable":"769","vive_ext_smoove_duration":1600,"vive_ext_smoove_rotatey":{"unit":"px","size":10,"sizes":[]},"vive_ext_smoove_rotatez":{"unit":"px","size":-8,"sizes":[]},"vive_ext_smoove_rotatex":{"unit":"px","size":75,"sizes":[]},"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_smoove_scalex":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_scaley":{"unit":"px","size":1,"sizes":[]},"vive_ext_smoove_translatex":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatey":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_translatez":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewx":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_skewy":{"unit":"px","size":0,"sizes":[]},"vive_ext_smoove_transform_originx":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_transform_originy":{"unit":"px","size":50,"sizes":[]},"vive_ext_smoove_perspective":{"unit":"px","size":1000,"sizes":[]},"vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="button.default">
+                <div class="elementor-widget-container">
+                    <div class="elementor-button-wrapper">
+                        <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-rotate"
+                           href="@(Model.HeroButtonUrl?.ToString() ?? "#")"
+                           @Html.EditAttributes(x => x.HeroButtonUrl)>
+                            <span class="elementor-button-content-wrapper">
+                                <span class="elementor-button-text"
+                                      @Html.EditAttributes(x => x.HeroButtonText)>
+                                    @Model.HeroButtonText
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>

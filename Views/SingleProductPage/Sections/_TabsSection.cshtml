@@ -1,0 +1,393 @@
+@* Views/SingleProductPage/Sections/_TabsSection.cshtml *@
+@model VIVEcms.Models.Pages.SingleProductPage
+@using EPiServer.Web.Mvc.Html
+
+@{
+    var sizes = string.IsNullOrWhiteSpace(Model.SizeOptions)
+        ? string.Empty
+        : Model.SizeOptions;
+    var firstTab = Model.Description != null ? "sp-tab-desc" : "sp-tab-info";
+}
+
+<style>
+    .sp-tabs {
+        margin-bottom: 72px;
+    }
+
+    /* Tab navigation */
+    .sp-tabs__nav {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 0;
+        border-bottom: 2px solid #eee;
+        gap: 0;
+        overflow-x: auto;
+    }
+    .sp-tabs__nav li { flex-shrink: 0; }
+    .sp-tabs__nav a {
+        display: block;
+        padding: 15px 28px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        color: #aaa;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        transition: color .2s, border-color .2s;
+        white-space: nowrap;
+    }
+    .sp-tabs__nav li.sp-tab-active a {
+        color: #111;
+        border-bottom-color: #111;
+    }
+    .sp-tabs__nav a:hover { color: #111; }
+
+    /* Panels */
+    .sp-tabs__panel {
+        display: none;
+        padding: 40px 0;
+        animation: spFadeIn .25s ease;
+    }
+    .sp-tabs__panel.sp-tab-active { display: block; }
+    @@keyframes spFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    .sp-tabs__panel h2 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        color: #111;
+        margin: 0 0 24px;
+    }
+
+    /* Attributes table */
+    .sp-attrs {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+        max-width: 560px;
+    }
+    .sp-attrs tr { border-bottom: 1px solid #eee; }
+    .sp-attrs th {
+        text-align: left;
+        padding: 14px 16px 14px 0;
+        color: #555;
+        font-weight: 600;
+        width: 160px;
+        vertical-align: top;
+    }
+    .sp-attrs td {
+        padding: 14px 0;
+        color: #111;
+        vertical-align: top;
+    }
+
+    /* Review form */
+    .sp-review-form { max-width: 580px; }
+    .sp-no-reviews {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 32px;
+    }
+    .sp-field { margin-bottom: 18px; }
+    .sp-field label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        color: #333;
+        margin-bottom: 7px;
+    }
+    .sp-field input[type=text],
+    .sp-field input[type=email],
+    .sp-field textarea,
+    .sp-field select {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1.5px solid #ddd;
+        border-radius: 8px;
+        font-size: 0.93rem;
+        background: #fafafa;
+        transition: border-color .2s, background .2s;
+        box-sizing: border-box;
+        color: #111;
+    }
+    .sp-field input:focus,
+    .sp-field textarea:focus,
+    .sp-field select:focus {
+        outline: none;
+        border-color: #111;
+        background: #fff;
+    }
+    .sp-field textarea { resize: vertical; min-height: 110px; }
+    .sp-review-submit {
+        padding: 13px 36px;
+        background: #111;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        cursor: pointer;
+        transition: background .2s, transform .15s;
+    }
+    .sp-review-submit:hover { background: #e94f2e; transform: translateY(-1px); }
+    .sp-req { color: #e94f2e; }
+</style>
+
+<div class="sp-tabs woocommerce-tabs wc-tabs-wrapper">
+
+    <ul class="sp-tabs__nav tabs wc-tabs" role="tablist" id="sp-tab-nav">
+
+        @if (Model.Description != null)
+        {
+            <li class="description_tab @(firstTab == "sp-tab-desc" ? "sp-tab-active" : "")"
+                data-panel="sp-tab-desc" role="tab">
+                <a href="#sp-tab-desc" onclick="spTab(event,'sp-tab-desc')">Description</a>
+            </li>
+        }
+
+        <li class="additional_information_tab @(firstTab == "sp-tab-info" ? "sp-tab-active" : "")"
+            data-panel="sp-tab-info" role="tab">
+            <a href="#sp-tab-info" onclick="spTab(event,'sp-tab-info')">Additional information</a>
+        </li>
+
+        @if (Model.ShowReviewsTab)
+        {
+            <li class="reviews_tab" data-panel="sp-tab-reviews" role="tab">
+                <a href="#sp-tab-reviews" onclick="spTab(event,'sp-tab-reviews')">Reviews</a>
+            </li>
+        }
+
+    </ul>
+
+    @* Description panel *@
+    @if (Model.Description != null)
+    {
+        <div id="sp-tab-desc"
+             class="sp-tabs__panel woocommerce-Tabs-panel panel entry-content wc-tab @(firstTab == "sp-tab-desc" ? "sp-tab-active" : "")"
+             role="tabpanel">
+            <h2>Description</h2>
+            @Html.PropertyFor(x => x.Description)
+        </div>
+    }
+
+    @* Additional information panel *@
+    <div id="sp-tab-info"
+         class="sp-tabs__panel woocommerce-Tabs-panel panel entry-content wc-tab @(firstTab == "sp-tab-info" ? "sp-tab-active" : "")"
+         role="tabpanel">
+        <h2>Additional information</h2>
+        <table class="sp-attrs woocommerce-product-attributes shop_attributes">
+            @if (!string.IsNullOrWhiteSpace(Model.Weight))
+            {
+                <tr>
+                    <th class="woocommerce-product-attributes-item__label">Weight</th>
+                    <td @Html.EditAttributes(x => x.Weight)
+                        class="woocommerce-product-attributes-item__value">@Model.Weight</td>
+                </tr>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Dimensions))
+            {
+                <tr>
+                    <th class="woocommerce-product-attributes-item__label">Dimensions</th>
+                    <td @Html.EditAttributes(x => x.Dimensions)
+                        class="woocommerce-product-attributes-item__value">@Model.Dimensions</td>
+                </tr>
+            }
+            @if (!string.IsNullOrWhiteSpace(sizes))
+            {
+                <tr>
+                    <th class="woocommerce-product-attributes-item__label">Size</th>
+                    <td @Html.EditAttributes(x => x.SizeOptions)
+                        class="woocommerce-product-attributes-item__value">@sizes</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @* Reviews panel *@
+    @if (Model.ShowReviewsTab)
+    {
+        <div id="sp-tab-reviews"
+             class="sp-tabs__panel woocommerce-Tabs-panel panel entry-content wc-tab"
+             role="tabpanel">
+            <div class="woocommerce-Reviews" id="reviews">
+                <h2>Customer Reviews</h2>
+                <p class="sp-no-reviews woocommerce-noreviews">There are no reviews yet. Be the first!</p>
+
+                <div class="sp-review-form">
+                    <p style="color:#888;font-size:.85rem;margin-bottom:24px;">
+                        Required fields are marked <span class="sp-req">*</span>
+                    </p>
+                    <form action="#" method="post" id="sp-commentform" class="comment-form">
+                        <div class="sp-field comment-form-rating">
+                            <label for="sp-rating">Your rating <span class="sp-req">*</span></label>
+                            <select id="sp-rating" name="rating" required>
+                                <option value="">Rate&hellip;</option>
+                                <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; &nbsp;Perfect</option>
+                                <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; &nbsp;Good</option>
+                                <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; &nbsp;Average</option>
+                                <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734; &nbsp;Not that bad</option>
+                                <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734; &nbsp;Very poor</option>
+                            </select>
+                        </div>
+                        <div class="sp-field comment-form-comment">
+                            <label for="sp-comment">Your review <span class="sp-req">*</span></label>
+                            <textarea id="sp-comment" name="comment" required></textarea>
+                        </div>
+                        <div class="sp-field comment-form-author">
+                            <label for="sp-author">Name <span class="sp-req">*</span></label>
+                            <input type="text" id="sp-author" name="author" required />
+                        </div>
+                        <div class="sp-field comment-form-email">
+                            <label for="sp-email">Email <span class="sp-req">*</span></label>
+                            <input type="email" id="sp-email" name="email" required />
+                        </div>
+                        <p class="form-submit">
+                            <button class="sp-review-submit submit" type="submit">Submit review</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+<script>
+    function spTab(e, id) {
+        e.preventDefault();
+        document.querySelectorAll('.sp-tabs__panel').forEach(function (p) { p.classList.remove('sp-tab-active'); });
+        document.querySelectorAll('.sp-tabs__nav li').forEach(function (li) { li.classList.remove('sp-tab-active'); });
+        var panel = document.getElementById(id);
+        if (panel) panel.classList.add('sp-tab-active');
+        var navItem = document.querySelector('[data-panel="' + id + '"]');
+        if (navItem) navItem.classList.add('sp-tab-active');
+    }
+</script>
+
+<div class="woocommerce-tabs wc-tabs-wrapper">
+    <ul class="tabs wc-tabs" role="tablist">
+        @if (Model.Description != null)
+        {
+            <li class="description_tab" id="tab-title-description"
+                aria-controls="tab-description" role="tab">
+                <a href="#tab-description">Description</a>
+            </li>
+        }
+        <li class="additional_information_tab" id="tab-title-additional_information"
+            aria-controls="tab-additional_information" role="tab">
+            <a href="#tab-additional_information">Additional information</a>
+        </li>
+        @if (Model.ShowReviewsTab)
+        {
+            <li class="reviews_tab" id="tab-title-reviews" aria-controls="tab-reviews" role="tab">
+                <a href="#tab-reviews">Reviews</a>
+            </li>
+        }
+    </ul>
+
+    @if (Model.Description != null)
+    {
+        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab"
+             id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+            <h2>Description</h2>
+            @Html.PropertyFor(x => x.Description)
+        </div>
+    }
+
+    <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab"
+         id="tab-additional_information" role="tabpanel"
+         aria-labelledby="tab-title-additional_information">
+        <h2>Additional information</h2>
+        <table class="woocommerce-product-attributes shop_attributes">
+            @if (!string.IsNullOrWhiteSpace(Model.Weight))
+            {
+                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--weight">
+                    <th class="woocommerce-product-attributes-item__label">Weight</th>
+                    <td class="woocommerce-product-attributes-item__value"
+                        @Html.EditAttributes(x => x.Weight)>@Model.Weight</td>
+                </tr>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Dimensions))
+            {
+                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--dimensions">
+                    <th class="woocommerce-product-attributes-item__label">Dimensions</th>
+                    <td class="woocommerce-product-attributes-item__value"
+                        @Html.EditAttributes(x => x.Dimensions)>@Model.Dimensions</td>
+                </tr>
+            }
+            @if (!string.IsNullOrWhiteSpace(sizes))
+            {
+                <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--attribute_pa_size">
+                    <th class="woocommerce-product-attributes-item__label">Size</th>
+                    <td class="woocommerce-product-attributes-item__value"
+                        @Html.EditAttributes(x => x.SizeOptions)>
+                        <p>@sizes</p>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @if (Model.ShowReviewsTab)
+    {
+        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab"
+             id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+            <div class="woocommerce-Reviews" id="reviews">
+                <div id="comments">
+                    <h2 class="woocommerce-Reviews-title">Reviews</h2>
+                    <p class="woocommerce-noreviews">There are no reviews yet.</p>
+                </div>
+                <div id="review_form_wrapper">
+                    <div id="review_form">
+                        <div class="comment-respond" id="respond">
+                            <span class="comment-reply-title" id="reply-title">
+                                Be the first to review "@Model.Name"
+                            </span>
+                            <form action="#" class="comment-form" id="commentform" method="post">
+                                <p class="comment-notes">
+                                    <span id="email-notes">Your email address will not be published.</span>
+                                    <span class="required-field-message">Required fields are marked <span class="required">*</span></span>
+                                </p>
+                                <div class="comment-form-rating">
+                                    <label for="rating">Your rating <span class="required">*</span></label>
+                                    <select id="rating" name="rating" required="">
+                                        <option value="">Rate…</option>
+                                        <option value="5">Perfect</option>
+                                        <option value="4">Good</option>
+                                        <option value="3">Average</option>
+                                        <option value="2">Not that bad</option>
+                                        <option value="1">Very poor</option>
+                                    </select>
+                                </div>
+                                <p class="comment-form-comment">
+                                    <label for="comment">Your review <span class="required">*</span></label>
+                                    <textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea>
+                                </p>
+                                <p class="comment-form-author">
+                                    <label for="author">Name <span class="required">*</span></label>
+                                    <input type="text" id="author" name="author" size="30" required="" value="" />
+                                </p>
+                                <p class="comment-form-email">
+                                    <label for="email">Email <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" size="30" required="" value="" />
+                                </p>
+                                <p class="form-submit">
+                                    <input class="submit" type="submit" id="submit" name="submit" value="Submit" />
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    }
+</div>

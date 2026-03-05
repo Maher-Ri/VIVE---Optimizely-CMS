@@ -1,0 +1,109 @@
+@* Views/ShopPage/Sections/_ProductGridSection.cshtml *@
+@model VIVEcms.Models.ViewModels.ShopPageViewModel
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@inject EPiServer.Web.Routing.IUrlResolver UrlResolver
+@inject VIVEcms.Services.IImageService ImageService
+
+@{ int index = 0; }
+
+<style>
+    .products.columns-3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+.products.columns-3 li{
+width: 100% !important;
+    }
+    @@media (min-width: 992px) {
+        .products.columns-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>
+
+<section class="elementor-section elementor-top-section elementor-element elementor-element-6eeea02 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-element_type="section" data-id="6eeea02" data-settings='{"vive_ext_is_background_parallax":"false","vive_ext_is_background_on_scroll":"false"}'>
+<div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-05de8ce" data-element_type="column" data-id="05de8ce" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}'>
+        <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-5928186 elementor-widget elementor-widget-vive-woocommerce-grid" data-element_type="widget" data-id="5928186" data-settings='{"vive_ext_link_sidemenu":"false","vive_ext_link_fullmenu":"false","vive_ext_is_sticky":"false","vive_ext_is_scrollme":"false","vive_ext_is_smoove":"false","vive_ext_is_parallax_mouse":"false","vive_ext_is_infinite":"false","vive_ext_is_fadeout_animation":"false"}' data-widget_type="vive-woocommerce-grid.default">
+                <div class="elementor-widget-container">
+                    <div class="woocommerce-grid-container">
+                        <div class="woocommerce columns-3">
+                            <ul class="products columns-3">
+
+                                @foreach (var product in Model.Products)
+                                {
+                                    var productUrl    = UrlResolver.GetUrl(product.ContentLink);
+                                    var productImgUrl = !ContentReference.IsNullOrEmpty(product.MainImage)
+                                        ? Url.ContentUrl(product.MainImage)
+                                        : string.Empty;
+                                    var productImgAlt = !ContentReference.IsNullOrEmpty(product.MainImage)
+                                        ? ImageService.GetAltText(product.MainImage!)
+                                        : product.Name;
+
+                                    @* first/last classes — based on 3-column grid position *@
+                                    var posClass = (index % 3 == 0) ? "first"
+                                                 : (index % 3 == 2) ? "last"
+                                                 : "";
+
+                                    <li class="product type-product status-publish @posClass instock has-post-thumbnail shipping-taxable purchasable product-type-variable">
+
+                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+                                           href="@productUrl">
+
+                                            @if (!string.IsNullOrEmpty(productImgUrl))
+                                            {
+                                                <img alt="@productImgAlt"
+                                                     class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                                                     decoding="async"
+                                                     height="400"
+                                                     loading="lazy"
+                                                     sizes="(max-width: 300px) 100vw, 300px"
+                                                     src="@productImgUrl"
+                                                     width="300" />
+                                            }
+
+                                            <h2 class="woocommerce-loop-product__title">
+                                                @product.Name
+                                            </h2>
+
+                                            <span class="price">
+                                                <span class="woocommerce-Price-amount amount">
+                                                    <bdi>
+                                                        <span class="woocommerce-Price-currencySymbol">$</span>@product.Price
+                                                    </bdi>
+                                                </span>
+                                            </span>
+
+                                        </a>
+
+                                        <a aria-describedby="This product has multiple variants. The options may be chosen on the product page"
+                                           aria-label='Select options for "@product.Name"'
+                                           class="button product_type_variable add_to_cart_button"
+                                           data-product_id="@product.ContentLink.ID"
+                                           data-quantity="1"
+                                           href="@productUrl"
+                                           rel="nofollow">
+                                            Select options
+                                        </a>
+
+                                    </li>
+
+                                    index++;
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
