@@ -1,47 +1,29 @@
 ﻿@* Views/SingleProductPage/Index.cshtml *@
 @model VIVEcms.Models.ViewModels.PageViewModel<VIVEcms.Models.Pages.SingleProductPage>
 
-<style>
-    .sp-page {
-        max-width: 1240px;
-        margin: 0 auto;
-        padding: 48px 24px 100px;
-    }
-    .sp-hero {
-        display: grid;
-        grid-template-columns: 55% 1fr;
-        gap: 60px;
-        align-items: start;
-        margin-bottom: 72px;
-    }
-    @@media (max-width: 900px) {
-        .sp-hero {
-            grid-template-columns: 1fr;
-            gap: 32px;
-        }
-    }
-</style>
+@* ===== outer page wrapper ===== *@
+<div style="max-width:1280px;margin:0 auto;padding:48px 28px 96px;">
 
-<div class="sp-page">
-    <div class="sp-hero">
-        @* SECTION 1: Gallery *@
-        @await Html.PartialAsync(
-            "~/Views/SingleProductPage/Sections/_GallerySection.cshtml",
-            Model.CurrentPage)
+    @* ===== hero: gallery + summary side by side ===== *@
+    <div class="sp-hero-grid" style="display:grid;grid-template-columns:52% 1fr;gap:56px;align-items:start;margin-bottom:72px;">
 
-        @* SECTION 2: Summary *@
-        @await Html.PartialAsync(
-            "~/Views/SingleProductPage/Sections/_SummarySection.cshtml",
-            Model.CurrentPage)
+        @await Html.PartialAsync("~/Views/SingleProductPage/Sections/_GallerySection.cshtml", Model.CurrentPage)
+
+        @await Html.PartialAsync("~/Views/SingleProductPage/Sections/_SummarySection.cshtml", Model.CurrentPage)
+
     </div>
 
-    @* SECTION 3: Tabs *@
-    @await Html.PartialAsync(
-        "~/Views/SingleProductPage/Sections/_TabsSection.cshtml",
-        Model.CurrentPage)
+    @* ===== tabs ===== *@
+    @await Html.PartialAsync("~/Views/SingleProductPage/Sections/_TabsSection.cshtml", Model.CurrentPage)
 
-    @* SECTION 4: Related Products *@
-    @await Html.PartialAsync(
-        "~/Views/SingleProductPage/Sections/_RelatedSection.cshtml",
-        Model.CurrentPage)
+    @* ===== related products ===== *@
+    @await Html.PartialAsync("~/Views/SingleProductPage/Sections/_RelatedSection.cshtml", Model.CurrentPage)
+
 </div>
+
+@* responsive collapse at ≤900px *@
+<style>
+    @@media (max-width: 900px) {
+        .sp-hero-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    }
+</style>

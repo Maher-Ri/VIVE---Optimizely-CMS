@@ -1,146 +1,57 @@
 @* Views/SingleProductPage/Sections/_GallerySection.cshtml *@
-@model VIVEcms.Models.Pages.SingleProductPage
-@using EPiServer.Core
-@inject EPiServer.IContentLoader ContentLoader
-@using EPiServer.Web.Mvc.Html
-@using VIVEcms.Models.Blocks
-@inject VIVEcms.Services.IImageService ImageService
+@* TODO: convert to dynamic — replace hardcoded image paths with model properties *@
 
-@{
-    var mainImgUrl = !ContentReference.IsNullOrEmpty(Model.MainImage)
-        ? Url.ContentUrl(Model.MainImage)
-        : string.Empty;
+<div id="sp-gallery" style="position:sticky;top:24px;display:flex;flex-direction:column;gap:12px;">
 
-    var mainImgAlt = !ContentReference.IsNullOrEmpty(Model.MainImage)
-        ? ImageService.GetAltText(Model.MainImage)
-        : Model.Name;
-
-    var thumbList = new List<(string Full, string Thumb, string Alt)>();
-    if (Model.GalleryThumbnails != null && Model.GalleryThumbnails.FilteredItems.Any())
-    {
-        foreach (var item in Model.GalleryThumbnails.FilteredItems)
-        {
-            var block = ContentLoader.Get<GalleryItemBlock>(item.ContentLink);
-            if (block == null) continue;
-
-            var full  = !ContentReference.IsNullOrEmpty(block.Image)
-                ? Url.ContentUrl(block.Image)
-                : string.Empty;
-            var thumb = !ContentReference.IsNullOrEmpty(block.ThumbnailImage)
-                ? Url.ContentUrl(block.ThumbnailImage)
-                : full;
-            var alt   = !ContentReference.IsNullOrEmpty(block.Image)
-                ? ImageService.GetAltText(block.Image)
-                : string.Empty;
-
-            if (!string.IsNullOrEmpty(full))
-                thumbList.Add((full, thumb, alt));
-        }
-    }
-
-    var galleryId = "pg-" + Guid.NewGuid().ToString("N")[..8];
-}
-
-<style>
-    .pg-wrap {
-        position: sticky;
-        top: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    /* ── Main image ── */
-    .pg-main {
-        width: 100%;
-        aspect-ratio: 4 / 5;
-        border-radius: 16px;
-        overflow: hidden;
-        background: #f0f0f0;
-    }
-    .pg-main img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform .4s ease;
-    }
-    .pg-main:hover img { transform: scale(1.04); }
-
-    /* ── Thumbnail strip ── */
-    .pg-thumbs {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-    .pg-thumb {
-        width: 74px;
-        height: 90px;
-        border-radius: 10px;
-        overflow: hidden;
-        border: 2px solid #e0e0e0;
-        cursor: pointer;
-        background: #f0f0f0;
-        flex-shrink: 0;
-        transition: border-color .2s;
-    }
-    .pg-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        pointer-events: none;
-    }
-    .pg-thumb:hover          { border-color: #888; }
-    .pg-thumb[data-active]   { border-color: #111; }
-</style>
-
-<div class="pg-wrap" data-gallery="@galleryId" @Html.EditAttributes(x => x.MainImage)>
-
-    <div class="pg-main">
-        @if (!string.IsNullOrEmpty(mainImgUrl))
-        {
-            <img class="pg-main-img"
-                 src="@mainImgUrl"
-                 alt="@mainImgAlt" />
-        }
-        else
-        {
-            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:.85rem;">No image</div>
-        }
+    @* ── main image ── *@
+    <div style="width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:#f2f2f2;">
+        <img id="sp-main-img"
+             src="/images/portrait-of-female-boxer-2021-04-02-20-48-34-utc-600x600.jpg"
+             alt="Product image"
+             style="width:100%;height:100%;object-fit:cover;display:block;transition:opacity .2s ease;" />
     </div>
 
-    @if (thumbList.Count > 0)
-    {
-        <div class="pg-thumbs">
-            @foreach (var t in thumbList)
-            {
-                <div class="pg-thumb" data-full="@t.Full">
-                    <img src="@t.Thumb" alt="@t.Alt" loading="lazy" decoding="async" />
-                </div>
-            }
+    @* ── thumbnail strip ── *@
+    <div style="display:flex;gap:8px;">
+
+        <div onclick="spThumb(this,'/images/portrait-of-female-boxer-2021-04-02-20-48-34-utc-600x600.jpg')"
+             style="width:74px;height:74px;border-radius:10px;overflow:hidden;border:2px solid #111;cursor:pointer;flex-shrink:0;background:#f2f2f2;transition:border-color .18s;">
+            <img src="/images/portrait-of-female-boxer-2021-04-02-20-48-34-utc-150x150.jpg"
+                 alt="View 1"
+                 style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;" />
         </div>
-    }
+
+        <div onclick="spThumb(this,'/images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-600x600.jpg')"
+             style="width:74px;height:74px;border-radius:10px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;flex-shrink:0;background:#f2f2f2;transition:border-color .18s;">
+            <img src="/images/woman-athlete-exercising-with-medicine-ball-PYB74ZY-150x150.jpg"
+                 alt="View 2"
+                 style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;" />
+        </div>
+
+        <div onclick="spThumb(this,'/images/attractive-woman-drinking-water-from-sport-bottle-2021-04-06-18-09-19-utc-600x600.jpg')"
+             style="width:74px;height:74px;border-radius:10px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;flex-shrink:0;background:#f2f2f2;transition:border-color .18s;">
+            <img src="/images/attractive-woman-drinking-water-from-sport-bottle-2021-04-06-18-09-19-utc-150x150.jpg"
+                 alt="View 3"
+                 style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;" />
+        </div>
+
+        <div onclick="spThumb(this,'/images/pretty-cheerful-sporty-girl-with-yoga-mat-talking-2021-04-05-23-18-06-utc-600x600.jpg')"
+             style="width:74px;height:74px;border-radius:10px;overflow:hidden;border:2px solid #e0e0e0;cursor:pointer;flex-shrink:0;background:#f2f2f2;transition:border-color .18s;">
+            <img src="/images/pretty-cheerful-sporty-girl-with-yoga-mat-talking-2021-04-05-23-18-06-utc-150x150.jpg"
+                 alt="View 4"
+                 style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;" />
+        </div>
+
+    </div>
 
 </div>
 
 <script>
-(function () {
-    var wrap = document.querySelector('[data-gallery="@galleryId"]');
-    if (!wrap) return;
-
-    var mainImg = wrap.querySelector('.pg-main-img');
-    var thumbs  = wrap.querySelectorAll('.pg-thumb');
-
-    thumbs.forEach(function (thumb) {
-        thumb.addEventListener('click', function () {
-            var full = this.getAttribute('data-full');
-            if (mainImg && full) {
-                mainImg.src = full;
-            }
-            thumbs.forEach(function (t) { t.removeAttribute('data-active'); });
-            this.setAttribute('data-active', '');
+    function spThumb(el, src) {
+        document.getElementById('sp-main-img').src = src;
+        document.querySelectorAll('#sp-gallery > div:last-child > div').forEach(function (t) {
+            t.style.borderColor = '#e0e0e0';
         });
-    });
-}());
+        el.style.borderColor = '#111';
+    }
 </script>

@@ -1,367 +1,143 @@
 @* Views/SingleProductPage/Sections/_SummarySection.cshtml *@
-@model VIVEcms.Models.Pages.SingleProductPage
-@using EPiServer.Web.Mvc.Html
+@* TODO: convert to dynamic — replace hardcoded values with model properties *@
 
-@{
-    var sizes = string.IsNullOrWhiteSpace(Model.SizeOptions)
-        ? System.Array.Empty<string>()
-        : Model.SizeOptions.Split(',', System.StringSplitOptions.TrimEntries | System.StringSplitOptions.RemoveEmptyEntries);
-}
+<div style="display:flex;flex-direction:column;gap:20px;padding-top:8px;">
 
-<style>
-    .sp-summary {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        padding-top: 8px;
-    }
+    @* badge + rating *@
+    <div style="display:flex;align-items:center;gap:10px;">
+        <span style="background:#edf7ed;color:#2e7d32;font-size:0.72rem;font-weight:700;
+                     letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;
+                     border-radius:20px;">In Stock</span>
+        <span style="color:#f5a623;font-size:0.84rem;">★★★★★</span>
+        <span style="color:#aaa;font-size:0.78rem;">(48 reviews)</span>
+    </div>
 
-    /* Title */
-    .sp-summary__title {
-        font-size: 2rem;
-        font-weight: 800;
-        color: #111;
-        line-height: 1.2;
-        margin: 0;
-        letter-spacing: -.02em;
-    }
+    @* title *@
+    <h1 style="margin:0;font-size:2rem;font-weight:800;color:#111;
+               line-height:1.2;letter-spacing:-.02em;">
+        Performance Training Sneakers
+    </h1>
 
-    /* Price */
-    .sp-summary__price {
-        font-size: 1.65rem;
-        font-weight: 700;
-        color: #e94f2e;
-        margin: 0;
-    }
-    .sp-summary__price .sp-currency {
-        font-size: 1.1rem;
-        vertical-align: super;
-        font-weight: 600;
-    }
+    @* price *@
+    <div style="display:flex;align-items:baseline;gap:10px;">
+        <span style="font-size:1.7rem;font-weight:800;color:#e94f2e;">
+            $129<sup style="font-size:1rem;font-weight:700;">.99</sup>
+        </span>
+        <span style="font-size:1rem;color:#bbb;text-decoration:line-through;">$179.99</span>
+        <span style="background:#fff0ee;color:#e94f2e;font-size:0.72rem;font-weight:700;
+                     padding:3px 9px;border-radius:4px;letter-spacing:.04em;">SAVE 28%</span>
+    </div>
 
-    /* Short description */
-    .sp-summary__desc {
-        color: #555;
-        font-size: 0.95rem;
-        line-height: 1.75;
-        margin: 0;
-    }
+    @* short description *@
+    <p style="margin:0;color:#555;font-size:0.93rem;line-height:1.75;">
+        Ultra-lightweight training shoe engineered for high-intensity workouts.
+        Breathable mesh upper, responsive foam midsole, and grippy rubber outsole
+        keep you stable through every rep.
+    </p>
 
-    /* Divider */
-    .sp-divider {
-        border: none;
-        border-top: 1px solid #eee;
-        margin: 0;
-    }
+    <hr style="border:none;border-top:1px solid #eee;margin:0;" />
 
-    /* Size block */
-    .sp-size-label {
-        font-size: 0.8rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: .1em;
-        color: #111;
-        margin-bottom: 12px;
-    }
-    .sp-size-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    .sp-size-pill {
-        min-width: 52px;
-        padding: 9px 16px;
-        border: 1.5px solid #ddd;
-        border-radius: 8px;
-        background: #fff;
-        font-size: 0.88rem;
-        font-weight: 600;
-        color: #333;
-        cursor: pointer;
-        transition: all .18s ease;
-        text-align: center;
-    }
-    .sp-size-pill:hover {
-        border-color: #111;
-        background: #111;
-        color: #fff;
-    }
-    .sp-size-pill.sp-pill-active {
-        border-color: #111;
-        background: #111;
-        color: #fff;
-    }
-
-    /* Cart row */
-    .sp-cart-row {
-        display: flex;
-        gap: 12px;
-        align-items: stretch;
-    }
-
-    /* Quantity stepper */
-    .sp-qty {
-        display: flex;
-        align-items: center;
-        border: 1.5px solid #ddd;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #fff;
-    }
-    .sp-qty__btn {
-        width: 40px;
-        height: 52px;
-        background: none;
-        border: none;
-        font-size: 1.3rem;
-        line-height: 1;
-        cursor: pointer;
-        color: #111;
-        transition: background .15s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .sp-qty__btn:hover { background: #f2f2f2; }
-    .sp-qty__input {
-        width: 48px;
-        height: 52px;
-        border: none;
-        border-left: 1.5px solid #ddd;
-        border-right: 1.5px solid #ddd;
-        text-align: center;
-        font-size: 1rem;
-        font-weight: 700;
-        color: #111;
-        -moz-appearance: textfield;
-        background: #fff;
-    }
-    .sp-qty__input::-webkit-outer-spin-button,
-    .sp-qty__input::-webkit-inner-spin-button { -webkit-appearance: none; }
-
-    /* Add to cart button */
-    .sp-add-to-cart {
-        flex: 1;
-        height: 52px;
-        background: #111;
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        font-size: 0.88rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: .1em;
-        cursor: pointer;
-        transition: background .2s, transform .15s;
-    }
-    .sp-add-to-cart:hover {
-        background: #e94f2e;
-        transform: translateY(-2px);
-    }
-    .sp-add-to-cart:active { transform: translateY(0); }
-
-    /* Meta */
-    .sp-meta {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        font-size: 0.84rem;
-        color: #888;
-    }
-    .sp-meta__row {
-        display: flex;
-        align-items: baseline;
-        gap: 8px;
-    }
-    .sp-meta__label {
-        font-weight: 700;
-        color: #444;
-        min-width: 74px;
-        text-transform: uppercase;
-        font-size: 0.76rem;
-        letter-spacing: .06em;
-    }
-    .sp-meta__value { color: #666; }
-</style>
-
-<div class="sp-summary entry-summary">
-
-    <h1 class="sp-summary__title product_title entry-title"
-        @Html.EditAttributes(x => x.Name)>@Model.Name</h1>
-
-    @if (!string.IsNullOrWhiteSpace(Model.Price))
-    {
-        <p class="sp-summary__price price"
-           @Html.EditAttributes(x => x.Price)>
-            <span class="sp-currency woocommerce-Price-currencySymbol">$</span><span class="woocommerce-Price-amount amount">@Model.Price</span>
-        </p>
-    }
-
-    @if (Model.ShortDescription != null)
-    {
-        <div class="sp-summary__desc woocommerce-product-details__short-description"
-             @Html.EditAttributes(x => x.ShortDescription)>
-            @Html.PropertyFor(x => x.ShortDescription)
+    @* size selector *@
+    <div>
+        <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;
+                    letter-spacing:.1em;color:#111;margin-bottom:10px;">
+            Choose a size
         </div>
-    }
+        <div id="sp-sizes" style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button onclick="spSize(this)"
+                    style="min-width:52px;padding:9px 16px;border:1.5px solid #111;
+                           border-radius:8px;background:#111;color:#fff;
+                           font-size:0.86rem;font-weight:700;cursor:pointer;">XS</button>
+            <button onclick="spSize(this)"
+                    style="min-width:52px;padding:9px 16px;border:1.5px solid #ddd;
+                           border-radius:8px;background:#fff;color:#333;
+                           font-size:0.86rem;font-weight:700;cursor:pointer;">S</button>
+            <button onclick="spSize(this)"
+                    style="min-width:52px;padding:9px 16px;border:1.5px solid #ddd;
+                           border-radius:8px;background:#fff;color:#333;
+                           font-size:0.86rem;font-weight:700;cursor:pointer;">M</button>
+            <button onclick="spSize(this)"
+                    style="min-width:52px;padding:9px 16px;border:1.5px solid #ddd;
+                           border-radius:8px;background:#fff;color:#333;
+                           font-size:0.86rem;font-weight:700;cursor:pointer;">L</button>
+            <button onclick="spSize(this)"
+                    style="min-width:52px;padding:9px 16px;border:1.5px solid #ddd;
+                           border-radius:8px;background:#fff;color:#333;
+                           font-size:0.86rem;font-weight:700;cursor:pointer;">XL</button>
+            <button onclick="spSize(this)"
+                    style="min-width:52px;padding:9px 16px;border:1.5px solid #ddd;
+                           border-radius:8px;background:#fff;color:#333;
+                           font-size:0.86rem;font-weight:700;cursor:pointer;">XXL</button>
+        </div>
+    </div>
 
-    <hr class="sp-divider" />
+    @* cart row *@
+    <div style="display:flex;gap:12px;align-items:stretch;">
 
-    <form class="variations_form cart" method="post">
-
-        @if (sizes.Length > 0)
-        {
-            <div class="sp-size-block">
-                <div class="sp-size-label">Choose a size</div>
-                <div class="sp-size-pills">
-                    @foreach (var size in sizes)
-                    {
-                        <button type="button"
-                                class="sp-size-pill"
-                                onclick="spSelectSize(this, '@size.ToLower().Replace(" ", "")')">
-                            @size
-                        </button>
-                    }
-                </div>
-                <input type="hidden" name="attribute_pa_size" id="sp-selected-size" value="" />
-            </div>
-        }
-
-        <div class="sp-cart-row">
-            <div class="sp-qty">
-                <button type="button" class="sp-qty__btn" onclick="spChangeQty(-1)">&#8722;</button>
-                <input class="sp-qty__input input-text qty text"
-                       type="number" id="product_quantity" name="quantity"
-                       value="1" min="1" step="1"
-                       aria-label="Product quantity"
-                       autocomplete="off" inputmode="numeric" />
-                <button type="button" class="sp-qty__btn" onclick="spChangeQty(1)">&#43;</button>
-            </div>
-            <button class="sp-add-to-cart single_add_to_cart_button button alt"
-                    type="submit">Add to cart</button>
+        @* qty stepper *@
+        <div style="display:flex;align-items:center;border:1.5px solid #ddd;
+                    border-radius:10px;overflow:hidden;background:#fff;">
+            <button onclick="spQty(-1)"
+                    style="width:44px;height:52px;background:none;border:none;
+                           font-size:1.4rem;line-height:1;cursor:pointer;color:#111;">−</button>
+            <input id="sp-qty" type="number" value="1" min="1"
+                   style="width:50px;height:52px;border:none;
+                          border-left:1.5px solid #ddd;border-right:1.5px solid #ddd;
+                          text-align:center;font-size:1rem;font-weight:700;color:#111;
+                          background:#fff;-moz-appearance:textfield;" />
+            <button onclick="spQty(1)"
+                    style="width:44px;height:52px;background:none;border:none;
+                           font-size:1.4rem;line-height:1;cursor:pointer;color:#111;">+</button>
         </div>
 
-    </form>
+        @* add to cart *@
+        <button onmouseover="this.style.background='#e94f2e'"
+                onmouseout="this.style.background='#111'"
+                style="flex:1;height:52px;background:#111;color:#fff;border:none;
+                       border-radius:10px;font-size:0.86rem;font-weight:800;
+                       text-transform:uppercase;letter-spacing:.1em;cursor:pointer;
+                       transition:background .2s;">
+            Add to Cart
+        </button>
 
-    <hr class="sp-divider" />
+    </div>
 
-    <div class="sp-meta product_meta">
-        @if (!string.IsNullOrWhiteSpace(Model.Sku))
-        {
-            <div class="sp-meta__row sku_wrapper" @Html.EditAttributes(x => x.Sku)>
-                <span class="sp-meta__label">SKU</span>
-                <span class="sp-meta__value sku">@Model.Sku</span>
-            </div>
-        }
-        @if (!string.IsNullOrWhiteSpace(Model.Categories))
-        {
-            <div class="sp-meta__row posted_in" @Html.EditAttributes(x => x.Categories)>
-                <span class="sp-meta__label">Category</span>
-                <span class="sp-meta__value">@Model.Categories</span>
-            </div>
-        }
-        @if (!string.IsNullOrWhiteSpace(Model.Tags))
-        {
-            <div class="sp-meta__row tagged_as" @Html.EditAttributes(x => x.Tags)>
-                <span class="sp-meta__label">Tags</span>
-                <span class="sp-meta__value">@Model.Tags</span>
-            </div>
-        }
+    <hr style="border:none;border-top:1px solid #eee;margin:0;" />
+
+    @* meta *@
+    <div style="display:flex;flex-direction:column;gap:7px;font-size:0.84rem;">
+        <div style="display:flex;gap:10px;">
+            <span style="font-weight:700;color:#444;min-width:82px;text-transform:uppercase;
+                         font-size:0.74rem;letter-spacing:.06em;">SKU</span>
+            <span style="color:#666;">PTR-2024-BLK</span>
+        </div>
+        <div style="display:flex;gap:10px;">
+            <span style="font-weight:700;color:#444;min-width:82px;text-transform:uppercase;
+                         font-size:0.74rem;letter-spacing:.06em;">Category</span>
+            <span style="color:#666;">Sneakers, Sport</span>
+        </div>
+        <div style="display:flex;gap:10px;">
+            <span style="font-weight:700;color:#444;min-width:82px;text-transform:uppercase;
+                         font-size:0.74rem;letter-spacing:.06em;">Tags</span>
+            <span style="color:#666;">training, performance, sport</span>
+        </div>
     </div>
 
 </div>
 
 <script>
-    function spSelectSize(el, val) {
-        document.querySelectorAll('.sp-size-pill').forEach(function (p) {
-            p.classList.remove('sp-pill-active');
+    function spSize(el) {
+        document.querySelectorAll('#sp-sizes button').forEach(function (b) {
+            b.style.borderColor = '#ddd';
+            b.style.background = '#fff';
+            b.style.color = '#333';
         });
-        el.classList.add('sp-pill-active');
-        var input = document.getElementById('sp-selected-size');
-        if (input) input.value = val;
+        el.style.borderColor = '#111';
+        el.style.background = '#111';
+        el.style.color = '#fff';
     }
-    function spChangeQty(delta) {
-        var input = document.getElementById('product_quantity');
-        if (!input) return;
-        var val = parseInt(input.value, 10) || 1;
-        input.value = Math.max(1, val + delta);
+    function spQty(delta) {
+        var inp = document.getElementById('sp-qty');
+        inp.value = Math.max(1, (parseInt(inp.value) || 1) + delta);
     }
 </script>
-
-<h1 class="product_title entry-title" @Html.EditAttributes(x => x.Name)>@Model.Name</h1>
-
-@if (!string.IsNullOrWhiteSpace(Model.Price))
-{
-    <p class="price" @Html.EditAttributes(x => x.Price)>
-        <span class="woocommerce-Price-amount amount">
-            <bdi><span class="woocommerce-Price-currencySymbol">$</span>@Model.Price</bdi>
-        </span>
-    </p>
-}
-
-@if (Model.ShortDescription != null)
-{
-    <div class="woocommerce-product-details__short-description"
-         @Html.EditAttributes(x => x.ShortDescription)>
-        @Html.PropertyFor(x => x.ShortDescription)
-    </div>
-}
-
-<form class="variations_form cart" method="post">
-    @if (sizes.Length > 0)
-    {
-        <table cellspacing="0" class="variations" role="presentation">
-            <tbody>
-                <tr>
-                    <th class="label"><label for="pa_size">Size</label></th>
-                    <td class="value">
-                        <select class="" name="attribute_pa_size" id="pa_size"
-                                data-attribute_name="attribute_pa_size"
-                                data-show_option_none="yes">
-                            <option value="">Choose an option</option>
-                            @foreach (var size in sizes)
-                            {
-                                <option value="@size.ToLower().Replace(" ", "")">@size</option>
-                            }
-                        </select>
-                        <a class="reset_variations" href="#">Clear</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    }
-    <div class="single_variation_wrap">
-        <div class="woocommerce-variation single_variation"></div>
-        <div class="woocommerce-variation-add-to-cart variations_button">
-            <div class="quantity">
-                <label class="screen-reader-text" for="product_quantity">Quantity</label>
-                <input aria-label="Product quantity" type="number"
-                       class="input-text qty text" id="product_quantity"
-                       name="quantity" value="1" min="1" step="1"
-                       autocomplete="off" inputmode="numeric" />
-            </div>
-            <button class="single_add_to_cart_button button alt" type="submit">Add to cart</button>
-        </div>
-    </div>
-</form>
-
-<div class="product_meta">
-    @if (!string.IsNullOrWhiteSpace(Model.Sku))
-    {
-        <span class="sku_wrapper" @Html.EditAttributes(x => x.Sku)>
-            SKU: <span class="sku">@Model.Sku</span>
-        </span>
-    }
-    @if (!string.IsNullOrWhiteSpace(Model.Categories))
-    {
-        <span class="posted_in" @Html.EditAttributes(x => x.Categories)>
-            Categories: @Model.Categories
-        </span>
-    }
-    @if (!string.IsNullOrWhiteSpace(Model.Tags))
-    {
-        <span class="tagged_as" @Html.EditAttributes(x => x.Tags)>
-            Tags: @Model.Tags
-        </span>
-    }
-</div>

@@ -1,6 +1,9 @@
 @using EPiServer.Web.Mvc.Html
 @using EPiServer.Framework.Web.Mvc.Html
 @model VIVEcms.Models.ViewModels.IPageViewModel
+@{
+    var logoUrl = Url.Content("~/images/logo-white-big.png");
+}
 
 <!DOCTYPE html>
 <html data-menu="leftalign" lang="en-US">
@@ -14,8 +17,8 @@
         <div class="loader-section section-fade"></div>
         <div class="loader-inner">
             <div id="loader">
-                <div class="imgloading-container"><span style="background-image: url('images/logo-white-big.png');"></span></div>
-                <img alt="loader image" class="skip-lazy" data-no-lazy="1" height="60" src="~/images/logo-white-big.png" width="118" />
+                <div class="imgloading-container"><span style="background-image: url('@logoUrl');"></span></div>
+                <img alt="loader image" class="skip-lazy" data-no-lazy="1" height="60" src="@logoUrl" width="118" />
             </div>
         </div>
         <div class="loader-close-button" style="display: none;"><span class="screen-reader-text">Close</span></div>
