@@ -42,7 +42,36 @@ public class Startup
         services.AddScoped<IImageService, ImageService>();
 
         // Layout Service - fetches global Navbar and Footer data from SiteSettingsPage
-        services.AddScoped<ILayoutService, LayoutService>(); // ← added
+        services.AddScoped<ILayoutService, LayoutService>();
+
+        // =============================================
+        // CONTENT DELIVERY API (Headless / Next.js)
+        // =============================================
+
+        // Registers all required API services (fixes IOutputCacheProvider error)
+        // Exposes CMS content via REST API at /api/episerver/v3.0/...
+        services.AddContentDeliveryApi();
+
+        // =============================================
+        // CORS — Allow Next.js frontend to call the API
+        // =============================================
+
+        services.AddCors(options =>
+        {
+            options.AddPolicy(
+                "NextJsPolicy",
+                builder =>
+                {
+                    builder
+                        .WithOrigins(
+                            "http://localhost:3000", // Next.js dev server
+                            "https://your-nextjs-domain.com"
+                        ) // update before production
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                }
+            );
+        });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -54,6 +83,11 @@ public class Startup
 
         app.UseStaticFiles();
         app.UseRouting();
+
+        // ← Must be placed BEFORE UseAuthentication
+        // Allows Next.js on port 3000 to call the API
+        app.UseCors("NextJsPolicy");
+
         app.UseAuthentication();
         app.UseAuthorization();
 
